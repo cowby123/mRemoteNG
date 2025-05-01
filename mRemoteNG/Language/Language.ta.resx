@@ -1090,13 +1090,13 @@
     <value>இலக்கு ஓச்டில் (உள்ளூர் கணினி சூழல்) தடைசெய்யப்பட்ட நிர்வாக பயன்முறையைப் பயன்படுத்தவும்.</value>
   </data>
   <data name="PropertyDescriptionUseRCG" xml:space="preserve">
-    <value>தொபநெ சேனல் மூலம் இலக்கை நோக்கி மீண்டும் மூலத்திற்கு சுரங்கப்பாதை அங்கீகாரத்திற்கு தொலை நற்சான்றிதழ் காவலரைப் பயன்படுத்தவும்.</value>
+    <value>தொபநெ கால்வாய் மூலம் இலக்கை நோக்கி மீண்டும் மூலத்திற்கு சுரங்கப்பாதை அங்கீகாரத்திற்கு தொலை நற்சான்றிதழ் காவலரைப் பயன்படுத்தவும்.</value>
   </data>
   <data name="PropertyDescriptionUser1" xml:space="preserve">
     <value>உங்களுக்கு தேவையான எந்த தகவலையும் இங்கே உள்ளிட தயங்க.</value>
   </data>
   <data name="PropertyDescriptionUserViaAPI" xml:space="preserve">
-    <value>வெளிப்புற பநிஇ (எ.கா. ரகசிய சேவையகம்) இல் பயனர் தரவின் ஐடியை உள்ளிடவும். பயன்படுத்தும்போது, ​​பயனர்பெயர்/கடவுச்சொல்/டொமைன் புலங்களை காலியாக விடவும்</value>
+    <value>வெளிப்புற பநிஇ (எ.கா. ரகசிய சேவையகம்) இல் பயனர் தரவின் அடையாளத்தை உள்ளிடவும். பயன்படுத்தும்போது, ​​பயனர்பெயர்/கடவுச்சொல்/டொமைன் புலங்களை காலியாக விடவும்</value>
   </data>
   <data name="PropertyDescriptionUsername" xml:space="preserve">
     <value>உங்கள் பயனர்பெயரை உள்ளிடவும்.</value>
@@ -1586,7 +1586,7 @@
     <value>இறங்கு (இசட்-ஏ)</value>
   </data>
   <data name="SQLInfo" xml:space="preserve">
-    <value>மேலும் தகவலுக்கு உதவி - தொடங்குதல் - கவிமொ உள்ளமைவு பார்க்கவும்!</value>
+    <value>மேலும் தகவலுக்கு உதவி - தொடங்குதல் - கவிமொ உள்ளமைவு பார்!</value>
   </data>
   <data name="SQLServer" xml:space="preserve">
     <value>கவிமொ சேவையகம்</value>
@@ -1866,7 +1866,7 @@
     <value>பாப்அப்கள்</value>
   </data>
   <data name="LogToAppDir" xml:space="preserve">
-    <value>பயன்பாட்டு கோப்பகத்திற்கு பதிவு செய்யுங்கள்</value>
+    <value>பயன்பாட்டு கோப்பகத்திற்கு பதிவு செய்</value>
   </data>
   <data name="AssignedCredential" xml:space="preserve">
     <value>நற்சான்றிதழ் ஒதுக்கப்பட்டது</value>
@@ -1875,7 +1875,7 @@
     <value>நற்சான்றிதழ்கள்</value>
   </data>
   <data name="OpenADifferentFile" xml:space="preserve">
-    <value>வேறு கோப்பைத் திறக்கவும்</value>
+    <value>வேறு கோப்பைத் திற</value>
   </data>
   <data name="CredentialUnavailable" xml:space="preserve">
     <value>நற்சான்றிதழ் கிடைக்கவில்லை</value>
@@ -1899,7 +1899,7 @@
     <value>"{0}" என்ற பெயருடன் வெளிப்புற கருவியைக் கண்டுபிடிக்க முடியவில்லை</value>
   </data>
   <data name="ConfigurationCreateNew" xml:space="preserve">
-    <value>புதிய இணைப்பு கோப்பை உருவாக்கவும்</value>
+    <value>புதிய இணைப்பு கோப்பை உருவாக்கு</value>
   </data>
   <data name="ConnectionFileNotFound" xml:space="preserve">
     <value>இணைப்பு கோப்பைக் கண்டுபிடிக்க முடியவில்லை.</value>
@@ -1908,7 +1908,7 @@
     <value>ஏற்கனவே உள்ள கோப்பை இறக்குமதி செய்</value>
   </data>
   <data name="ConfigurationCustomPath" xml:space="preserve">
-    <value>தனிப்பயன் கோப்பு பாதையைப் பயன்படுத்தவும்</value>
+    <value>தனிப்பயன் கோப்பு பாதையைப் பயன்படுத்து</value>
   </data>
   <data name="TestingConnection" xml:space="preserve">
     <value>சோதனை இணைப்பு</value>
@@ -1926,22 +1926,22 @@
     <value>தரவுத்தளம் '{0}' கிடைக்கவில்லை.</value>
   </data>
   <data name="SaveConnectionsAfterEveryEdit" xml:space="preserve">
-    <value>ஒவ்வொரு திருத்தத்திற்குப் பிறகு இணைப்புகளைச் சேமிக்கவும்</value>
+    <value>ஒவ்வொரு திருத்தத்திற்குப் பிறகு இணைப்புகளைச் சேமி</value>
   </data>
   <data name="FilterSearchMatchesInConnectionTree" xml:space="preserve">
-    <value>இணைப்பு மரத்தில் தேடல் போட்டிகளை வடிகட்டவும்</value>
+    <value>இணைப்பு மரத்தில் தேடல் போட்டிகளை வடிகட்டு</value>
   </data>
   <data name="TestConnection" xml:space="preserve">
     <value>சோதனை இணைப்பு</value>
   </data>
   <data name="ReadOnly" xml:space="preserve">
-    <value>படிக்கவும்:</value>
+    <value>படிக்க மட்டும்:</value>
   </data>
   <data name="LoadBalanceInfoUseUtf8" xml:space="preserve">
-    <value>தொபநெ "சுமை இருப்பு செய்தி" சொத்துக்கு UTF8 குறியாக்கத்தைப் பயன்படுத்தவும்</value>
+    <value>தொபநெ "சுமை இருப்பு செய்தி" சொத்துக்கு UTF8 குறியாக்கத்தைப் பயன்படுத்து</value>
   </data>
   <data name="TimeoutInSeconds" xml:space="preserve">
-    <value>நேரம் முடிந்தது [விநாடிகள்]</value>
+    <value>நேரம் முடிந்தது [நொடிகள்]</value>
   </data>
   <data name="WorkingDirectory" xml:space="preserve">
     <value>வேலை செய்யும் அடைவு:</value>
@@ -1959,7 +1959,7 @@
     <value>கருவிப்பட்டி நிலைகளை பூட்டு</value>
   </data>
   <data name="MultiSshToolbar" xml:space="preserve">
-    <value>மல்டி பாஓடு கருவிப்பட்டி</value>
+    <value>பல பாஓடு கருவிப்பட்டி</value>
   </data>
   <data name="ImportSubOUs" xml:space="preserve">
     <value>இறக்குமதி துணை</value>
@@ -1971,7 +1971,7 @@
     <value>பலதொலைஅத விருப்பங்கள்</value>
   </data>
   <data name="CreateEmptyPanelOnStartUp" xml:space="preserve">
-    <value>பலதொலைஅத தொடங்கும் போது வெற்று பேனலை உருவாக்கவும்</value>
+    <value>பலதொலைஅத தொடங்கும் போது வெற்று பலகையை உருவாக்கு</value>
   </data>
   <data name="MustBeBetween0And255" xml:space="preserve">
     <value>0 முதல் 255 வரை இருக்க வேண்டும்</value>
@@ -1983,16 +1983,16 @@
     <value>நீக்கு</value>
   </data>
   <data name="ReconnectAllConnections" xml:space="preserve">
-    <value>எல்லா இணைப்புகளையும் மீண்டும் இணைக்கவும்</value>
+    <value>எல்லா இணைப்புகளையும் மீண்டும் இணை</value>
   </data>
   <data name="UltraVNCSingleClick" xml:space="preserve">
     <value>அல்ட்ராவ் சிங்க்லிக்</value>
   </data>
   <data name="DisconnectOthersRight" xml:space="preserve">
-    <value>தாவல்களை வலதுபுறமாக துண்டிக்கவும்</value>
+    <value>வலதுபுற தாவல்களை துண்டி</value>
   </data>
   <data name="DisconnectOthers" xml:space="preserve">
-    <value>இதைத் தவிர மற்ற அனைத்தையும் துண்டிக்கவும்</value>
+    <value>இதைத் தவிர மற்ற அனைத்தையும் துண்டி</value>
   </data>
   <data name="ConfirmCloseConnectionOthersInstruction" xml:space="preserve">
     <value>"{0}" தவிர அனைத்து இணைப்புகளையும் மூட விரும்புகிறீர்களா?</value>
@@ -2004,7 +2004,7 @@
     <value>இணைப்பு தீர்மானத்தை '{0}' புரவலன் செய்ய முயற்சிக்கும் போது பிழை ஏற்பட்டது</value>
   </data>
   <data name="StackTrace" xml:space="preserve">
-    <value>ச்டாக் சுவடு</value>
+    <value>அடுக்கு சுவடு</value>
   </data>
   <data name="ExceptionMessage" xml:space="preserve">
     <value>விதிவிலக்கு செய்தி</value>
@@ -2019,24 +2019,24 @@
     <value>இந்த விதிவிலக்கு பலதொலைஅதகை மூடுவதற்கு கட்டாயப்படுத்தும்</value>
   </data>
   <data name="CopyHostname" xml:space="preserve">
-    <value>ஓச்ட்பெயரை நகலெடுக்கவும்</value>
+    <value>புரவலன்பெயரை நகலெடு</value>
   </data>
   <data name="PlaceSearchBarAboveConnectionTree" xml:space="preserve">
-    <value>இணைப்பு மரத்திற்கு மேலே தேடல் பட்டியை வைக்கவும்</value>
+    <value>இணைப்பு மரத்திற்கு மேலே தேடல் பட்டியை வை</value>
   </data>
   <data name="TrackActiveConnectionInConnectionTree" xml:space="preserve">
-    <value>இணைப்பு மரத்தில் செயலில் இணைப்பைக் கண்காணிக்கவும்</value>
+    <value>இணைப்பு மரத்தில் செயலில் இணைப்பைக் கண்காணி</value>
   </data>
   <data name="AlwaysShowConnectionTabs" xml:space="preserve">
     <value>எப்போதும் இணைப்பு தாவல்களைக் காட்டு</value>
   </data>
   <data name="ReleaseChannel" xml:space="preserve">
-    <value>வெளியீட்டு சேனல்</value>
+    <value>வெளியீட்டு கால்வாய்</value>
   </data>
   <data name="ReleaseChannelExplanation" xml:space="preserve">
-    <value>நிலையான சேனலில் இறுதி வெளியீடுகள் மட்டுமே அடங்கும்.
- முன்னோட்ட சேனலில் பீட்டாச் &amp; வெளியீட்டு வேட்பாளர்கள் உள்ளனர்.
- இரவு சேனலில் ஆல்பாச், பீட்டாச் மற்றும் வெளியீட்டு வேட்பாளர்கள் உள்ளனர்.</value>
+    <value>நிலையான கால்வாயில் இறுதி வெளியீடுகள் மட்டுமே அடங்கும்.
+ முன்னோட்ட கால்வாயில் ஆவண்ணா வெளியீட்டுகள் உள்ளது.
+ இரவு கால்வாயில் ஆன்னா, ஆவண்ணா வெளியீட்டுகள் உள்ளது.</value>
   </data>
   <data name="Apply" xml:space="preserve">
     <value>இடு</value>
@@ -2045,13 +2045,13 @@
     <value>பதிலாள்</value>
   </data>
   <data name="MultiSsh" xml:space="preserve">
-    <value>மல்டி எச்.எச்.எச்:</value>
+    <value>பல பாஓடு:</value>
   </data>
   <data name="MultiSshToolTip" xml:space="preserve">
-    <value>அனுப்ப Enter ஐ அழுத்தவும். Ctrl+C உடனடியாக அனுப்பப்படுகிறது.</value>
+    <value>அனுப்ப உள்ளிடு அழுத்தவும். Ctrl+C உடனடியாக அனுப்பப்படுகிறது.</value>
   </data>
   <data name="PropertyDescriptionFavorite" xml:space="preserve">
-    <value>பிடித்தவை பட்டியலில் இந்த இணைப்பைக் காட்டுங்கள்.</value>
+    <value>பிடித்தவை பட்டியலில் இந்த இணைப்பைக் காட்டு.</value>
   </data>
   <data name="Favorite" xml:space="preserve">
     <value>பிடித்த</value>
@@ -2060,10 +2060,10 @@
     <value>பிடித்தவை</value>
   </data>
   <data name="ClearSearchString" xml:space="preserve">
-    <value>தேடல் சரத்தை அழிக்கவும்</value>
+    <value>தேடல் சரத்தை அழி</value>
   </data>
   <data name="ConnectInViewOnlyMode" xml:space="preserve">
-    <value>பார்வையில் மட்டும் பயன்முறையில் இணைக்கவும்</value>
+    <value>பார்வையில் மட்டும் பயன்முறையில் இணை</value>
   </data>
   <data name="DoNotTrimUsername" xml:space="preserve">
     <value>பயனர்பெயர்களிலிருந்து இடங்களை ஒழுங்கமைக்க வேண்டாம்</value>
@@ -2087,28 +2087,28 @@
     <value>தொபநெ பதிப்பு</value>
   </data>
   <data name="PropertyDescriptionUseVmId" xml:space="preserve">
-    <value>ஐப்பர்-வி இல் இயங்கும் விஎம் உடன் இணைக்க விஎம் ஐடியைப் பயன்படுத்தவும்.</value>
+    <value>ஐப்பர்-வி இல் இயங்கும் விஎம் உடன் இணைக்க மெக அடையாளத்தைப் பயன்படுத்தவும்.</value>
   </data>
   <data name="PropertyDescriptionVmId" xml:space="preserve">
-    <value>இணைக்க ஐப்பர்-வி மெய்நிகர் இயந்திரத்தின் ஐடி.</value>
+    <value>இணைக்க உயர்-5 மெய்நிகர் இயந்திரத்தின் அடையாளம்.</value>
   </data>
   <data name="UseVmId" xml:space="preserve">
-    <value>VM ஐடியைப் பயன்படுத்தவும்</value>
+    <value>மெக அடையாளத்தைப் பயன்படுத்து</value>
   </data>
   <data name="VmId" xml:space="preserve">
-    <value>வி.எம் ஐடி</value>
+    <value>மெக அடையாளம்</value>
   </data>
   <data name="RdpProtocolVersionNotSupported" xml:space="preserve">
     <value>தொபநெ கிளையண்டை உருவாக்க முடியவில்லை. தொபநெ நெறிமுறை பதிப்பு {0} இந்த கணினியில் ஆதரிக்கப்படவில்லை. பழைய நெறிமுறை பதிப்பைத் தேர்வுசெய்க.</value>
   </data>
   <data name="PropertyDescriptionSshTunnel" xml:space="preserve">
-    <value>ஒரு பாஓடு சுரங்கப்பாதை மூலம் இணைப்புக்கு (சம்ப் ஓச்ட்) பாஓடு சுரங்கப்பாதையை நிறுவ பாஓடு இணைப்பைக் குறிப்பிடவும்.</value>
+    <value>ஒரு பாஓடு சுரங்கப்பாதை மூலம் இணைப்புக்கு (புரவலன் தாண்டு) பாஓடு சுரங்கப்பாதையை நிறுவ பாஓடு இணைப்பைக் குறிப்பிடு.</value>
   </data>
   <data name="SshTunnel" xml:space="preserve">
     <value>பாஓடு சுரங்கப்பாதை</value>
   </data>
   <data name="PropertyDescriptionSshOptions" xml:space="preserve">
-    <value>பாஓடு இணைப்புக்கு பயன்படுத்தப்பட வேண்டிய கூடுதல் விருப்பங்களை இங்கே குறிப்பிடவும். மேலும் விவரங்களுக்கு புட்டி ஆவணங்களைப் பார்க்கவும்.</value>
+    <value>பாஓடு இணைப்புக்கு பயன்படுத்தப்பட வேண்டிய கூடுதல் விருப்பங்களை இங்கே குறிப்பிடவும். மேலும் விவரங்களுக்கு புட்டி ஆவணங்களைப் பார்.</value>
   </data>
   <data name="SshOptions" xml:space="preserve">
     <value>பாஓடு விருப்பங்கள்</value>
