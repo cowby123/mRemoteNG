@@ -2363,7 +2363,7 @@
     <comment>C# to Powershell transfer issue with encoding possible</comment>
   </data>
   <data name="FilterSecureCRT" xml:space="preserve">
-    <value>Securecrt (*.xml)</value>
+    <value>பாதுகாப்புசிஆர்டி (*.xml)</value>
   </data>
   <data name="OptionsCompanyPolicyMessage" xml:space="preserve">
     <value>*சில அமைப்புகள் உங்கள் நிறுவனத்தால் தீர்மானிக்கப்படுகின்றன. மேலும் தகவலுக்கு, உங்கள் நிர்வாகியை தொடர்பு கொள்ளவும்</value>
@@ -2372,10 +2372,10 @@
     <value>நுழைவாயில்</value>
   </data>
   <data name="SaveConsOnExit" xml:space="preserve">
-    <value>Saveconsonexit</value>
+    <value>வெளியேறும்போதுஇணைப்புசேமி</value>
   </data>
   <data name="SetHostnameLikeDisplayNameNewConnection" xml:space="preserve">
-    <value>Sethostanamelikedisplaynanewconnection</value>
+    <value>புதியஇணைப்புகாட்சிபெயர்புரவலன்பெயர்அமை</value>
   </data>
   <data name="RdpReconnectionCount" xml:space="preserve">
     <value>தொபநெ மறு இணைப்பு எண்ணிக்கை:</value>
