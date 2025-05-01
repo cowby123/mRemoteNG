@@ -133,7 +133,7 @@
     <value>எப்போதும்</value>
   </data>
   <data name="AlwaysConnectEvenIfAuthFails" xml:space="preserve">
-    <value>ஏற்பு தோல்வியுற்றாலும் எப்போதும் இணைக்கவும்</value>
+    <value>ஏற்பு தோல்வியுற்றாலும் எப்போதும் இணை</value>
   </data>
   <data name="AlwaysShowPanelSelection" xml:space="preserve">
     <value>இணைப்புகளைத் திறக்கும்போது எப்போதும் குழு தேர்வு உரையாடலைக் காண்பி</value>
@@ -211,7 +211,7 @@
     <value>பண்புகள்</value>
   </data>
   <data name="_Scan" xml:space="preserve">
-    <value>&amp; ச்கேன்</value>
+    <value>&amp; வருடல்</value>
   </data>
   <data name="_Stop" xml:space="preserve">
     <value>&amp;நிறுத்து</value>
@@ -220,7 +220,7 @@
     <value>சோதனை பதிலாள்</value>
   </data>
   <data name="CannotStartPortScan" xml:space="preserve">
-    <value>துறைமுகம் ச்கேன் தொடங்க முடியாது, தவறான ஐபி வடிவமைப்பு!</value>
+    <value>துறைமுகம் வருடல் தொடங்க முடியாது, தவறான முகவரி வடிவமைப்பு!</value>
   </data>
   <data name="Appearance" xml:space="preserve">
     <value>தோற்றம்</value>
@@ -232,7 +232,7 @@
     <value>காட்சி</value>
   </data>
   <data name="RDPGateway" xml:space="preserve">
-    <value>RDP-Gateway</value>
+    <value>தொபநெ-நுழைவாயில்</value>
   </data>
   <data name="Miscellaneous" xml:space="preserve">
     <value>மற்றவை</value>
@@ -244,10 +244,10 @@
     <value>திருப்பி விடுங்கள்</value>
   </data>
   <data name="CheckFailed" xml:space="preserve">
-    <value>காசோலை தோல்வியுற்றது!</value>
+    <value>சரிபார்ப்பு தோல்வியுற்றது!</value>
   </data>
   <data name="CheckboxAutomaticReconnect" xml:space="preserve">
-    <value>சேவையகத்திலிருந்து துண்டிக்கப்படும்போது இணைப்பு உரையாடலைக் காண்பி (RDP மற்றும் ஐசிஏ மட்டும்)</value>
+    <value>சேவையகத்திலிருந்து துண்டிக்கப்படும்போது இணைப்பு உரையாடலைக் காண்பி (தொபநெ மற்றும் ஐசிஏ மட்டும்)</value>
   </data>
   <data name="CheckboxDoNotShowThisMessageAgain" xml:space="preserve">
     <value>இந்த செய்தியை மீண்டும் காட்ட வேண்டாம்.</value>
@@ -259,34 +259,34 @@
     <value>தனிப்பயன் புட்டி பாதையைப் பயன்படுத்தவும்:</value>
   </data>
   <data name="CheckboxReconnectWhenReady" xml:space="preserve">
-    <value>தயாராக இருக்கும்போது மீண்டும் இணைக்கவும்</value>
+    <value>தயாராக இருக்கும்போது மீண்டும் இணை</value>
   </data>
   <data name="CheckboxUpdateUseProxy" xml:space="preserve">
-    <value>இணைக்க பதிலாள் சேவையகத்தைப் பயன்படுத்தவும்</value>
+    <value>இணைக்க பதிலாள் சேவையகத்தைப் பயன்படுத்து</value>
   </data>
   <data name="UserViaAPI" xml:space="preserve">
-    <value>பநிஇ பயனர் ஐடி</value>
+    <value>பநிஇ பயனர் அடையாளம்</value>
   </data>
   <data name="Username" xml:space="preserve">
     <value>பயனர்பெயர்</value>
   </data>
   <data name="WaitForExit" xml:space="preserve">
-    <value>வெளியேற காத்திருங்கள்</value>
+    <value>வெளியேற காத்திரு</value>
   </data>
   <data name="CheckAgain" xml:space="preserve">
-    <value>மீண்டும் சரிபார்க்கவும்</value>
+    <value>மீண்டும் சரிபார்</value>
   </data>
   <data name="CheckForUpdatesOnStartup" xml:space="preserve">
-    <value>தொடக்கத்தில் புதுப்பிப்புகளைச் சரிபார்க்கவும்</value>
+    <value>தொடக்கத்தில் புதுப்பிப்புகளைச் சரிபார்</value>
   </data>
   <data name="CheckNow" xml:space="preserve">
     <value>இப்போது சரிபார்க்க</value>
   </data>
   <data name="CheckProperInstallationOfComponentsAtStartup" xml:space="preserve">
-    <value>தொடக்கத்தில் கூறுகளின் சரியான நிறுவலை சரிபார்க்கவும்</value>
+    <value>தொடக்கத்தில் கூறுகளின் சரியான நிறுவலை சரிபார்</value>
   </data>
   <data name="ChoosePanelBeforeConnecting" xml:space="preserve">
-    <value>இணைப்பதற்கு முன் பேனலைத் தேர்வுசெய்க</value>
+    <value>இணைப்பதற்கு முன் பலகத்தைத் தேர்வுசெய்க</value>
   </data>
   <data name="ClosedPorts" xml:space="preserve">
     <value>மூடிய துறைமுகங்கள்</value>
@@ -304,7 +304,7 @@
     <value>செய்தி</value>
   </data>
   <data name="CommandExitProgram" xml:space="preserve">
-    <value>மின் &amp; xit {0}</value>
+    <value>வெளியேறு {0}</value>
   </data>
   <data name="CommandLineArgsCouldNotBeParsed" xml:space="preserve">
     <value>கட்டளை வரி ஆர்க்சை அலச முடியவில்லை!</value>
@@ -564,7 +564,7 @@
     <value>தொலைநிலை டெச்க்டாப் இணைப்பு மேலாளர் கோப்புகள் (*.rdg)</value>
   </data>
   <data name="FilterRDP" xml:space="preserve">
-    <value>RDP கோப்புகள் (*.rdp)</value>
+    <value>தொபநெ கோப்புகள் (*.rdp)</value>
   </data>
   <data name="FormatInherit" xml:space="preserve">
     <value>மரபுரிமை {0}</value>
@@ -828,13 +828,13 @@
     <value>காட்டு உரை</value>
   </data>
   <data name="SmartSize" xml:space="preserve">
-    <value>ச்மார்ட்சைச் (RDP/VNC)</value>
+    <value>அறிவளவு (தொபநெ/விஎன்சி)</value>
   </data>
   <data name="SshFileTransfer" xml:space="preserve">
     <value>பாஓடு கோப்பு பரிமாற்றம்</value>
   </data>
   <data name="StartChat" xml:space="preserve">
-    <value>அரட்டையைத் தொடங்கு (வி.என்.சி)</value>
+    <value>அரட்டையைத் தொடங்கு (விஎன்சி)</value>
   </data>
   <data name="SupportForum" xml:space="preserve">
     <value>உதவி மன்றம்</value>
@@ -1036,10 +1036,10 @@
     <value>RD நுழைவாயில் சேவையகத்துடன் இணைக்க ஒரு பயனர் வழங்கும் டொமைன் பெயரைக் குறிப்பிடுகிறது.</value>
   </data>
   <data name="PropertyDescriptionRDGatewayHostname" xml:space="preserve">
-    <value>தொலைநிலை டெச்க்டாப் கேட்வே சேவையகத்தின் புரவலன் பெயரைக் குறிப்பிடுகிறது.</value>
+    <value>தொலைநிலை டெச்க்டாப் நுழைவாயில் சேவையகத்தின் புரவலன் பெயரைக் குறிப்பிடுகிறது.</value>
   </data>
   <data name="PropertyDescriptionRdpGatewayUsageMethod" xml:space="preserve">
-    <value>தொலைநிலை டெச்க்டாப் கேட்வே (ஆர்.டி கேட்வே) சேவையகத்தைப் பயன்படுத்தும்போது குறிப்பிடுகிறது.</value>
+    <value>தொலைநிலை டெச்க்டாப் நுழைவாயில் (ஆர்.டி நுழைவாயில்) சேவையகத்தைப் பயன்படுத்தும்போது குறிப்பிடுகிறது.</value>
   </data>
   <data name="PropertyDescriptionRDGatewayUseConnectionCredentials" xml:space="preserve">
     <value>இணைப்பின் அதே பயனர்பெயர் மற்றும் கடவுச்சொல்லைப் பயன்படுத்தி நுழைவாயிலில் உள்நுழையலாமா வேண்டாமா என்பதைக் குறிப்பிடுகிறது.</value>
@@ -1090,7 +1090,7 @@
     <value>இலக்கு ஓச்டில் (உள்ளூர் கணினி சூழல்) தடைசெய்யப்பட்ட நிர்வாக பயன்முறையைப் பயன்படுத்தவும்.</value>
   </data>
   <data name="PropertyDescriptionUseRCG" xml:space="preserve">
-    <value>RDP சேனல் மூலம் இலக்கை நோக்கி மீண்டும் மூலத்திற்கு சுரங்கப்பாதை அங்கீகாரத்திற்கு தொலை நற்சான்றிதழ் காவலரைப் பயன்படுத்தவும்.</value>
+    <value>தொபநெ சேனல் மூலம் இலக்கை நோக்கி மீண்டும் மூலத்திற்கு சுரங்கப்பாதை அங்கீகாரத்திற்கு தொலை நற்சான்றிதழ் காவலரைப் பயன்படுத்தவும்.</value>
   </data>
   <data name="PropertyDescriptionUser1" xml:space="preserve">
     <value>உங்களுக்கு தேவையான எந்த தகவலையும் இங்கே உள்ளிட தயங்க.</value>
@@ -1192,22 +1192,22 @@
     <value>புட்டி அமர்வு</value>
   </data>
   <data name="RdpGatewayDomain" xml:space="preserve">
-    <value>RDP-Gateway டொமைன்</value>
+    <value>தொபநெ-நுழைவாயில் டொமைன்</value>
   </data>
   <data name="RdpGatewayHostname" xml:space="preserve">
-    <value>RDP-Gateway ஓச்ட்பெயர்</value>
+    <value>தொபநெ-நுழைவாயில் ஓச்ட்பெயர்</value>
   </data>
   <data name="RdpGatewayPassword" xml:space="preserve">
-    <value>RDP-Gateway கடவுச்சொல்</value>
+    <value>தொபநெ-நுழைவாயில் கடவுச்சொல்</value>
   </data>
   <data name="RdpGatewayUsageMethod" xml:space="preserve">
-    <value>RDP நுழைவாயில் பயன்படுத்தவும்</value>
+    <value>தொபநெ நுழைவாயில் பயன்படுத்தவும்</value>
   </data>
   <data name="RdpGatewayUseConnectionCredentials" xml:space="preserve">
-    <value>RDP-Gateway நற்சான்றிதழ்கள்</value>
+    <value>தொபநெ-நுழைவாயில் நற்சான்றிதழ்கள்</value>
   </data>
   <data name="RdpGatewayUsername" xml:space="preserve">
-    <value>RDP-Gateway பயனர்பெயர்</value>
+    <value>தொபநெ-நுழைவாயில் பயனர்பெயர்</value>
   </data>
   <data name="DiskDrives" xml:space="preserve">
     <value>வட்டு இயக்கிகள்</value>
@@ -1346,7 +1346,7 @@
     <value>மூல</value>
   </data>
   <data name="Rdp" xml:space="preserve">
-    <value>ஆர்.டி.பி.</value>
+    <value>தொபநெ</value>
   </data>
   <data name="Rdp16777216Colors" xml:space="preserve">
     <value>16777216 வண்ணங்கள் (24-பிட்)</value>
@@ -1364,7 +1364,7 @@
     <value>65536 வண்ணங்கள் (16-பிட்)</value>
   </data>
   <data name="RdpControlCreationFailed" xml:space="preserve">
-    <value>RDP கட்டுப்பாட்டை உருவாக்க முடியவில்லை, தயவுசெய்து mrmoteng தேவைகளை சரிபார்க்கவும்.</value>
+    <value>தொபநெ கட்டுப்பாட்டை உருவாக்க முடியவில்லை, தயவுசெய்து mrmoteng தேவைகளை சரிபார்.</value>
   </data>
   <data name="DisableCursorBlinking" xml:space="preserve">
     <value>கர்சர் ஒளிரும் முடக்கு</value>
@@ -1379,7 +1379,7 @@
     <value>பட்டியல் அனிமேசன்களை முடக்கு</value>
   </data>
   <data name="RdpDisconnectFailed" xml:space="preserve">
-    <value>RDP துண்டிப்பு தோல்வியுற்றது, மூட முயற்சிக்கிறது!</value>
+    <value>தொபநெ துண்டிப்பு தோல்வியுற்றது, மூட முயற்சிக்கிறது!</value>
   </data>
   <data name="RdpErrorCode1" xml:space="preserve">
     <value>உள் பிழைக் குறியீடு 1.</value>
@@ -1415,52 +1415,52 @@
     <value>பேனலுக்கு ஏற்றது</value>
   </data>
   <data name="RdpFocusFailed" xml:space="preserve">
-    <value>RDP கவனம் தோல்வியடைந்தது!</value>
+    <value>தொபநெ கவனம் தோல்வியடைந்தது!</value>
   </data>
   <data name="RdpGatewayIsSupported" xml:space="preserve">
-    <value>ஆர்.டி.பி கேட்வே ஆதரிக்கப்படுகிறது.</value>
+    <value>தொபநெ நுழைவாயில் ஆதரிக்கப்படுகிறது.</value>
   </data>
   <data name="RdpGatewayNotSupported" xml:space="preserve">
-    <value>ஆர்.டி.பி கேட்வே ஆதரிக்கப்படவில்லை!</value>
+    <value>தொபநெ நுழைவாயில் ஆதரிக்கப்படவில்லை!</value>
   </data>
   <data name="RdpReconnectCount" xml:space="preserve">
-    <value>RDP மீண்டும் இணைக்க எண்ணிக்கை:</value>
+    <value>தொபநெ மீண்டும் இணைக்க எண்ணிக்கை:</value>
   </data>
   <data name="RdpSetAuthenticationLevelFailed" xml:space="preserve">
-    <value>RDP setAuthenticallevel தோல்வியுற்றது!</value>
+    <value>தொபநெ setAuthenticallevel தோல்வியுற்றது!</value>
   </data>
   <data name="RdpSetConsoleSessionFailed" xml:space="preserve">
-    <value>RDP SetuseConsolessession தோல்வியடைந்தது!</value>
+    <value>தொபநெ SetuseConsolessession தோல்வியடைந்தது!</value>
   </data>
   <data name="RdpSetConsoleSwitch" xml:space="preserve">
-    <value>RDC {0 க்கு க்கான RDP அமைத்தல் கன்சோல் சுவிட்ச்.</value>
+    <value>RDC {0} க்கான தொபநெ அமைத்தல் கன்சோல் சுவிட்ச்.</value>
   </data>
   <data name="RdpSetCredentialsFailed" xml:space="preserve">
-    <value>RDP SetCredentials தோல்வியடைந்தது!</value>
+    <value>தொபநெ SetCredentials தோல்வியடைந்தது!</value>
   </data>
   <data name="RdpSetEventHandlersFailed" xml:space="preserve">
-    <value>RDP SetEventHandleders தோல்வியடைந்தது!</value>
+    <value>தொபநெ SetEventHandleders தோல்வியடைந்தது!</value>
   </data>
   <data name="RdpSetGatewayFailed" xml:space="preserve">
-    <value>Rdp setrdgateway தோல்வியடைந்தது!</value>
+    <value>தொபநெ setrdgateway தோல்வியடைந்தது!</value>
   </data>
   <data name="RdpSetPerformanceFlagsFailed" xml:space="preserve">
-    <value>RDP SetPerformanceFlags தோல்வியுற்றது!</value>
+    <value>தொபநெ SetPerformanceFlags தோல்வியுற்றது!</value>
   </data>
   <data name="RdpSetPortFailed" xml:space="preserve">
-    <value>ஆர்.டி.பி செட்போர்ட் தோல்வியடைந்தது!</value>
+    <value>தொபநெ செட்போர்ட் தோல்வியடைந்தது!</value>
   </data>
   <data name="RdpSetPropsFailed" xml:space="preserve">
-    <value>RDP SetProps தோல்வியுற்றது!</value>
+    <value>தொபநெ SetProps தோல்வியுற்றது!</value>
   </data>
   <data name="RdpSetRedirectionFailed" xml:space="preserve">
-    <value>RDP செட் திருப்பிவிடுதல் தோல்வியடைந்தது!</value>
+    <value>தொபநெ செட் திருப்பிவிடுதல் தோல்வியடைந்தது!</value>
   </data>
   <data name="RdpSetRedirectKeysFailed" xml:space="preserve">
-    <value>RDP கணம் வழிமாற்றி விசைகள் தோல்வியடைந்தன!</value>
+    <value>தொபநெ கணம் வழிமாற்றி விசைகள் தோல்வியடைந்தன!</value>
   </data>
   <data name="RdpSetResolutionFailed" xml:space="preserve">
-    <value>RDP SetResulution தோல்வியுற்றது!</value>
+    <value>தொபநெ SetResulution தோல்வியுற்றது!</value>
   </data>
   <data name="RdpSoundBringToThisComputer" xml:space="preserve">
     <value>இந்த கணினிக்கு கொண்டு வாருங்கள்</value>
@@ -1472,10 +1472,10 @@
     <value>தொலை கணினியில் விடுங்கள்</value>
   </data>
   <data name="RdpToggleFullscreenFailed" xml:space="preserve">
-    <value>RDP TOGGLEFULLLSCREEN தோல்வியுற்றது!</value>
+    <value>தொபநெ TOGGLEFULLLSCREEN தோல்வியுற்றது!</value>
   </data>
   <data name="RdpToggleSmartSizeFailed" xml:space="preserve">
-    <value>RDP TOGGLESMARTSIZE தோல்வியுற்றது!</value>
+    <value>தொபநெ TOGGLESMARTSIZE தோல்வியுற்றது!</value>
   </data>
   <data name="ReconnectAtStartup" xml:space="preserve">
     <value>தொடக்கத்தில் முன்னர் திறக்கப்பட்ட அமர்வுகளுடன் மீண்டும் இணைக்கவும்</value>
@@ -1649,7 +1649,7 @@
     <value>பேனலைத் தேர்ந்தெடுக்கவும்</value>
   </data>
   <data name="TitleWarning" xml:space="preserve">
-    <value>எச்சரிக்கை ({0})</value>
+    <value>முன்னறிவிப்பு ({0})</value>
   </data>
   <data name="Transfer" xml:space="preserve">
     <value>இடமாற்றம்</value>
@@ -1749,13 +1749,13 @@
     <value>ஏற்பு தோல்வியுற்றால் என்னை எச்சரிக்கவும்</value>
   </data>
   <data name="Warnings" xml:space="preserve">
-    <value>எச்சரிக்கைகள்</value>
+    <value>முன்னறிவிப்புகள்</value>
   </data>
   <data name="Yes" xml:space="preserve">
     <value>ஆம்</value>
   </data>
   <data name="RdpOverallConnectionTimeout" xml:space="preserve">
-    <value>RDP இணைப்பு நேரம் முடிந்தது</value>
+    <value>தொபநெ இணைப்பு நேரம் முடிந்தது</value>
   </data>
   <data name="NodeAlreadyInFolder" xml:space="preserve">
     <value>இந்த முனை ஏற்கனவே இந்த கோப்புறையில் உள்ளது.</value>
@@ -1803,7 +1803,7 @@
     <value>பதிவிறக்கம்</value>
   </data>
   <data name="PropertyDescriptionRDPMinutesToIdleTimeout" xml:space="preserve">
-    <value>ஆர்.டி.பி அமர்வுக்கான நிமிடங்களின் எண்ணிக்கை தானாக துண்டிக்கப்படுவதற்கு முன்பு சும்மா உட்கார வேண்டும் (வரம்புக்கு 0 பயன்படுத்த 0)</value>
+    <value>தொபநெ அமர்வுக்கான நிமிடங்களின் எண்ணிக்கை தானாக துண்டிக்கப்படுவதற்கு முன்பு சும்மா உட்கார வேண்டும் (வரம்புக்கு 0 பயன்படுத்த 0)</value>
   </data>
   <data name="MinutesToIdleTimeout" xml:space="preserve">
     <value>சும்மா நிமிடங்கள்</value>
@@ -1818,7 +1818,7 @@
     <value>நற்சான்றிதழ் பதிவை நீக்க விரும்புகிறீர்களா?</value>
   </data>
   <data name="PropertyDescriptionRDPAlertIdleTimeout" xml:space="preserve">
-    <value>செயலற்ற தன்மை காரணமாக ஆர்.டி.பி அமர்வு துண்டிக்கப்பட்ட பிறகு எச்சரிக்கையைப் பெறலாமா என்பதைத் தேர்ந்தெடுக்கவும்</value>
+    <value>செயலற்ற தன்மை காரணமாக தொபநெ அமர்வு துண்டிக்கப்பட்ட பிறகு முன்னறிவிப்பைப் பெறலாமா என்பதைத் தேர்ந்தெடு</value>
   </data>
   <data name="PasswordConstainsSpecialCharactersConstraintHint" xml:space="preserve">
     <value>கடவுச்சொல்லில் பின்வரும் எழுத்துக்களில் குறைந்தபட்சம் {0} இருக்க வேண்டும்: {1}</value>
@@ -1893,7 +1893,7 @@
     <value>புதிய கருப்பொருள் பெயரைத் தட்டச்சு செய்க</value>
   </data>
   <data name="OptionsThemeChangeWarning" xml:space="preserve">
-    <value>எச்சரிக்கை: எந்த கருப்பொருள் உள்ளமைவு மாற்றத்தையும் செய்ய மறுதொடக்கம் தேவை.</value>
+    <value>முன்னறிவிப்பு: எந்த கருப்பொருள் உள்ளமைவு மாற்றத்தையும் செய்ய மறுதொடக்கம் தேவை.</value>
   </data>
   <data name="CouldNotFindExternalTool" xml:space="preserve">
     <value>"{0}" என்ற பெயருடன் வெளிப்புற கருவியைக் கண்டுபிடிக்க முடியவில்லை</value>
@@ -1905,7 +1905,7 @@
     <value>இணைப்பு கோப்பைக் கண்டுபிடிக்க முடியவில்லை.</value>
   </data>
   <data name="ConfigurationImportFile" xml:space="preserve">
-    <value>ஏற்கனவே உள்ள கோப்பை இறக்குமதி செய்யுங்கள்</value>
+    <value>ஏற்கனவே உள்ள கோப்பை இறக்குமதி செய்</value>
   </data>
   <data name="ConfigurationCustomPath" xml:space="preserve">
     <value>தனிப்பயன் கோப்பு பாதையைப் பயன்படுத்தவும்</value>
@@ -1938,7 +1938,7 @@
     <value>படிக்கவும்:</value>
   </data>
   <data name="LoadBalanceInfoUseUtf8" xml:space="preserve">
-    <value>RDP "சுமை இருப்பு செய்தி" சொத்துக்கு UTF8 குறியாக்கத்தைப் பயன்படுத்தவும்</value>
+    <value>தொபநெ "சுமை இருப்பு செய்தி" சொத்துக்கு UTF8 குறியாக்கத்தைப் பயன்படுத்தவும்</value>
   </data>
   <data name="TimeoutInSeconds" xml:space="preserve">
     <value>நேரம் முடிந்தது [விநாடிகள்]</value>
@@ -1998,7 +1998,7 @@
     <value>"{0}" தவிர அனைத்து இணைப்புகளையும் மூட விரும்புகிறீர்களா?</value>
   </data>
   <data name="AutomaticReconnectError" xml:space="preserve">
-    <value>RDP புரவலன் '{0}' உடன் மீண்டும் இணைக்க முயற்சிக்கும் போது பிழை ஏற்பட்டது</value>
+    <value>தொபநெ புரவலன் '{0}' உடன் மீண்டும் இணைக்க முயற்சிக்கும் போது பிழை ஏற்பட்டது</value>
   </data>
   <data name="ChangeConnectionResolutionError" xml:space="preserve">
     <value>இணைப்பு தீர்மானத்தை '{0}' புரவலன் செய்ய முயற்சிக்கும் போது பிழை ஏற்பட்டது</value>
@@ -2081,10 +2081,10 @@
     <value>சோதனை அமைப்புகள்</value>
   </data>
   <data name="PropertyDescriptionRdpVersion" xml:space="preserve">
-    <value>இணைப்புகளைத் திறக்கும்போது பயன்படுத்த RDP இன் பதிப்பை அமைக்கிறது.</value>
+    <value>இணைப்புகளைத் திறக்கும்போது பயன்படுத்த தொபநெ இன் பதிப்பை அமைக்கிறது.</value>
   </data>
   <data name="RdpVersion" xml:space="preserve">
-    <value>RDP பதிப்பு</value>
+    <value>தொபநெ பதிப்பு</value>
   </data>
   <data name="PropertyDescriptionUseVmId" xml:space="preserve">
     <value>ஐப்பர்-வி இல் இயங்கும் விஎம் உடன் இணைக்க விஎம் ஐடியைப் பயன்படுத்தவும்.</value>
@@ -2099,7 +2099,7 @@
     <value>வி.எம் ஐடி</value>
   </data>
   <data name="RdpProtocolVersionNotSupported" xml:space="preserve">
-    <value>RDP கிளையண்டை உருவாக்க முடியவில்லை. RDP நெறிமுறை பதிப்பு {0} இந்த கணினியில் ஆதரிக்கப்படவில்லை. பழைய நெறிமுறை பதிப்பைத் தேர்வுசெய்க.</value>
+    <value>தொபநெ கிளையண்டை உருவாக்க முடியவில்லை. தொபநெ நெறிமுறை பதிப்பு {0} இந்த கணினியில் ஆதரிக்கப்படவில்லை. பழைய நெறிமுறை பதிப்பைத் தேர்வுசெய்க.</value>
   </data>
   <data name="PropertyDescriptionSshTunnel" xml:space="preserve">
     <value>ஒரு பாஓடு சுரங்கப்பாதை மூலம் இணைப்புக்கு (சம்ப் ஓச்ட்) பாஓடு சுரங்கப்பாதையை நிறுவ பாஓடு இணைப்பைக் குறிப்பிடவும்.</value>
@@ -2144,7 +2144,7 @@
     <value>மேம்படுத்தப்பட்ட பயன்முறையைப் பயன்படுத்தவும்</value>
   </data>
   <data name="PropertyDescriptionRdpGatewayPassword" xml:space="preserve">
-    <value>ரிமோட் டெச்க்டாப் கேட்வே சேவையகத்தின் கடவுச்சொல்லைக் குறிப்பிடுகிறது.</value>
+    <value>ரிமோட் டெச்க்டாப் நுழைவாயில் சேவையகத்தின் கடவுச்சொல்லைக் குறிப்பிடுகிறது.</value>
   </data>
   <data name="CloseToSysTray" xml:space="preserve">
     <value>அறிவிப்பு பகுதிக்கு அருகில்</value>
@@ -2317,7 +2317,7 @@
     <value>வெளிப்புற நற்சான்றிதழ் வழங்குநரைப் பயன்படுத்தவும்</value>
   </data>
   <data name="CheckboxNoReconnect" xml:space="preserve">
-    <value>சேவையகத்திலிருந்து துண்டிக்கப்படும்போது தானாகவே மீண்டும் இணைக்க முயற்சிக்கவும் (RDP &amp;&amp; ஐ.சி.ஏ. மட்டும்)</value>
+    <value>சேவையகத்திலிருந்து துண்டிக்கப்படும்போது தானாகவே மீண்டும் இணைக்க முயற்சிக்கவும் (தொபநெ &amp;&amp; ஐசிஏ மட்டும்)</value>
   </data>
   <data name="PropertyDescriptionRedirectDiskDrivesCustom" xml:space="preserve">
     <value>திருப்பிவிட தனிப்பயன் இயக்கிகளை உள்ளிடவும்: சி, டி, ஃச்</value>
@@ -2338,10 +2338,10 @@
     <value>தனிப்பயன் இயக்கிகள்</value>
   </data>
   <data name="PropertyDescriptionRdpGatewayAccessToken" xml:space="preserve">
-    <value>தொலைநிலை டெச்க்டாப் கேட்வே சேவையகத்திற்கான அணுகல் டோக்கனைக் குறிப்பிடுகிறது.</value>
+    <value>தொலைநிலை டெச்க்டாப் நுழைவாயில் சேவையகத்திற்கான அணுகல் டோக்கனைக் குறிப்பிடுகிறது.</value>
   </data>
   <data name="RdpGatewayAccessToken" xml:space="preserve">
-    <value>RDP-Gateway அணுகல் கிள்ளாக்கு</value>
+    <value>தொபநெ-நுழைவாயில் அணுகல் கிள்ளாக்கு</value>
   </data>
   <data name="UseAccessToken" xml:space="preserve">
     <value>RD நுழைவாயில் அணுகல் கிள்ளாக்கைப் பயன்படுத்தவும்</value>
@@ -2378,42 +2378,42 @@
     <value>Sethostanamelikedisplaynanewconnection</value>
   </data>
   <data name="RdpReconnectionCount" xml:space="preserve">
-    <value>RDP மறு இணைப்பு எண்ணிக்கை:</value>
+    <value>தொபநெ மறு இணைப்பு எண்ணிக்கை:</value>
   </data>
   <data name="RdpConnectionTimeout" xml:space="preserve">
-    <value>RDP இணைப்பு நேரம் முடிந்தது</value>
+    <value>தொபநெ இணைப்பு நேரம் முடிந்தது</value>
   </data>
   <data name="WhenClosingConnections" xml:space="preserve">
-    <value>க்ளோசிங் கான்னெக்சன்ச் போது</value>
+    <value>இணைப்புகளை மூடும் போது</value>
   </data>
   <data name="WarnMeWhenClosingConnections" xml:space="preserve">
-    <value>Warnmewhenclosingconnections</value>
+    <value>இணைப்புகளைமூடும்போதுஎனக்குஅறிவி</value>
   </data>
   <data name="WarnMeOnlyWhenExitingProgram" xml:space="preserve">
-    <value>எச்சரிக்கை திட்டம்</value>
+    <value>முன்னறிவிப்பு திட்டம்</value>
   </data>
   <data name="DoNotWarnMeWhenClosingConnections" xml:space="preserve">
-    <value>இணைப்புகளை மூடும்போது என்னை எச்சரிக்க வேண்டாம்</value>
+    <value>இணைப்புகளை மூடும்போது எனக்கு அறிவிப்பு வேண்டாம்</value>
   </data>
   <data name="StartFullScreen" xml:space="preserve">
-    <value>முழுத் திரையைத் தொடங்கவும்</value>
+    <value>முழுத் திரையைத் தொடங்கு</value>
   </data>
   <data name="ReconnectToPreviouslyOpenedSessionsOnStartup" xml:space="preserve">
     <value>மீண்டும் இணைக்கப்பட்டது</value>
   </data>
   <data name="SaveConnectionsOnExit" xml:space="preserve">
-    <value>Saveconnectionsonexit</value>
+    <value>வெளியேறும்போதுஇணைப்புகளைசேமி</value>
   </data>
   <data name="TrackActiveConnectionInTheConnectionTree" xml:space="preserve">
-    <value>இணைப்பு மரத்தில் செயலில் இணைப்பைக் கண்காணிக்கவும்</value>
+    <value>இணைப்பு மரத்தில் செயலில் இணைப்பைக் கண்காணி</value>
   </data>
   <data name="AutoSaveInMinutes" xml:space="preserve">
-    <value>நிமிடங்களில் ஆட்டோசேவ்</value>
+    <value>தானிசேமி நிமையங்களில்</value>
   </data>
   <data name="WebView2InitializationFailed" xml:space="preserve">
-    <value>WebView2initializationfailed</value>
+    <value>தளபார்வை2தொடக்கம்தொல்வி</value>
   </data>
   <data name="WarnMeOnlyWhenClosingMultipleConnections" xml:space="preserve">
-    <value>எச்சரிக்கை</value>
+    <value>முன்னறிவிப்பு</value>
   </data>
 </root>
