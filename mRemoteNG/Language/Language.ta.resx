@@ -801,7 +801,7 @@
     <value>மீண்டும் இணைக்கவும்</value>
   </data>
   <data name="RefreshScreen" xml:space="preserve">
-    <value>திரை புதுப்பிப்பு (வி.என்.சி)</value>
+    <value>திரை புதுப்பிப்பு (விஎன்சி)</value>
   </data>
   <data name="RenameTab" xml:space="preserve">
     <value>தாவலை மறுபெயரிடுங்கள்</value>
@@ -819,7 +819,7 @@
     <value>இணைப்பு கோப்பை சேமிக்கவும் ...</value>
   </data>
   <data name="SendSpecialKeys" xml:space="preserve">
-    <value>சிறப்பு விசைகளை அனுப்பவும் (வி.என்.சி)</value>
+    <value>சிறப்பு விசைகளை அனுப்பவும் (விஎன்சி)</value>
   </data>
   <data name="ShowHelpText" xml:space="preserve">
     <value>&amp; உதவி உரையைக் காட்டு</value>
@@ -961,7 +961,7 @@
     <value>இந்த இணைப்பு எந்த அங்கீகார நிலையைப் பயன்படுத்த வேண்டும் என்பதைத் தேர்ந்தெடுக்கவும்.</value>
   </data>
   <data name="PropertyDescriptionAuthenticationMode" xml:space="preserve">
-    <value>வி.என்.சி சேவையகத்திற்கு எதிராக நீங்கள் எவ்வாறு அங்கீகரிக்க விரும்புகிறீர்கள் என்பதைத் தேர்ந்தெடுக்கவும்.</value>
+    <value>விஎன்சி சேவையகத்திற்கு எதிராக நீங்கள் எவ்வாறு அங்கீகரிக்க விரும்புகிறீர்கள் என்பதைத் தேர்ந்தெடுக்கவும்.</value>
   </data>
   <data name="PropertyDescriptionAutomaticResize" xml:space="preserve">
     <value>சாளரம் மறுஅளவிடப்படும்போது அல்லது முழுத்திரை பயன்முறை மாற்றப்படும்போது தானாகவே இணைப்பை மறுஅளவாக்க வேண்டுமா என்பதைத் தேர்ந்தெடுக்கவும். RDC 8.0 அல்லது அதற்கு மேற்பட்டது தேவை.</value>
@@ -1114,7 +1114,7 @@
     <value>துறைமுகம் ஐ உள்ளிடவும் பதிலாள் சேவையகம் கேட்கிறது.</value>
   </data>
   <data name="PropertyDescriptionVNCProxyType" xml:space="preserve">
-    <value>வி.என்.சி இணைப்புகளை சுரங்கப்பாதை செய்ய நீங்கள் ப்ராக்சியைப் பயன்படுத்தினால், அது எந்த வகை என்பதைத் தேர்ந்தெடுக்கவும்.</value>
+    <value>விஎன்சி இணைப்புகளை சுரங்கப்பாதை செய்ய நீங்கள் ப்ராக்சியைப் பயன்படுத்தினால், அது எந்த வகை என்பதைத் தேர்ந்தெடுக்கவும்.</value>
   </data>
   <data name="PropertyDescriptionVNCProxyUsername" xml:space="preserve">
     <value>ப்ராக்சிக்கு எதிராக அங்கீகரிக்க உங்கள் பயனர்பெயரை உள்ளிடவும்.</value>
@@ -1397,7 +1397,7 @@
     <value>கிளையன்ட் இணைப்பின் போது மீட்டெடுக்க முடியாத பிழை ஏற்பட்டுள்ளது.</value>
   </data>
   <data name="RdpErrorGetFailure" xml:space="preserve">
-    <value>GetError தோல்வியுற்றது (ஃபடாலர்ரர்கள்)</value>
+    <value>பிழைபெறு தோல்வியுற்றது (ஃபடாலர்ரர்கள்)</value>
   </data>
   <data name="RdpErrorOutOfMemory" xml:space="preserve">
     <value>நினைவுக்கு வெளியே பிழை ஏற்பட்டது.</value>
@@ -1409,10 +1409,10 @@
     <value>சாளர உருவாக்கும் பிழை ஏற்பட்டது.</value>
   </data>
   <data name="RdpErrorWinsock" xml:space="preserve">
-    <value>வின்சாக் துவக்க பிழை.</value>
+    <value>சாளரகுதைகுழி தொபநெ பிழை.</value>
   </data>
   <data name="FitToPanel" xml:space="preserve">
-    <value>பேனலுக்கு ஏற்றது</value>
+    <value>பலகைக்கு ஏற்றது</value>
   </data>
   <data name="RdpFocusFailed" xml:space="preserve">
     <value>தொபநெ கவனம் தோல்வியடைந்தது!</value>
@@ -1427,40 +1427,40 @@
     <value>தொபநெ மீண்டும் இணைக்க எண்ணிக்கை:</value>
   </data>
   <data name="RdpSetAuthenticationLevelFailed" xml:space="preserve">
-    <value>தொபநெ setAuthenticallevel தோல்வியுற்றது!</value>
+    <value>தொபநெ Authenticallevelஅமை தோல்வியுற்றது!</value>
   </data>
   <data name="RdpSetConsoleSessionFailed" xml:space="preserve">
-    <value>தொபநெ SetuseConsolessession தோல்வியடைந்தது!</value>
+    <value>தொபநெ useConsolessessionஅமை தோல்வியடைந்தது!</value>
   </data>
   <data name="RdpSetConsoleSwitch" xml:space="preserve">
     <value>RDC {0} க்கான தொபநெ அமைத்தல் கன்சோல் சுவிட்ச்.</value>
   </data>
   <data name="RdpSetCredentialsFailed" xml:space="preserve">
-    <value>தொபநெ SetCredentials தோல்வியடைந்தது!</value>
+    <value>தொபநெ Credentialsஅமை தோல்வியடைந்தது!</value>
   </data>
   <data name="RdpSetEventHandlersFailed" xml:space="preserve">
-    <value>தொபநெ SetEventHandleders தோல்வியடைந்தது!</value>
+    <value>தொபநெ EventHandledersஅமை தோல்வியடைந்தது!</value>
   </data>
   <data name="RdpSetGatewayFailed" xml:space="preserve">
-    <value>தொபநெ setrdgateway தோல்வியடைந்தது!</value>
+    <value>தொபநெ தொபநுழைவாயில்அமை தோல்வியடைந்தது!</value>
   </data>
   <data name="RdpSetPerformanceFlagsFailed" xml:space="preserve">
-    <value>தொபநெ SetPerformanceFlags தோல்வியுற்றது!</value>
+    <value>தொபநெ PerformanceFlagsஅமை தோல்வியுற்றது!</value>
   </data>
   <data name="RdpSetPortFailed" xml:space="preserve">
-    <value>தொபநெ செட்போர்ட் தோல்வியடைந்தது!</value>
+    <value>தொபநெ துறைமுகம்அமை தோல்வியடைந்தது!</value>
   </data>
   <data name="RdpSetPropsFailed" xml:space="preserve">
-    <value>தொபநெ SetProps தோல்வியுற்றது!</value>
+    <value>தொபநெ அமைபண்புகள் தோல்வியுற்றது!</value>
   </data>
   <data name="RdpSetRedirectionFailed" xml:space="preserve">
-    <value>தொபநெ செட் திருப்பிவிடுதல் தோல்வியடைந்தது!</value>
+    <value>தொபநெ அமை திருப்பிவிடுதல் தோல்வியடைந்தது!</value>
   </data>
   <data name="RdpSetRedirectKeysFailed" xml:space="preserve">
     <value>தொபநெ கணம் வழிமாற்றி விசைகள் தோல்வியடைந்தன!</value>
   </data>
   <data name="RdpSetResolutionFailed" xml:space="preserve">
-    <value>தொபநெ SetResulution தோல்வியுற்றது!</value>
+    <value>தொபநெ தெளிவுத்திறன்அமை தோல்வியுற்றது!</value>
   </data>
   <data name="RdpSoundBringToThisComputer" xml:space="preserve">
     <value>இந்த கணினிக்கு கொண்டு வாருங்கள்</value>
@@ -1472,13 +1472,13 @@
     <value>தொலை கணினியில் விடுங்கள்</value>
   </data>
   <data name="RdpToggleFullscreenFailed" xml:space="preserve">
-    <value>தொபநெ TOGGLEFULLLSCREEN தோல்வியுற்றது!</value>
+    <value>தொபநெ மாற்றுமுழுதிரை தோல்வியுற்றது!</value>
   </data>
   <data name="RdpToggleSmartSizeFailed" xml:space="preserve">
-    <value>தொபநெ TOGGLESMARTSIZE தோல்வியுற்றது!</value>
+    <value>தொபநெ மாற்றுஅறிவளவு தோல்வியுற்றது!</value>
   </data>
   <data name="ReconnectAtStartup" xml:space="preserve">
-    <value>தொடக்கத்தில் முன்னர் திறக்கப்பட்ட அமர்வுகளுடன் மீண்டும் இணைக்கவும்</value>
+    <value>தொடக்கத்தில் முன்னர் திறக்கப்பட்ட அமர்வுகளுடன் மீண்டும் இணை</value>
   </data>
   <data name="RemoteFile" xml:space="preserve">
     <value>தொலை கோப்பு</value>
@@ -1490,7 +1490,7 @@
     <value>மறுபெயரிடுங்கள்</value>
   </data>
   <data name="Rlogin" xml:space="preserve">
-    <value>Rlogin</value>
+    <value>ஆர்உள்நுழைவு</value>
   </data>
   <data name="Save" xml:space="preserve">
     <value>சேமி</value>
@@ -1526,13 +1526,13 @@
     <value>ஒருபோதும் காப்புப்பிரதி இணைப்புகள்</value>
   </data>
   <data name="strBrowse" xml:space="preserve">
-    <value>உலாவுக ...</value>
+    <value>உலாவுக...</value>
   </data>
   <data name="strBackup" xml:space="preserve">
     <value>காப்புப்பிரதி</value>
   </data>
   <data name="SaveImageFilter" xml:space="preserve">
-    <value>கிராபிக்ச் இன்டர்சேஞ்ச் வடிவமைப்பு கோப்பு (.gif) |*.GIF | கூட்டு புகைப்பட வல்லுநர்கள் குழு கோப்பு (.jpeg) |</value>
+    <value>வரைகலை இடமாற்ற வடிவமைப்பு கோப்பு (.gif) |*.GIF | கூட்டு புகைப்பட வல்லுநர்கள் குழு கோப்பு (.jpeg) |</value>
   </data>
   <data name="Screen" xml:space="preserve">
     <value>திரை</value>
@@ -1547,13 +1547,13 @@
     <value>தேடல்</value>
   </data>
   <data name="SendTo" xml:space="preserve">
-    <value>அனுப்பு ...</value>
+    <value>இதற்கு அனுப்பு...</value>
   </data>
   <data name="SetHostnameLikeDisplayName" xml:space="preserve">
-    <value>இணைப்புகளை உருவாக்கும்போது அல்லது மறுபெயரிடும்போது காட்சி பெயர் போன்ற ஓச்ட்பெயரை அமைக்கவும்</value>
+    <value>இணைப்புகளை உருவாக்கும்போது அல்லது மறுபெயரிடும்போது காட்சி பெயர் போன்ற புரவலன்பெயரை அமை</value>
   </data>
   <data name="SettingsCouldNotBeSavedOrTrayDispose" xml:space="preserve">
-    <value>அமைப்புகளைச் சேமிக்கவோ அல்லது சிச்ட்ரே ஐகானை அப்புறப்படுத்தவோ முடியவில்லை!</value>
+    <value>அமைப்புகளைச் சேமிக்கவோ அல்லது முறைமைதட்டு சின்னமுருவை அப்புறப்படுத்தவோ முடியவில்லை!</value>
   </data>
   <data name="ShowDescriptionTooltips" xml:space="preserve">
     <value>இணைப்பு மரத்தில் விளக்க உதவிக்குறிப்புகளைக் காட்டு</value>
@@ -1571,10 +1571,10 @@
     <value>இணைப்பில் ஒற்றை சொடுக்கு அதைத் திறக்கிறது</value>
   </data>
   <data name="SingleClickOnOpenConnectionSwitchesToIt" xml:space="preserve">
-    <value>திறந்த இணைப்பு தாவலுக்கு இணைப்பில் திறந்த இணைப்பில் ஒற்றை சொடுக்கு செய்யவும்</value>
+    <value>திறந்த இணைப்பு தாவலுக்கு இணைப்பில் திறந்த இணைப்பில் ஒற்றை சொடுக்கு செய்</value>
   </data>
   <data name="Socks5" xml:space="preserve">
-    <value>சாக்ச் 5</value>
+    <value>குதைகுழிகள்5</value>
   </data>
   <data name="Sort" xml:space="preserve">
     <value>வரிசைப்படுத்து</value>
@@ -1604,31 +1604,31 @@
     <value>பாஓடு பரிமாற்றம் தோல்வியடைந்தது.</value>
   </data>
   <data name="FirstIp" xml:space="preserve">
-    <value>முதல் ஐபி</value>
+    <value>முதல் முகவரி</value>
   </data>
   <data name="FirstPort" xml:space="preserve">
     <value>முதல் துறைமுகம்</value>
   </data>
   <data name="StartupExit" xml:space="preserve">
-    <value>தொடக்க/வெளியேறு</value>
+    <value>தொடங்கு/வெளியேறு</value>
   </data>
   <data name="Status" xml:space="preserve">
     <value>நிலை</value>
   </data>
   <data name="SwitchToErrorsAndInfos" xml:space="preserve">
-    <value>அறிவிப்புகள் குழுவுக்கு மாறவும்:</value>
+    <value>அறிவிப்புகள் குழுவுக்கு மாறு:</value>
   </data>
   <data name="Advanced" xml:space="preserve">
     <value>மேம்பட்ட</value>
   </data>
   <data name="TabsAndPanels" xml:space="preserve">
-    <value>தாவல்கள் மற்றும் பேனல்கள்</value>
+    <value>தாவல்கள் மற்றும் பலகைகள்</value>
   </data>
   <data name="Updates" xml:space="preserve">
     <value>புதுப்பிப்புகள்</value>
   </data>
   <data name="Telnet" xml:space="preserve">
-    <value>டெல்நெட்</value>
+    <value>தொலைவலை</value>
   </data>
   <data name="TheFollowing" xml:space="preserve">
     <value>பின்வருபவை:</value>
@@ -1655,16 +1655,16 @@
     <value>இடமாற்றம்</value>
   </data>
   <data name="TryToIntegrate" xml:space="preserve">
-    <value>ஒருங்கிணைக்க முயற்சி செய்யுங்கள்</value>
+    <value>ஒருங்கிணைக்க முயற்சி செய்</value>
   </data>
   <data name="ShowOnToolbar" xml:space="preserve">
     <value>கருவிப்பட்டியில் காண்பி</value>
   </data>
   <data name="UltraVncRepeater" xml:space="preserve">
-    <value>அல்ட்ரா வி.என்.சி ரிப்பீட்டர்</value>
+    <value>மிகை விஎன்சி மறுநிகழ்கருவி</value>
   </data>
   <data name="UltraVNCSCListeningPort" xml:space="preserve">
-    <value>அல்ட்ராவ் சிங்லெக்லிக் போர்ட்:</value>
+    <value>மிகை விஎன்சிஎச்சிகேட்கும் துறைமுகம்:</value>
   </data>
   <data name="UncheckProperties" xml:space="preserve">
     <value>சேமிக்கப்படக்கூடாது என்று நீங்கள் விரும்பும் பண்புகளைத் தேர்வுசெய்க!</value>
@@ -1680,7 +1680,7 @@
   </data>
   <data name="UpdateDownloadComplete" xml:space="preserve">
     <value>பதிவிறக்கம் முடிந்தது!
- பலதொலைஅத இப்போது வெளியேறி நிறுவலுடன் தொடங்குவார்.</value>
+ பலதொலைஅத இப்போது வெளியேறி நிறுவலுடன் தொடங்கும்.</value>
   </data>
   <data name="UpdateDownloadCompleteFailed" xml:space="preserve">
     <value>புதுப்பிப்பை பதிவிறக்கம் செய்ய முடியவில்லை.</value>
@@ -1704,49 +1704,49 @@
     <value>மாற்ற பதிவை பதிவிறக்கம் செய்ய முடியவில்லை.</value>
   </data>
   <data name="UseDifferentUsernameAndPassword" xml:space="preserve">
-    <value>வேறு பயனர்பெயர் மற்றும் கடவுச்சொல்லைப் பயன்படுத்தவும்</value>
+    <value>வேறு பயனர்பெயர் மற்றும் கடவுச்சொல்லைப் பயன்படுத்து</value>
   </data>
   <data name="User" xml:space="preserve">
     <value>பயனர்</value>
   </data>
   <data name="UseSameUsernameAndPassword" xml:space="preserve">
-    <value>அதே பயனர்பெயர் மற்றும் கடவுச்சொல்லைப் பயன்படுத்தவும்</value>
+    <value>அதே பயனர்பெயர் மற்றும் கடவுச்சொல்லைப் பயன்படுத்து</value>
   </data>
   <data name="UseSmartCard" xml:space="preserve">
-    <value>அறிவுள்ள கார்டைப் பயன்படுத்தவும்</value>
+    <value>அறிவுள்ள அட்டைப் பயன்படுத்து</value>
   </data>
   <data name="UseSQLServer" xml:space="preserve">
-    <value>&amp;&amp; இணைப்புகளைச் சேமிக்க கவிமொ சேவையகத்தைப் பயன்படுத்தவும்</value>
+    <value>&amp;&amp; இணைப்புகளைச் சேமிக்க கவிமொ சேவையகத்தைப் பயன்படுத்து</value>
   </data>
   <data name="Version" xml:space="preserve">
     <value>பதிப்பு</value>
   </data>
   <data name="Vnc" xml:space="preserve">
-    <value>வி.என்.சி.</value>
+    <value>விஎன்சி</value>
   </data>
   <data name="VncConnectionDisconnectFailed" xml:space="preserve">
-    <value>வி.என்.சி துண்டிப்பு தோல்வியுற்றது!</value>
+    <value>விஎன்சி துண்டிப்பு தோல்வியுற்றது!</value>
   </data>
   <data name="VncRefreshFailed" xml:space="preserve">
-    <value>வி.என்.சி புதுப்பிப்பு திரை தோல்வியடைந்தது!</value>
+    <value>விஎன்சி புதுப்பிப்பு திரை தோல்வியடைந்தது!</value>
   </data>
   <data name="VncSendSpecialKeysFailed" xml:space="preserve">
-    <value>VNC SendSpecialKeys தோல்வியுற்றது!</value>
+    <value>விஎன்சி சிறப்புதிறவுகோல்அனுப்பு தோல்வியுற்றது!</value>
   </data>
   <data name="VncSetEventHandlersFailed" xml:space="preserve">
-    <value>வி.என்.சி செட் நிகழ்வு கையாளுபவர்கள் தோல்வியடைந்தனர்!</value>
+    <value>விஎன்சி அமை நிகழ்வு கையாளுபவை தோல்வியடைந்து!</value>
   </data>
   <data name="VncSetPropsFailed" xml:space="preserve">
-    <value>வி.என்.சி செட் ப்ராப்ச் தோல்வியடைந்தது!</value>
+    <value>விஎன்சி அமை பண்புகள் தோல்வியடைந்தது!</value>
   </data>
   <data name="VncToggleSmartSizeFailed" xml:space="preserve">
-    <value>வி.என்.சி மாற்று ச்மார்ட்சைச் தோல்வியுற்றது!</value>
+    <value>விஎன்சி மாற்று அறிவளவு தோல்வியுற்றது!</value>
   </data>
   <data name="VncToggleViewOnlyFailed" xml:space="preserve">
-    <value>VNC VIEWONLY தோல்வியுற்றது!</value>
+    <value>விஎன்சி பார்க்கமட்டும் தோல்வியுற்றது!</value>
   </data>
   <data name="WarnIfAuthFails" xml:space="preserve">
-    <value>ஏற்பு தோல்வியுற்றால் என்னை எச்சரிக்கவும்</value>
+    <value>ஏற்பு தோல்வியுற்றால் எனக்கு அறிவி</value>
   </data>
   <data name="Warnings" xml:space="preserve">
     <value>முன்னறிவிப்புகள்</value>
@@ -1770,7 +1770,7 @@
     <value>இந்த முனை இழுக்க முடியாதது.</value>
   </data>
   <data name="EncryptionBlockCipherMode" xml:space="preserve">
-    <value>பிளாக் சைபர் பயன்முறை</value>
+    <value>தொகுதி மறைக்குறியீடு பயன்முறை</value>
   </data>
   <data name="EncryptionEngine" xml:space="preserve">
     <value>குறியாக்க இயந்திரம்</value>
@@ -1803,10 +1803,10 @@
     <value>பதிவிறக்கம்</value>
   </data>
   <data name="PropertyDescriptionRDPMinutesToIdleTimeout" xml:space="preserve">
-    <value>தொபநெ அமர்வுக்கான நிமிடங்களின் எண்ணிக்கை தானாக துண்டிக்கப்படுவதற்கு முன்பு சும்மா உட்கார வேண்டும் (வரம்புக்கு 0 பயன்படுத்த 0)</value>
+    <value>தொபநெ அமர்வுக்கான நிமையங்களின் எண்ணிக்கை தானாக துண்டிக்கப்படுவதற்கு முன்பு செயலற்றதாக வேண்டும் (வரம்புக்கு 0 பயன்படுத்த 0)</value>
   </data>
   <data name="MinutesToIdleTimeout" xml:space="preserve">
-    <value>சும்மா நிமிடங்கள்</value>
+    <value>செயலற்ற நிமையங்கள்</value>
   </data>
   <data name="Add" xml:space="preserve">
     <value>கூட்டு</value>
@@ -1824,16 +1824,16 @@
     <value>கடவுச்சொல்லில் பின்வரும் எழுத்துக்களில் குறைந்தபட்சம் {0} இருக்க வேண்டும்: {1}</value>
   </data>
   <data name="PasswordContainsLowerCaseConstraintHint" xml:space="preserve">
-    <value>கடவுச்சொல்லில் குறைந்தது {0} சிறிய எழுத்துக்கள் இருக்க வேண்டும்)</value>
+    <value>கடவுச்சொல்லில் குறைந்தது {0} சிறிய எழுத்து(கள்) இருக்க வேண்டும்</value>
   </data>
   <data name="PasswordContainsNumbersConstraint" xml:space="preserve">
-    <value>கடவுச்சொல்லில் குறைந்தது {0} எண் (கள்) இருக்க வேண்டும்</value>
+    <value>கடவுச்சொல்லில் குறைந்தது {0} எண்(கள்) இருக்க வேண்டும்</value>
   </data>
   <data name="PasswordContainsUpperCaseConstraintHint" xml:space="preserve">
-    <value>கடவுச்சொல்லில் குறைந்தது {0} மேல் வழக்கு எழுத்து (கள்) இருக்க வேண்டும்</value>
+    <value>கடவுச்சொல்லில் குறைந்தது {0} மேல் வழக்கு எழுத்து(கள்) இருக்க வேண்டும்</value>
   </data>
   <data name="PasswordLengthConstraintHint" xml:space="preserve">
-    <value>கடவுச்சொல் நீளம் {0} மற்றும் {1 between க்கு இடையில் இருக்க வேண்டும்</value>
+    <value>கடவுச்சொல் நீளம் {0} மற்றும் {1} க்கு இடையில் இருக்க வேண்டும்</value>
   </data>
   <data name="ChooseLogPath" xml:space="preserve">
     <value>Mrymoteng பதிவு கோப்பிற்கான பாதையைத் தேர்வுசெய்க</value>
@@ -1848,7 +1848,7 @@
     <value>பதிவு கோப்பு பாதை</value>
   </data>
   <data name="LogTheseMessageTypes" xml:space="preserve">
-    <value>இந்த செய்தி வகைகளை பதிவு செய்யுங்கள்</value>
+    <value>இந்த செய்தி வகைகளை பதிவு செய்</value>
   </data>
   <data name="ChoosePath" xml:space="preserve">
     <value>பாதையைத் தேர்வுசெய்க</value>
@@ -1857,13 +1857,13 @@
     <value>கோப்பை திற</value>
   </data>
   <data name="UseDefault" xml:space="preserve">
-    <value>இயல்புநிலையைப் பயன்படுத்தவும்</value>
+    <value>இயல்புநிலையைப் பயன்படுத்து</value>
   </data>
   <data name="Logging" xml:space="preserve">
     <value>பதிவு</value>
   </data>
   <data name="Popups" xml:space="preserve">
-    <value>பாப்அப்கள்</value>
+    <value>மேல்தோன்றல்கள்</value>
   </data>
   <data name="LogToAppDir" xml:space="preserve">
     <value>பயன்பாட்டு கோப்பகத்திற்கு பதிவு செய்</value>
