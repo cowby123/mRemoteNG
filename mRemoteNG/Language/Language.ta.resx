@@ -552,16 +552,16 @@
     <value>பயன்பாட்டு கோப்புகள் (*.exe)</value>
   </data>
   <data name="FiltermRemoteCSV" xml:space="preserve">
-    <value>mremote காபிம கோப்புகள் (*.csv)</value>
+    <value>பலதொலை காபிம கோப்புகள் (*.csv)</value>
   </data>
   <data name="FiltermRemoteXML" xml:space="preserve">
-    <value>mremote நீகுமொ கோப்புகள் (*.xml)</value>
+    <value>பலதொலை நீகுமொ கோப்புகள் (*.xml)</value>
   </data>
   <data name="FilterPuttyConnectionManager" xml:space="preserve">
     <value>புட்டி இணைப்பு மேலாளர் கோப்புகள்</value>
   </data>
   <data name="FilterRdgFiles" xml:space="preserve">
-    <value>தொலைநிலை டெச்க்டாப் இணைப்பு மேலாளர் கோப்புகள் (*.rdg)</value>
+    <value>தொலைநிலை பணிமேடை இணைப்பு மேலாளர் கோப்புகள் (*.rdg)</value>
   </data>
   <data name="FilterRDP" xml:space="preserve">
     <value>தொபநெ கோப்புகள் (*.rdp)</value>
@@ -696,7 +696,7 @@
     <value>தரவுத்தளம்:</value>
   </data>
   <data name="Verify" xml:space="preserve">
-    <value>சரிபார்க்கவும்:</value>
+    <value>சரிபார்:</value>
   </data>
   <data name="LanguageString" xml:space="preserve">
     <value>மொழி</value>
@@ -726,7 +726,7 @@
     <value>இணைப்பு பேனலைச் சேர்க்கவும்</value>
   </data>
   <data name="CheckForUpdates" xml:space="preserve">
-    <value>புதுப்பிப்புகளை சரிபார்க்கவும்</value>
+    <value>புதுப்பிப்புகளை சரிபார்</value>
   </data>
   <data name="Config" xml:space="preserve">
     <value>கட்டமைப்பு</value>
@@ -765,7 +765,7 @@
     <value>உதவி (&amp;h)</value>
   </data>
   <data name="HelpContents" xml:space="preserve">
-    <value>mremoteng உதவி</value>
+    <value>பலதொலைஅத உதவி</value>
   </data>
   <data name="LaunchExternalTool" xml:space="preserve">
     <value>வெளிப்புற கருவியைத் தொடங்கவும்</value>
@@ -864,10 +864,10 @@
     <value>மேலே செல்லுங்கள்</value>
   </data>
   <data name="MremoteNgCsv" xml:space="preserve">
-    <value>mremoteng காபிம</value>
+    <value>பலதொலைஅத காபிம</value>
   </data>
   <data name="MremoteNgXml" xml:space="preserve">
-    <value>mremoteng நீகுமொ</value>
+    <value>பலதொலைஅத நீகுமொ</value>
   </data>
   <data name="MyCurrentWindowsCreds" xml:space="preserve">
     <value>எனது தற்போதைய நற்சான்றிதழ்கள் (விண்டோச் உள்நுழைவு தகவல்)</value>
@@ -1027,13 +1027,13 @@
     <value>போர்ட்டை உள்ளிடவும் தேர்ந்தெடுக்கப்பட்ட நெறிமுறை கேட்கிறது.</value>
   </data>
   <data name="PropertyDescriptionProtocol" xml:space="preserve">
-    <value>ஓச்டுடன் இணைக்க MREMOTENG பயன்படுத்த வேண்டிய நெறிமுறையைத் தேர்வுசெய்க.</value>
+    <value>புரவலனுடன் இணைக்க பலதொலைஅத பயன்படுத்த வேண்டிய நெறிமுறையைத் தேர்வுசெய்க.</value>
   </data>
   <data name="PropertyDescriptionPuttySession" xml:space="preserve">
-    <value>இணைக்கும்போது பயன்படுத்த வேண்டிய புட்டி அமர்வைத் தேர்ந்தெடுக்கவும்.</value>
+    <value>இணைக்கும்போது பயன்படுத்த வேண்டிய புட்டி அமர்வைத் தேர்ந்தெடு.</value>
   </data>
   <data name="PropertyDescriptionRDGatewayDomain" xml:space="preserve">
-    <value>RD நுழைவாயில் சேவையகத்துடன் இணைக்க ஒரு பயனர் வழங்கும் டொமைன் பெயரைக் குறிப்பிடுகிறது.</value>
+    <value>தொக நுழைவாயில் சேவையகத்துடன் இணைக்க ஒரு பயனர் வழங்கும் டொமைன் பெயரைக் குறிப்பிடுகிறது.</value>
   </data>
   <data name="PropertyDescriptionRDGatewayHostname" xml:space="preserve">
     <value>தொலைநிலை டெச்க்டாப் நுழைவாயில் சேவையகத்தின் புரவலன் பெயரைக் குறிப்பிடுகிறது.</value>
@@ -1063,7 +1063,7 @@
     <value>இடைநிலைப்பலகை பகிரப்பட வேண்டுமா என்பதைத் தேர்ந்தெடுக்கவும்.</value>
   </data>
   <data name="PropertyDescriptionRedirectSmartCards" xml:space="preserve">
-    <value>உள்ளக அறிவுள்ள கார்டுகள் தொலை ஓச்டில் கிடைக்க வேண்டுமா என்பதைத் தேர்ந்தெடுக்கவும்.</value>
+    <value>உள்ளக அறிவு அட்டைகள் தொலை ஓச்டில் கிடைக்க வேண்டுமா என்பதைத் தேர்ந்தெடுக்கவும்.</value>
   </data>
   <data name="PropertyDescriptionRedirectSounds" xml:space="preserve">
     <value>தொலைநிலை ஒலி எவ்வாறு திருப்பி விடப்பட வேண்டும் என்பதைத் தேர்ந்தெடுக்கவும்.</value>
@@ -1367,10 +1367,10 @@
     <value>தொபநெ கட்டுப்பாட்டை உருவாக்க முடியவில்லை, தயவுசெய்து mrmoteng தேவைகளை சரிபார்.</value>
   </data>
   <data name="DisableCursorBlinking" xml:space="preserve">
-    <value>கர்சர் ஒளிரும் முடக்கு</value>
+    <value>நிலை காட்டி மின்னுதல் முடக்கு</value>
   </data>
   <data name="DisableCursorShadow" xml:space="preserve">
-    <value>கர்சர் நிழலை முடக்கு</value>
+    <value>நிலை காட்டி நிழலை முடக்கு</value>
   </data>
   <data name="DisableFullWindowDrag" xml:space="preserve">
     <value>முழு சாளர இழுவை முடக்கு</value>
@@ -1640,13 +1640,13 @@
     <value>செய்தி ({0})</value>
   </data>
   <data name="TitlePassword" xml:space="preserve">
-    <value>mremoteng கடவுச்சொல்</value>
+    <value>பலதொலைஅத கடவுச்சொல்</value>
   </data>
   <data name="TitlePasswordWithName" xml:space="preserve">
-    <value>{0 க்கு க்கான mremoteng கடவுச்சொல்</value>
+    <value>{0} க்கான பலதொலைஅத கடவுச்சொல்</value>
   </data>
   <data name="TitleSelectPanel" xml:space="preserve">
-    <value>பேனலைத் தேர்ந்தெடுக்கவும்</value>
+    <value>பலகையைத் தேர்ந்தெடு</value>
   </data>
   <data name="TitleWarning" xml:space="preserve">
     <value>முன்னறிவிப்பு ({0})</value>
@@ -1670,17 +1670,17 @@
     <value>சேமிக்கப்படக்கூடாது என்று நீங்கள் விரும்பும் பண்புகளைத் தேர்வுசெய்க!</value>
   </data>
   <data name="UpdateAvailable" xml:space="preserve">
-    <value>mremoteng க்கு ஒரு புதுப்பிப்பு தேவை</value>
+    <value>பலதொலைஅதக்கு ஒரு புதுப்பிப்பு தேவை</value>
   </data>
   <data name="UpdateCheck" xml:space="preserve">
-    <value>புதுப்பிப்புகளைச் சரிபார்க்க மர்மோடெங் அவ்வப்போது மர்மோடெங் வலைத்தளத்துடன் இணைக்க முடியும்.</value>
+    <value>புதுப்பிப்புகளைச் சரிபார்க்க பலதொலைஅத அவ்வப்போது பலதொலைஅத வலைத்தளத்துடன் இணைக்க முடியும்.</value>
   </data>
   <data name="UpdateCheckCompleteFailed" xml:space="preserve">
     <value>புதுப்பிப்பு தகவல்களை பதிவிறக்கம் செய்ய முடியவில்லை.</value>
   </data>
   <data name="UpdateDownloadComplete" xml:space="preserve">
     <value>பதிவிறக்கம் முடிந்தது!
- மர்மோடெங் இப்போது வெளியேறி நிறுவலுடன் தொடங்குவார்.</value>
+ பலதொலைஅத இப்போது வெளியேறி நிறுவலுடன் தொடங்குவார்.</value>
   </data>
   <data name="UpdateDownloadCompleteFailed" xml:space="preserve">
     <value>புதுப்பிப்பை பதிவிறக்கம் செய்ய முடியவில்லை.</value>
@@ -1968,10 +1968,10 @@
     <value>மேம்பட்ட பாதுகாப்பு விருப்பங்கள்</value>
   </data>
   <data name="OptionsPageTitle" xml:space="preserve">
-    <value>mremoteng விருப்பங்கள்</value>
+    <value>பலதொலைஅத விருப்பங்கள்</value>
   </data>
   <data name="CreateEmptyPanelOnStartUp" xml:space="preserve">
-    <value>மர்மோடெங் தொடங்கும் போது வெற்று பேனலை உருவாக்கவும்</value>
+    <value>பலதொலைஅத தொடங்கும் போது வெற்று பேனலை உருவாக்கவும்</value>
   </data>
   <data name="MustBeBetween0And255" xml:space="preserve">
     <value>0 முதல் 255 வரை இருக்க வேண்டும்</value>
@@ -2010,13 +2010,13 @@
     <value>விதிவிலக்கு செய்தி</value>
   </data>
   <data name="mRemoteNGUnhandledException" xml:space="preserve">
-    <value>mremoteng விதிவிலக்கு</value>
+    <value>பலதொலைஅத விதிவிலக்கு</value>
   </data>
   <data name="UnhandledExceptionOccured" xml:space="preserve">
     <value>தடையற்ற விதிவிலக்கு ஏற்பட்டுள்ளது</value>
   </data>
   <data name="ExceptionForcesmRemoteNGToClose" xml:space="preserve">
-    <value>இந்த விதிவிலக்கு மர்மோடெங்கை மூடுவதற்கு கட்டாயப்படுத்தும்</value>
+    <value>இந்த விதிவிலக்கு பலதொலைஅதகை மூடுவதற்கு கட்டாயப்படுத்தும்</value>
   </data>
   <data name="CopyHostname" xml:space="preserve">
     <value>ஓச்ட்பெயரை நகலெடுக்கவும்</value>
@@ -2117,34 +2117,34 @@
     <value>பாஓடு சுரங்கப்பாதை இணைப்பு உள்ளமைவு சிக்கல். இதற்கான இணைப்பு: பாஓடு சுரங்கப்பாதை வழியாக "{0}": "{1}" சாத்தியமில்லை. பாஓடு சுரங்கப்பாதை மற்றும் நெறிமுறை பாஓடு பதிப்பு 1 அல்லது SSH2 பதிப்பு 2 என கட்டமைக்கப்பட்ட பெயருடன் இணைப்பை இணைப்பு மரத்தில் காண முடியாது. பாஓடு சுரங்கப்பாதை உள்ளமைவை அழிக்கவும் அல்லது இருக்கும் பாஓடு இணைப்பைக் குறிப்பிடவும்.</value>
   </data>
   <data name="SshTunnelIsNotPutty" xml:space="preserve">
-    <value>பாஓடு சுரங்கப்பாதை உள்ளமைவு சிக்கல். இதற்கான இணைப்பு: பாஓடு சுரங்கப்பாதை வழியாக "{0}": "{1}" சாத்தியமில்லை. மரத்தில் காணப்படும் பாஓடு சுரங்கப்பாதையாக உள்ளமைக்கப்பட்ட இணைப்பு, ஆனால் நெறிமுறை புட்டியிலிருந்து பெறப்படவில்லை. பாஓடு சுரங்கப்பாதை பாஓடு நெறிமுறையைப் பயன்படுத்துவதால் இணைப்பு கட்டமைக்கப்பட்டுள்ளதை உறுதிப்படுத்திக் கொள்ளுங்கள்.</value>
+    <value>பாஓடு சுரங்கப்பாதை உள்ளமைவு சிக்கல். இதற்கான இணைப்பு: பாஓடு சுரங்கப்பாதை வழியாக "{0}": "{1}" சாத்தியமில்லை. மரத்தில் காணப்படும் பாஓடு சுரங்கப்பாதையாக உள்ளமைக்கப்பட்ட இணைப்பு, ஆனால் நெறிமுறை புட்டியிலிருந்து பெறப்படவில்லை. பாஓடு சுரங்கப்பாதை பாஓடு நெறிமுறையைப் பயன்படுத்துவதால் இணைப்பு கட்டமைக்கப்பட்டுள்ளதை உறுதிப்படுத்திக் கொள்.</value>
   </data>
   <data name="SshTunnelNotInitialized" xml:space="preserve">
-    <value>பாஓடு சுரங்கப்பாதை துவக்க சிக்கல். இதற்கான இணைப்பு: பாஓடு சுரங்கப்பாதை வழியாக "{0}": "{1}" சாத்தியமில்லை. பாஓடு இணைப்பைத் தொடங்க முடியவில்லை. பாஓடு சுரங்கப்பாதை என கட்டமைக்கப்பட்ட இணைப்பில் ஏதேனும் சிக்கல்களைச் சரிபார்க்கவும்.</value>
+    <value>பாஓடு சுரங்கப்பாதை துவக்க சிக்கல். இதற்கான இணைப்பு: பாஓடு சுரங்கப்பாதை வழியாக "{0}": "{1}" சாத்தியமில்லை. பாஓடு இணைப்பைத் தொடங்க முடியவில்லை. பாஓடு சுரங்கப்பாதை என கட்டமைக்கப்பட்ட இணைப்பில் ஏதேனும் சிக்கல்களைச் சரிபார்.</value>
   </data>
   <data name="SshTunnelNotConnected" xml:space="preserve">
-    <value>பாஓடு சுரங்கப்பாதை இணைப்பு சிக்கல். இதற்கான இணைப்பு: பாஓடு சுரங்கப்பாதை வழியாக "{0}": "{1}" சாத்தியமில்லை. பாஓடு இணைப்பு தோல்வியடைந்தது. பாஓடு சுரங்கப்பாதை என கட்டமைக்கப்பட்ட இணைப்பில் ஏதேனும் சிக்கல்களைச் சரிபார்க்கவும்.</value>
+    <value>பாஓடு சுரங்கப்பாதை இணைப்பு சிக்கல். இதற்கான இணைப்பு: பாஓடு சுரங்கப்பாதை வழியாக "{0}": "{1}" சாத்தியமில்லை. பாஓடு இணைப்பு தோல்வியடைந்தது. பாஓடு சுரங்கப்பாதை என கட்டமைக்கப்பட்ட இணைப்பில் ஏதேனும் சிக்கல்களைச் சரிபார்.</value>
   </data>
   <data name="SshTunnelFailed" xml:space="preserve">
-    <value>பாஓடு சுரங்கப்பாதை இணைப்பு தோல்வியடைந்தது. இதற்கான இணைப்பு: பாஓடு சுரங்கப்பாதை வழியாக "{0}": "{1}" சாத்தியமில்லை. புட்டி செயல்முறை நிறுத்தப்பட்டது. பாஓடு சுரங்கப்பாதை என கட்டமைக்கப்பட்ட இணைப்பில் ஏதேனும் சிக்கல்களைச் சரிபார்க்கவும்.</value>
+    <value>பாஓடு சுரங்கப்பாதை இணைப்பு தோல்வியடைந்தது. இதற்கான இணைப்பு: பாஓடு சுரங்கப்பாதை வழியாக "{0}": "{1}" சாத்தியமில்லை. புட்டி செயல்முறை நிறுத்தப்பட்டது. பாஓடு சுரங்கப்பாதை என கட்டமைக்கப்பட்ட இணைப்பில் ஏதேனும் சிக்கல்களைச் சரிபார்.</value>
   </data>
   <data name="SshTunnelPortNotReadyInTime" xml:space="preserve">
-    <value>பாஓடு சுரங்கப்பாதை இணைப்பு நேரம் முடிந்தது. இதற்கான இணைப்பு: பாஓடு சுரங்கப்பாதை வழியாக "{0}": "{1}" சாத்தியமில்லை. உள்ளக சுரங்கப்பாதை துறைமுகம் சரியான நேரத்தில் கிடைக்கவில்லை. பாஓடு சுரங்கப்பாதை என கட்டமைக்கப்பட்ட இணைப்பில் ஏதேனும் சிக்கல்களைச் சரிபார்க்கவும்.</value>
+    <value>பாஓடு சுரங்கப்பாதை இணைப்பு நேரம் முடிந்தது. இதற்கான இணைப்பு: பாஓடு சுரங்கப்பாதை வழியாக "{0}": "{1}" சாத்தியமில்லை. உள்ளக சுரங்கப்பாதை துறைமுகம் சரியான நேரத்தில் கிடைக்கவில்லை. பாஓடு சுரங்கப்பாதை என கட்டமைக்கப்பட்ட இணைப்பில் ஏதேனும் சிக்கல்களைச் சரிபார்.</value>
   </data>
   <data name="StartMinimized" xml:space="preserve">
     <value>குறைக்கத் தொடங்குங்கள்</value>
   </data>
   <data name="PropertyDescriptionPasswordProtect" xml:space="preserve">
-    <value>இணைப்பு கோப்பை குறியாக்க தேவையான கடவுச்சொல்லை அமைக்கவும். மர்மோடெங்கைத் தொடங்குவதற்கு முன்பு உங்கள் கடவுக்குறியீட்டை உள்ளிடும்படி கேட்கப்படுவீர்கள்.</value>
+    <value>இணைப்பு கோப்பை குறியாக்க தேவையான கடவுச்சொல்லை அமை. பலதொலைஅதகைத் தொடங்குவதற்கு முன்பு உங்கள் கடவுக்குறியீட்டை உள்ளிடும்படி கேட்கப்படுவீர்கள்.</value>
   </data>
   <data name="PropertyDescriptionUseEnhancedMode" xml:space="preserve">
-    <value>மேம்படுத்தப்பட்ட பயன்முறையுடன் ஐப்பர்-வி ஓச்டுடன் இணைக்கவும்.</value>
+    <value>மேம்படுத்தப்பட்ட பயன்முறையுடன் உயர்-5 புரவலனுடன் இணை.</value>
   </data>
   <data name="UseEnhancedMode" xml:space="preserve">
-    <value>மேம்படுத்தப்பட்ட பயன்முறையைப் பயன்படுத்தவும்</value>
+    <value>மேம்படுத்தப்பட்ட பயன்முறையைப் பயன்படுத்து</value>
   </data>
   <data name="PropertyDescriptionRdpGatewayPassword" xml:space="preserve">
-    <value>ரிமோட் டெச்க்டாப் நுழைவாயில் சேவையகத்தின் கடவுச்சொல்லைக் குறிப்பிடுகிறது.</value>
+    <value>தொலை பணிமேடை நுழைவாயில் சேவையகத்தின் கடவுச்சொல்லைக் குறிப்பிடுகிறது.</value>
   </data>
   <data name="CloseToSysTray" xml:space="preserve">
     <value>அறிவிப்பு பகுதிக்கு அருகில்</value>
@@ -2153,7 +2153,7 @@
     <value>சாளரங்கள்</value>
   </data>
   <data name="PowerShell" xml:space="preserve">
-    <value>பவர்செல்</value>
+    <value>ஆற்றல்ஓடு</value>
   </data>
   <data name="Changelog" xml:space="preserve">
     <value>மாற்றபதிவு</value>
@@ -2165,7 +2165,7 @@
     <value>உரிமம்</value>
   </data>
   <data name="PropertyDescriptionDisableCursorBlinking" xml:space="preserve">
-    <value>கர்சர் ஃப்ளாச்கள் முடக்கப்பட வேண்டுமா என்பதை தீர்மானிக்கிறது.</value>
+    <value>நிலை காட்டி மின்னுதல் முடக்கப்பட வேண்டுமா என்பதை தீர்மானிக்கிறது.</value>
   </data>
   <data name="PropertyDescriptionDisableCursorShadow" xml:space="preserve">
     <value>சுட்டி நிழல் காணப்பட வேண்டுமா என்பதை தீர்மானிக்கிறது.</value>
@@ -2174,42 +2174,42 @@
     <value>சாளரத்தை புதிய இடத்திற்கு இழுக்கும்போது சாளர உள்ளடக்கம் காட்டப்படுகிறதா என்பதை தீர்மானிக்கிறது.</value>
   </data>
   <data name="PropertyDescriptionDisableMenuAnimations" xml:space="preserve">
-    <value>தொலைநிலை அமர்வில் அனிமேசன் விளைவுகளுடன் மெனுக்கள் மற்றும் சாளரங்கள் காட்ட முடியுமா என்பதை தீர்மானிக்கிறது.</value>
+    <value>தொலைநிலை அமர்வில் அசைவுட்ட விளைவுகளுடன் பட்டியல்கள் மற்றும் சாளரங்கள் காட்ட முடியுமா என்பதை தீர்மானிக்கிறது.</value>
   </data>
   <data name="HttpCEF" xml:space="preserve">
-    <value>விளிம்பு குரோமியம்</value>
+    <value>விளிம்பு நிறமி</value>
   </data>
   <data name="HttpFailedUrlBuild" xml:space="preserve">
-    <value>ஏற்றுவதற்கு முகவரி ஐ உருவாக்குவதில் தோல்வி</value>
+    <value>ஏற்றுவதற்கு முகவரியை உருவாக்குவதில் தோல்வி</value>
   </data>
   <data name="ShowHideMenu" xml:space="preserve">
-    <value>பட்டியல் துண்டு காட்டு/மறைக்க</value>
+    <value>பட்டியல் துண்டு காட்டு/மறை</value>
   </data>
   <data name="PropertyDescriptionRDPStartProgram" xml:space="preserve">
     <value>இணைப்பின் போது தொலை சேவையகத்தில் தொடங்கப்பட வேண்டிய நிரல்.</value>
   </data>
   <data name="PropertyDescriptionRDPStartProgramWorkDir" xml:space="preserve">
-    <value>மாற்று செல்லின் வேலை கோப்பகத்தைக் குறிப்பிடுகிறது.</value>
+    <value>மாற்று ஓட்டின் வேலை கோப்பகத்தைக் குறிப்பிடுகிறது.</value>
   </data>
   <data name="RDPStartProgram" xml:space="preserve">
-    <value>மாற்று செல்</value>
+    <value>மாற்று ஓடு</value>
     <comment>https://docs.microsoft.com/en-us/windows/win32/termserv/imstscsecuredsettings-startprogram</comment>
   </data>
   <data name="RDPStartProgramWorkDir" xml:space="preserve">
-    <value>மாற்று செல் வேலை அடைவு</value>
+    <value>மாற்று ஓடு வேலை அடைவு</value>
     <comment>https://docs.microsoft.com/en-us/windows/win32/termserv/imstscsecuredsettings-workdir</comment>
   </data>
   <data name="OpeningCommand" xml:space="preserve">
     <value>திறப்பு ஒருங்கிணைப்பு செய்யவேண்டிய</value>
   </data>
   <data name="PropertyDescriptionOpeningCommand" xml:space="preserve">
-    <value>திறப்பு ஒருங்கிணைப்பு டோடோவின் விளக்கம்</value>
+    <value>திறப்பு ஒருங்கிணைப்பு செய்யவேண்டியவையின் விளக்கம்</value>
   </data>
   <data name="RedirectDrives" xml:space="preserve">
     <value>வட்டு இயக்கிகள்</value>
   </data>
   <data name="RedirectSmartCards" xml:space="preserve">
-    <value>அறிவுள்ள கார்டுகள்</value>
+    <value>அறிவுள்ள அட்டைகள்</value>
   </data>
   <data name="ApplyInheritanceToChildren" xml:space="preserve">
     <value>குழந்தைகளுக்கு பரம்பரை பயன்படுத்துங்கள்</value>
@@ -2221,19 +2221,19 @@
     <value>அறிவுள்ள அட்டை</value>
   </data>
   <data name="RemoteDesktopServices" xml:space="preserve">
-    <value>தொலைநிலை டெச்க்டாப் சேவைகள்</value>
+    <value>தொலைநிலை பணிமேடை சேவைகள்</value>
   </data>
   <data name="EC2InstanceId" xml:space="preserve">
-    <value>EC2 நிகழ்வு ஐடி</value>
+    <value>இசி2 நிகழ்வு அடையாளம்</value>
   </data>
   <data name="EC2Region" xml:space="preserve">
-    <value>EC2 பகுதி</value>
+    <value>இசி2 பகுதி</value>
   </data>
   <data name="PropertyDescriptionEC2InstanceId" xml:space="preserve">
-    <value>AWS EC2 நிகழ்விலிருந்து பொது ஐபி பெற இந்த நிகழ்வு ஐடியைப் பயன்படுத்தவும்</value>
+    <value>அவசே இசி2 நிகழ்விலிருந்து பொது முகவரி பெற இந்த நிகழ்வு அடையாளத்தைப் பயன்படுத்து</value>
   </data>
   <data name="PropertyDescriptionEC2Region" xml:space="preserve">
-    <value>இந்த பிராந்தியத்திலிருந்து AWS நிகழ்வு தகவலைப் பெறுங்கள்</value>
+    <value>இந்த பிராந்தியத்திலிருந்து அவசே நிகழ்வு தகவலைப் பெறுங்கள்</value>
   </data>
   <data name="ACLPermissionsHidden" xml:space="preserve">
     <value>மறைக்கப்பட்ட</value>
@@ -2244,17 +2244,17 @@
     <comment>Permission then option is visible but user can't modify it</comment>
   </data>
   <data name="ACLPermissionsWriteAllow" xml:space="preserve">
-    <value>ரைட்டிலோ</value>
+    <value>எழுதஇசைவு</value>
     <comment>Permission then user could modify an option value</comment>
   </data>
   <data name="lblConnectionsBackupPath" xml:space="preserve">
-    <value>இணைப்பு தரவு காப்பு கோப்புறைக்கு இருப்பிடத்தைத் தேர்ந்தெடுக்கவும்</value>
+    <value>இணைப்பு தரவு காப்பு கோப்புறைக்கு இருப்பிடத்தைத் தேர்ந்தெடு</value>
   </data>
   <data name="btnBrowsePath" xml:space="preserve">
     <value>உலாவு</value>
   </data>
   <data name="lblACL" xml:space="preserve">
-    <value>பயனருக்கு ACL</value>
+    <value>பயனருக்கு ஏசிஎல்</value>
   </data>
   <data name="lblBackupEnable" xml:space="preserve">
     <value>இணைப்பு தரவுகளுக்கான காப்புப்பிரதிகள்</value>
@@ -2278,25 +2278,25 @@
     <value>பயனருக்காக காட்டு</value>
   </data>
   <data name="FiltermRemoteRemoteDesktopManagerCSV" xml:space="preserve">
-    <value>தொலைநிலை டெச்க்டாப் மேலாளர் கோப்புகள் (*.csv)</value>
+    <value>தொலைநிலை பணிமேடை மேலாளர் கோப்புகள் (*.csv)</value>
   </data>
   <data name="FileMenu" xml:space="preserve">
     <value>கோப்பு பட்டியல்</value>
   </data>
   <data name="FileMenuWillBeHiddenNow" xml:space="preserve">
-    <value>கோப்பு பட்டியல் இப்போது மறைக்கப்பட்டுள்ளது. பார்வைக்கு மாற்று பொத்தானை அழுத்தவும்</value>
+    <value>கோப்பு பட்டியல் இப்போது மறைக்கப்பட்டுள்ளது. பார்வைக்கு மாற்று பொத்தானை அழுத்து</value>
   </data>
   <data name="ECPDelineaSecretServer" xml:space="preserve">
-    <value>டெலினியா ரகசிய சேவையகம்</value>
+    <value>டெலினியா மறைமுக சேவையகம்</value>
   </data>
   <data name="ECPClickstudiosPasswordstate" xml:space="preserve">
-    <value>ClickStudios கடவுச்சொல்ச்டேட்</value>
+    <value>கலைக்கூடம்சொடுக்கு கடவுச்சொல்நிலை</value>
   </data>
   <data name="ECPNone" xml:space="preserve">
     <value>எதுவுமில்லை</value>
   </data>
   <data name="EAPAmazonWebServices" xml:space="preserve">
-    <value>அமேசானெக் 2</value>
+    <value>அமேசான்இசி 2</value>
   </data>
   <data name="EAPNone" xml:space="preserve">
     <value>எதுவுமில்லை</value>
@@ -2305,7 +2305,7 @@
     <value>வெளிப்புற நற்சான்றிதழ் வழங்குநர்</value>
   </data>
   <data name="PropertyDescriptionExternalCredentialProvider" xml:space="preserve">
-    <value>சான்றுகளை மீட்டெடுக்க வெளிப்புற நற்சான்றிதழ் வழங்குநர் / வால்ட்</value>
+    <value>சான்றுகளை மீட்டெடுக்க வெளிப்புற நற்சான்றிதழ் வழங்குநர் / பெட்டகம்</value>
   </data>
   <data name="PropertyDescriptionExternalAddressProvider" xml:space="preserve">
     <value>புரவலன் முகவரியை மீட்டெடுக்க வெளிப்புற வழங்குநர்</value>
@@ -2314,7 +2314,7 @@
     <value>வெளிப்புற முகவரி வழங்குநர்</value>
   </data>
   <data name="UseExternalCredentialProvider" xml:space="preserve">
-    <value>வெளிப்புற நற்சான்றிதழ் வழங்குநரைப் பயன்படுத்தவும்</value>
+    <value>வெளிப்புற நற்சான்றிதழ் வழங்குநரைப் பயன்படுத்து</value>
   </data>
   <data name="CheckboxNoReconnect" xml:space="preserve">
     <value>சேவையகத்திலிருந்து துண்டிக்கப்படும்போது தானாகவே மீண்டும் இணைக்க முயற்சிக்கவும் (தொபநெ &amp;&amp; ஐசிஏ மட்டும்)</value>
@@ -2338,20 +2338,20 @@
     <value>தனிப்பயன் இயக்கிகள்</value>
   </data>
   <data name="PropertyDescriptionRdpGatewayAccessToken" xml:space="preserve">
-    <value>தொலைநிலை டெச்க்டாப் நுழைவாயில் சேவையகத்திற்கான அணுகல் டோக்கனைக் குறிப்பிடுகிறது.</value>
+    <value>தொலைநிலை பணிமேடை நுழைவாயில் சேவையகத்திற்கான அணுகல் கிள்ளாக்கை குறிப்பிடுகிறது.</value>
   </data>
   <data name="RdpGatewayAccessToken" xml:space="preserve">
     <value>தொபநெ-நுழைவாயில் அணுகல் கிள்ளாக்கு</value>
   </data>
   <data name="UseAccessToken" xml:space="preserve">
-    <value>RD நுழைவாயில் அணுகல் கிள்ளாக்கைப் பயன்படுத்தவும்</value>
+    <value>RD நுழைவாயில் அணுகல் கிள்ளாக்கைப் பயன்படுத்து</value>
   </data>
   <data name="PsCanceled" xml:space="preserve">
-    <value>உள்நுழைவு ரத்து செய்யப்பட்டது! தேவைப்பட்டால் மறுதொடக்கம் செய்யுங்கள்.</value>
+    <value>உள்நுழைவு நீக்கறல் செய்யப்பட்டது! தேவைப்பட்டால் மறுதொடக்கம் செய்.</value>
     <comment>C# to Powershell transfer issue with encoding possible</comment>
   </data>
   <data name="PsConnectionFailed" xml:space="preserve">
-    <value>தயவுசெய்து பயனர்பெயர் மற்றும் கடவுச்சொல்லை சரிபார்த்து மீண்டும் முயற்சிக்கவும். சேவையகத்தில் psremoting இயக்கப்பட்டிருந்தால், அதை முதலில் இயக்கவும்.</value>
+    <value>தயவுசெய்து பயனர்பெயர் மற்றும் கடவுச்சொல்லை சரிபார்த்து மீண்டும் முயற்சிக்கவும். சேவையகத்தில் ஆஓதொலை இயக்கப்பட்டிருந்தால், அதை முதலில் இயக்கு.</value>
     <comment>C# to Powershell transfer issue with encoding possible</comment>
   </data>
   <data name="PsFailed" xml:space="preserve">
