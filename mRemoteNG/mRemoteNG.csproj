@@ -226,6 +226,11 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>OptionsAdvancedPage.settings</DependentUpon>
     </Compile>
+    <Compile Update="Properties\OptionsApiServerPage.Designer.cs">
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>OptionsApiServerPage.settings</DependentUpon>
+    </Compile>
     <Compile Update="Properties\OptionsAppearancePage.Designer.cs">
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <AutoGen>True</AutoGen>
@@ -466,6 +471,10 @@
     <None Update="Properties\OptionsAdvancedPage.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>OptionsAdvancedPage.Designer.cs</LastGenOutput>
+    </None>
+    <None Update="Properties\OptionsApiServerPage.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>OptionsApiServerPage.Designer.cs</LastGenOutput>
     </None>
     <None Update="Properties\OptionsAppearancePage.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

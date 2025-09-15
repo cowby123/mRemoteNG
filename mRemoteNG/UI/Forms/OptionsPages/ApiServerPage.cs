@@ -1,6 +1,8 @@
 using System;
 using System.Runtime.Versioning;
+using mRemoteNG.App;
 using mRemoteNG.Properties;
+using mRemoteNG.Security.SymmetricEncryption;
 
 namespace mRemoteNG.UI.Forms.OptionsPages
 {
@@ -32,13 +34,27 @@ namespace mRemoteNG.UI.Forms.OptionsPages
 
         public override void LoadSettings()
         {
-            // TODO: load API server settings
+            chkEnableApiServer.Checked = Properties.OptionsApiServerPage.Default.EnableApiServer;
+            txtUrl.Text = Properties.OptionsApiServerPage.Default.ApiServerUrl;
+            txtUsername.Text = Properties.OptionsApiServerPage.Default.ApiServerUsername;
+            LegacyRijndaelCryptographyProvider cryptographyProvider = new();
+            txtPassword.Text = cryptographyProvider.Decrypt(Properties.OptionsApiServerPage.Default.ApiServerPassword, Runtime.EncryptionKey);
             UpdateFieldsVisibility();
         }
 
         public override void SaveSettings()
         {
-            // TODO: save API server settings
+            Properties.OptionsApiServerPage.Default.EnableApiServer = chkEnableApiServer.Checked;
+            Properties.OptionsApiServerPage.Default.ApiServerUrl = txtUrl.Text;
+            Properties.OptionsApiServerPage.Default.ApiServerUsername = txtUsername.Text;
+            LegacyRijndaelCryptographyProvider cryptographyProvider = new();
+            Properties.OptionsApiServerPage.Default.ApiServerPassword = cryptographyProvider.Encrypt(txtPassword.Text, Runtime.EncryptionKey);
+        }
+
+        public override void RevertSettings()
+        {
+            Properties.OptionsApiServerPage.Default.Reload();
+            LoadSettings();
         }
 
         private void ChkEnableApiServer_CheckedChanged(object sender, EventArgs e)

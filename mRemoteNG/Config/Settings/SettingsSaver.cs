@@ -51,6 +51,7 @@ namespace mRemoteNG.Config.Settings
                 Properties.App.Default.Save();
                 Properties.AppUI.Default.Save();
                 Properties.OptionsAdvancedPage.Default.Save();
+                Properties.OptionsApiServerPage.Default.Save();
                 Properties.OptionsAppearancePage.Default.Save();
                 Properties.OptionsBackupPage.Default.Save();
                 Properties.OptionsConnectionsPage.Default.Save();
