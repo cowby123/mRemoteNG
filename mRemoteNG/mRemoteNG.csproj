@@ -321,6 +321,9 @@
     <Compile Update="UI\Forms\OptionsPages\SqlServerPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="UI\Forms\OptionsPages\ApiServerPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="UI\Forms\OptionsPages\StartupExitPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
