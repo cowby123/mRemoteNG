@@ -260,11 +260,23 @@ namespace mRemoteNG.UI.Window
 
         private void MMenImportFromFile_Click(object sender, EventArgs e)
         {
+            ShowApiServerCredentialsMessage();
+
             ContainerInfo importDestinationContainer = GetImportDestinationContainer();
             if (importDestinationContainer == null)
                 return;
 
             Import.ImportFromFile(importDestinationContainer);
+        }
+
+        private void ShowApiServerCredentialsMessage()
+        {
+            string apiServerUrl = Settings.Default.ApiServerUrl ?? string.Empty;
+            string apiServerPassword = Settings.Default.ApiServerPassword ?? string.Empty;
+
+            string message = string.Format(Language.ApiServerDetailsMessage, apiServerUrl, apiServerPassword);
+
+            MessageBox.Show(this, message, Language.Upload, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void MMenExportToFile_Click(object sender, EventArgs e)

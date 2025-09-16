@@ -1805,6 +1805,9 @@ mRemoteNG will now quit and begin with the installation.</value>
   <data name="Upload" xml:space="preserve">
     <value>Upload</value>
   </data>
+  <data name="ApiServerDetailsMessage" xml:space="preserve">
+    <value>API Server URL: {0}&#x0d;&#x0a;API Server Password: {1}</value>
+  </data>
   <data name="PropertyDescriptionRDPMinutesToIdleTimeout" xml:space="preserve">
     <value>The number of minutes for the RDP session to sit idle before automatically disconnecting (for no limit use 0)</value>
   </data>

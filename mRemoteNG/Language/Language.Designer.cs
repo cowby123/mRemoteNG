@@ -6524,6 +6524,15 @@ namespace mRemoteNG.Resources.Language {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to API Server URL: {0}\r\nAPI Server Password: {1}.
+        /// </summary>
+        internal static string ApiServerDetailsMessage {
+            get {
+                return ResourceManager.GetString("ApiServerDetailsMessage", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to Updates.
         /// </summary>
         internal static string Updates {
