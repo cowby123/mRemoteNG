@@ -6513,7 +6513,16 @@ namespace mRemoteNG.Resources.Language {
                 return ResourceManager.GetString("UpdatePortableDownloadComplete", resourceCulture);
             }
         }
-        
+
+        /// <summary>
+        ///   Looks up a localized string similar to Upload.
+        /// </summary>
+        internal static string Upload {
+            get {
+                return ResourceManager.GetString("Upload", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Looks up a localized string similar to Updates.
         /// </summary>

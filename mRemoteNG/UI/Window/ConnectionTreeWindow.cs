@@ -89,8 +89,10 @@ namespace mRemoteNG.UI.Window
 
             mMenAddConnection.ToolTipText = Language.NewConnection;
             mMenAddFolder.ToolTipText = Language.NewFolder;
-            mMenImportFromFile.ToolTipText = Language.ImportFromFile;
-            mMenExportToFile.ToolTipText = Language.ExportFile;
+            mMenImportFromFile.ToolTipText = Language.Upload;
+            mMenImportFromFile.Text = Language.Upload;
+            mMenExportToFile.ToolTipText = Language.Download;
+            mMenExportToFile.Text = Language.Download;
             mMenViewExpandAllFolders.ToolTipText = Language.ExpandAllFolders;
             mMenViewCollapseAllFolders.ToolTipText = Language.CollapseAllFolders;
             mMenSort.ToolTipText = Language.Sort;
