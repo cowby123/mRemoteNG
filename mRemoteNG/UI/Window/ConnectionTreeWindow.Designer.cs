@@ -117,7 +117,7 @@ namespace mRemoteNG.UI.Window
             // mMenImportFromFile
             //
             this.mMenImportFromFile.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.mMenImportFromFile.Image = global::mRemoteNG.Properties.Resources.OpenFile_16x;
+            this.mMenImportFromFile.Image = global::mRemoteNG.Properties.Resources.GlyphUp_16x;
             this.mMenImportFromFile.Name = "mMenImportFromFile";
             this.mMenImportFromFile.Size = new System.Drawing.Size(28, 20);
             this.mMenImportFromFile.Click += new System.EventHandler(this.MMenImportFromFile_Click);
@@ -125,7 +125,7 @@ namespace mRemoteNG.UI.Window
             // mMenExportToFile
             //
             this.mMenExportToFile.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.mMenExportToFile.Image = global::mRemoteNG.Properties.Resources.Export_16x;
+            this.mMenExportToFile.Image = global::mRemoteNG.Properties.Resources.GlyphDown_16x;
             this.mMenExportToFile.Name = "mMenExportToFile";
             this.mMenExportToFile.Size = new System.Drawing.Size(28, 20);
             this.mMenExportToFile.Click += new System.EventHandler(this.MMenExportToFile_Click);
