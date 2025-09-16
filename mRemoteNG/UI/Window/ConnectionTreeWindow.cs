@@ -15,6 +15,7 @@ using mRemoteNG.Tree.ClickHandlers;
 using mRemoteNG.Tree.Root;
 using mRemoteNG.UI.Controls.ConnectionTree;
 using mRemoteNG.UI.TaskDialog;
+using mRemoteNG.Security.SymmetricEncryption;
 using WeifenLuo.WinFormsUI.Docking;
 using mRemoteNG.Resources.Language;
 using System.Runtime.Versioning;
@@ -271,10 +272,14 @@ namespace mRemoteNG.UI.Window
 
         private void ShowApiServerCredentialsMessage()
         {
-            string apiServerUrl = Settings.Default.ApiServerUrl ?? string.Empty;
-            string apiServerPassword = Settings.Default.ApiServerPassword ?? string.Empty;
+            LegacyRijndaelCryptographyProvider cryptographyProvider = new();
 
-            string message = string.Format(Language.ApiServerDetailsMessage, apiServerUrl, apiServerPassword);
+            string apiServerUrl = Properties.OptionsApiServerPage.Default.ApiServerUrl ?? string.Empty;
+            string apiServerUsername = Properties.OptionsApiServerPage.Default.ApiServerUsername ?? string.Empty;
+            string encryptedPassword = Properties.OptionsApiServerPage.Default.ApiServerPassword ?? string.Empty;
+            string apiServerPassword = cryptographyProvider.Decrypt(encryptedPassword, Runtime.EncryptionKey);
+
+            string message = string.Format(Language.ApiServerDetailsMessage, apiServerUrl, apiServerUsername, apiServerPassword);
 
             MessageBox.Show(this, message, Language.Upload, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
