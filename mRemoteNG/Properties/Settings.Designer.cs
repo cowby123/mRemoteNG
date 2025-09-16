@@ -2356,5 +2356,29 @@ namespace mRemoteNG.Properties {
                 this["ConDefaultRDGatewayExternalCredentialProvider"] = value;
             }
         }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ApiServerUrl {
+            get {
+                return ((string)(this["ApiServerUrl"]));
+            }
+            set {
+                this["ApiServerUrl"] = value;
+            }
+        }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ApiServerPassword {
+            get {
+                return ((string)(this["ApiServerPassword"]));
+            }
+            set {
+                this["ApiServerPassword"] = value;
+            }
+        }
     }
 }

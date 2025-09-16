@@ -89,6 +89,10 @@ namespace mRemoteNG.UI.Window
 
             mMenAddConnection.ToolTipText = Language.NewConnection;
             mMenAddFolder.ToolTipText = Language.NewFolder;
+            mMenImportFromFile.ToolTipText = Language.Upload;
+            mMenImportFromFile.Text = Language.Upload;
+            mMenExportToFile.ToolTipText = Language.Download;
+            mMenExportToFile.Text = Language.Download;
             mMenViewExpandAllFolders.ToolTipText = Language.ExpandAllFolders;
             mMenViewCollapseAllFolders.ToolTipText = Language.CollapseAllFolders;
             mMenSort.ToolTipText = Language.Sort;
@@ -252,6 +256,45 @@ namespace mRemoteNG.UI.Window
         private void CMenTreeAddFolder_Click(object sender, EventArgs e)
         {
             ConnectionTree.AddFolder();
+        }
+
+        private void MMenImportFromFile_Click(object sender, EventArgs e)
+        {
+            ShowApiServerCredentialsMessage();
+
+            ContainerInfo importDestinationContainer = GetImportDestinationContainer();
+            if (importDestinationContainer == null)
+                return;
+
+            Import.ImportFromFile(importDestinationContainer);
+        }
+
+        private void ShowApiServerCredentialsMessage()
+        {
+            string apiServerUrl = Settings.Default.ApiServerUrl ?? string.Empty;
+            string apiServerPassword = Settings.Default.ApiServerPassword ?? string.Empty;
+
+            string message = string.Format(Language.ApiServerDetailsMessage, apiServerUrl, apiServerPassword);
+
+            MessageBox.Show(this, message, Language.Upload, MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void MMenExportToFile_Click(object sender, EventArgs e)
+        {
+            Export.ExportToFile(ConnectionTree.SelectedNode, Runtime.ConnectionsService.ConnectionTreeModel);
+        }
+
+        private ContainerInfo GetImportDestinationContainer()
+        {
+            if (ConnectionTree.SelectedNode is ContainerInfo selectedContainer)
+                return selectedContainer;
+
+            if (ConnectionTree.SelectedNode?.Parent is ContainerInfo parentContainer)
+                return parentContainer;
+
+            return Runtime.ConnectionsService.ConnectionTreeModel.RootNodes
+                .OfType<ContainerInfo>()
+                .FirstOrDefault();
         }
 
         #endregion

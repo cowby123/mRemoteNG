@@ -8,14 +8,16 @@ namespace mRemoteNG.UI.Window
 	{
         #region  Windows Form Designer generated code
 		internal System.Windows.Forms.MenuStrip msMain;
-		internal System.Windows.Forms.ToolStripMenuItem mMenViewExpandAllFolders;
-		internal System.Windows.Forms.ToolStripMenuItem mMenViewCollapseAllFolders;
-		internal System.Windows.Forms.ToolStripMenuItem mMenSort;
-		internal System.Windows.Forms.ToolStripMenuItem mMenAddConnection;
-		internal System.Windows.Forms.ToolStripMenuItem mMenAddFolder;
-		public System.Windows.Forms.TreeView tvConnections;
-		private void InitializeComponent()
-		{
+                internal System.Windows.Forms.ToolStripMenuItem mMenViewExpandAllFolders;
+                internal System.Windows.Forms.ToolStripMenuItem mMenViewCollapseAllFolders;
+                internal System.Windows.Forms.ToolStripMenuItem mMenSort;
+                internal System.Windows.Forms.ToolStripMenuItem mMenAddConnection;
+                internal System.Windows.Forms.ToolStripMenuItem mMenAddFolder;
+                internal System.Windows.Forms.ToolStripMenuItem mMenImportFromFile;
+                internal System.Windows.Forms.ToolStripMenuItem mMenExportToFile;
+                public System.Windows.Forms.TreeView tvConnections;
+                private void InitializeComponent()
+                {
             this.components = new System.ComponentModel.Container();
             mRemoteNG.Tree.ConnectionTreeModel connectionTreeModel2 = new mRemoteNG.Tree.ConnectionTreeModel();
             TreeNodeCompositeClickHandler treeNodeCompositeClickHandler3 = new TreeNodeCompositeClickHandler();
@@ -25,6 +27,8 @@ namespace mRemoteNG.UI.Window
             this.msMain = new System.Windows.Forms.MenuStrip();
             this.mMenAddConnection = new System.Windows.Forms.ToolStripMenuItem();
             this.mMenAddFolder = new System.Windows.Forms.ToolStripMenuItem();
+            this.mMenImportFromFile = new System.Windows.Forms.ToolStripMenuItem();
+            this.mMenExportToFile = new System.Windows.Forms.ToolStripMenuItem();
             this.mMenViewExpandAllFolders = new System.Windows.Forms.ToolStripMenuItem();
             this.mMenViewCollapseAllFolders = new System.Windows.Forms.ToolStripMenuItem();
             this.mMenSort = new System.Windows.Forms.ToolStripMenuItem();
@@ -79,6 +83,8 @@ namespace mRemoteNG.UI.Window
             this.msMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mMenAddConnection,
             this.mMenAddFolder,
+            this.mMenImportFromFile,
+            this.mMenExportToFile,
             this.mMenViewExpandAllFolders,
             this.mMenViewCollapseAllFolders,
             this.mMenSort,
@@ -101,15 +107,31 @@ namespace mRemoteNG.UI.Window
             this.mMenAddConnection.Click += new System.EventHandler(this.CMenTreeAddConnection_Click);
             // 
             // mMenAddFolder
-            // 
+            //
             this.mMenAddFolder.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.mMenAddFolder.Image = global::mRemoteNG.Properties.Resources.AddFolder_16x;
             this.mMenAddFolder.Name = "mMenAddFolder";
             this.mMenAddFolder.Size = new System.Drawing.Size(28, 20);
             this.mMenAddFolder.Click += new System.EventHandler(this.CMenTreeAddFolder_Click);
-            // 
+            //
+            // mMenImportFromFile
+            //
+            this.mMenImportFromFile.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.mMenImportFromFile.Image = global::mRemoteNG.Properties.Resources.GlyphUp_16x;
+            this.mMenImportFromFile.Name = "mMenImportFromFile";
+            this.mMenImportFromFile.Size = new System.Drawing.Size(28, 20);
+            this.mMenImportFromFile.Click += new System.EventHandler(this.MMenImportFromFile_Click);
+            //
+            // mMenExportToFile
+            //
+            this.mMenExportToFile.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.mMenExportToFile.Image = global::mRemoteNG.Properties.Resources.GlyphDown_16x;
+            this.mMenExportToFile.Name = "mMenExportToFile";
+            this.mMenExportToFile.Size = new System.Drawing.Size(28, 20);
+            this.mMenExportToFile.Click += new System.EventHandler(this.MMenExportToFile_Click);
+            //
             // mMenViewExpandAllFolders
-            // 
+            //
             this.mMenViewExpandAllFolders.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.mMenViewExpandAllFolders.Image = global::mRemoteNG.Properties.Resources.ExpandAll_16x;
             this.mMenViewExpandAllFolders.Name = "mMenViewExpandAllFolders";
