@@ -214,6 +214,8 @@
     <Compile Include="Config\Settings\Providers\PortableSettingsProvider.cs" />
     <Compile Include="Config\Settings\SettingsSaver.cs" />
     <Compile Include="Config\ConfirmCloseEnum.cs" />
+    <Compile Include="Config\HttpServerConfig.cs" />
+    <Compile Include="Config\HttpServerConfigManager.cs" />
     <Compile Include="Config\Import\ActiveDirectoryImporter.cs" />
     <Compile Include="Config\Import\MRemoteNGXmlImporter.cs" />
     <Compile Include="Config\Import\PortScanImporter.cs" />

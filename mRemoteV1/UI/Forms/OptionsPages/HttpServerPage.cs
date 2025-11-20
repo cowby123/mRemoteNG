@@ -70,22 +70,34 @@ namespace mRemoteNG.UI.Forms.OptionsPages
             lblHttpServerEnabled.Text = "啟用 HTTP 伺服器";
             lblHttpServerPort.Text = "伺服器連接埠";
             lblHttpServerBindAddress.Text = "綁定位址";
+            lblHttpServerUsername.Text = "帳號";
+            lblHttpServerPassword.Text = "密碼";
+            btnHttpServerLogin.Text = "登入";
         }
 
         public override void LoadSettings()
         {
             base.LoadSettings();
 
-            chkHttpServerEnabled.Checked = Settings.Default.HttpServerEnabled;
-            numHttpServerPort.Value = Settings.Default.HttpServerPort;
-            txtHttpServerBindAddress.Text = Settings.Default.HttpServerBindAddress;
+            // 從獨立設定檔載入
+            var config = Config.HttpServerConfigManager.Instance.Config;
+            chkHttpServerEnabled.Checked = config.Enabled;
+            numHttpServerPort.Value = config.Port;
+            txtHttpServerBindAddress.Text = config.BindAddress;
+            txtHttpServerUsername.Text = config.Username;
+            txtHttpServerPassword.Text = config.Password;
         }
 
         public override void SaveSettings()
         {
-            Settings.Default.HttpServerEnabled = chkHttpServerEnabled.Checked;
-            Settings.Default.HttpServerPort = (int)numHttpServerPort.Value;
-            Settings.Default.HttpServerBindAddress = txtHttpServerBindAddress.Text;
+            // 儲存到獨立設定檔
+            var config = Config.HttpServerConfigManager.Instance.Config;
+            config.Enabled = chkHttpServerEnabled.Checked;
+            config.Port = (int)numHttpServerPort.Value;
+            config.BindAddress = txtHttpServerBindAddress.Text;
+            config.Username = txtHttpServerUsername.Text;
+            config.Password = txtHttpServerPassword.Text;
+            Config.HttpServerConfigManager.Instance.SaveConfig();
         }
 
         #endregion
