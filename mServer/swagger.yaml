@@ -1,0 +1,210 @@
+openapi: 3.0.0
+info:
+  title: mRemoteNG Server API
+  description: mRemoteNG 設定檔伺服器 API 文件
+  version: 1.0.0
+  contact:
+    name: mRemoteNG Team
+
+servers:
+  - url: http://localhost:8080
+    description: 本地開發伺服器
+
+tags:
+  - name: 認證
+    description: 用戶認證相關 API
+
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: JWT 認證 Token
+
+  schemas:
+    RegisterRequest:
+      type: object
+      required:
+        - username
+        - email
+        - password
+      properties:
+        username:
+          type: string
+          minLength: 3
+          maxLength: 50
+          description: 用戶名
+          example: john_doe
+        email:
+          type: string
+          format: email
+          description: Email 地址
+          example: john@example.com
+        password:
+          type: string
+          minLength: 6
+          description: 密碼
+          example: password123
+
+    LoginRequest:
+      type: object
+      required:
+        - username
+        - password
+      properties:
+        username:
+          type: string
+          description: 用戶名
+          example: john_doe
+        password:
+          type: string
+          description: 密碼
+          example: password123
+
+    UserResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: 用戶 ID
+          example: 1
+        username:
+          type: string
+          description: 用戶名
+          example: john_doe
+        email:
+          type: string
+          description: Email 地址
+          example: john@example.com
+
+    AuthResponse:
+      type: object
+      properties:
+        token:
+          type: string
+          description: JWT Token
+          example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+        user:
+          $ref: '#/components/schemas/UserResponse'
+
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+          description: 錯誤訊息
+          example: 用戶名或密碼錯誤
+
+    SuccessResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          description: 成功訊息
+          example: 操作成功
+
+paths:
+  /api/register:
+    post:
+      tags:
+        - 認證
+      summary: 註冊新用戶
+      description: 建立新的用戶帳號
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RegisterRequest'
+      responses:
+        '201':
+          description: 註冊成功
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthResponse'
+        '400':
+          description: 請求參數錯誤
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '409':
+          description: 用戶名或 Email 已存在
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: 伺服器內部錯誤
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /api/login:
+    post:
+      tags:
+        - 認證
+      summary: 用戶登入
+      description: 使用用戶名和密碼登入
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+      responses:
+        '200':
+          description: 登入成功
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AuthResponse'
+        '400':
+          description: 請求參數錯誤
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: 用戶名或密碼錯誤
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: 伺服器內部錯誤
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /api/logout:
+    post:
+      tags:
+        - 認證
+      summary: 用戶登出
+      description: 登出並將 Token 加入黑名單
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: 登出成功
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SuccessResponse'
+        '401':
+          description: 未授權或 Token 無效
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: 伺服器內部錯誤
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
