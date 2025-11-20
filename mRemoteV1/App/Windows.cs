@@ -14,7 +14,8 @@ namespace mRemoteNG.App
         private static ExternalToolsWindow _externalappsForm;
         private static PortScanWindow _portscanForm;
         private static UltraVNCWindow _ultravncscForm;
-        private static ComponentsCheckWindow _componentscheckForm;
+        // Citrix ICA 支援已移除
+        // private static ComponentsCheckWindow _componentscheckForm;
         private static ConnectionTreeWindow _treeForm;
 
         internal static ConnectionTreeWindow TreeForm
@@ -84,12 +85,13 @@ namespace mRemoteNG.App
                             _ultravncscForm = new UltraVNCWindow();
                         _ultravncscForm.Show(dockPanel);
                         break;
-                    case WindowType.ComponentsCheck:
-                        Runtime.MessageCollector.AddMessage(MessageClass.InformationMsg, "Showing ComponentsCheck window", true);
-                        if (_componentscheckForm == null || _componentscheckForm.IsDisposed)
-                            _componentscheckForm = new ComponentsCheckWindow();
-                        _componentscheckForm.Show(dockPanel);
-                        break;
+                    // Citrix ICA 支援已移除
+                    // case WindowType.ComponentsCheck:
+                    //     Runtime.MessageCollector.AddMessage(MessageClass.InformationMsg, "Showing ComponentsCheck window", true);
+                    //     if (_componentscheckForm == null || _componentscheckForm.IsDisposed)
+                    //         _componentscheckForm = new ComponentsCheckWindow();
+                    //     _componentscheckForm.Show(dockPanel);
+                    //     break;
                 }
             }
             catch (Exception ex)

@@ -1,5 +1,6 @@
 ﻿using mRemoteNG.Connection.Protocol.Http;
-using mRemoteNG.Connection.Protocol.ICA;
+// Citrix ICA 支援已移除
+// using mRemoteNG.Connection.Protocol.ICA;
 using mRemoteNG.Connection.Protocol.RAW;
 using mRemoteNG.Connection.Protocol.RDP;
 using mRemoteNG.Connection.Protocol.Rlogin;
@@ -49,10 +50,11 @@ namespace mRemoteNG.Connection.Protocol
 				case ProtocolType.HTTPS:
 					newProtocol = new ProtocolHTTPS(connectionInfo.RenderingEngine);
 					break;
-				case ProtocolType.ICA:
-					newProtocol = new IcaProtocol();
-					((IcaProtocol) newProtocol).tmrReconnect.Elapsed += ((IcaProtocol) newProtocol).tmrReconnect_Elapsed;
-					break;
+				// Citrix ICA 支援已移除
+				// case ProtocolType.ICA:
+				// 	newProtocol = new IcaProtocol();
+				// 	((IcaProtocol) newProtocol).tmrReconnect.Elapsed += ((IcaProtocol) newProtocol).tmrReconnect_Elapsed;
+				// 	break;
 				case ProtocolType.IntApp:
 					newProtocol = new IntegratedProgram();
 					if (connectionInfo.ExtApp == "")

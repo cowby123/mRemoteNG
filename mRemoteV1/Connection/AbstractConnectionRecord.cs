@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using mRemoteNG.Connection.Protocol;
 using mRemoteNG.Connection.Protocol.Http;
-using mRemoteNG.Connection.Protocol.ICA;
+// Citrix ICA 支援已移除
+// using mRemoteNG.Connection.Protocol.ICA;
+using mRemoteNG.Connection.Protocol.ICA; // 僅用於 enum 定義
 using mRemoteNG.Connection.Protocol.RDP;
 using mRemoteNG.Connection.Protocol.VNC;
 using mRemoteNG.Tools;

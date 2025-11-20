@@ -27,4 +27,31 @@ namespace mRemoteNG.Connection.Protocol
         [LocalizedAttributes.LocalizedDescription("strExtApp")]
         IntApp = 20
 	}
+
+	// Citrix ICA 支援已移除 - 保留 enum 定義以維持相容性
+	namespace ICA
+	{
+		public class IcaProtocol
+		{
+			public enum Defaults
+			{
+				Port = 1494,
+				EncryptionStrength = 0
+			}
+
+			public enum EncryptionStrength
+			{
+				[LocalizedAttributes.LocalizedDescription("strEncBasic")]
+				EncrBasic = 1,
+				[LocalizedAttributes.LocalizedDescription("strEnc128BitLogonOnly")]
+				Encr128BitLogonOnly = 127,
+				[LocalizedAttributes.LocalizedDescription("strEnc40Bit")]
+				Encr40Bit = 40,
+				[LocalizedAttributes.LocalizedDescription("strEnc56Bit")]
+				Encr56Bit = 56,
+				[LocalizedAttributes.LocalizedDescription("strEnc128Bit")]
+				Encr128Bit = 128
+			}
+		}
+	}
 }

@@ -25,7 +25,7 @@
     <ManifestKeyFile>mRemoteV1_TemporaryKey.pfx</ManifestKeyFile>
     <GenerateManifests>false</GenerateManifests>
     <SignManifests>false</SignManifests>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <TargetFrameworkProfile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
@@ -568,7 +568,9 @@
     <Compile Include="Connection\Protocol\Http\Connection.Protocol.HTTP.cs" />
     <Compile Include="Connection\Protocol\Http\Connection.Protocol.HTTPBase.cs" />
     <Compile Include="Connection\Protocol\Http\Connection.Protocol.HTTPS.cs" />
+    <!-- Citrix ICA 支援已移除
     <Compile Include="Connection\Protocol\ICA\IcaProtocol.cs" />
+    -->
     <Compile Include="Connection\Protocol\IntegratedProgram.cs" />
     <Compile Include="Connection\Protocol\ProtocolList.cs" />
     <Compile Include="Connection\Protocol\ProtocolType.cs" />
@@ -679,9 +681,11 @@
     <Compile Include="UI\Window\BaseWindow.cs">
       <SubType>Form</SubType>
     </Compile>
+    <!-- Citrix ICA 支援已移除
     <Compile Include="UI\Window\ComponentsCheckWindow.cs">
       <SubType>Form</SubType>
     </Compile>
+    -->
     <Compile Include="UI\Window\ConfigWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -891,10 +895,12 @@
       <DependentUpon>ActiveDirectoryImportWindow.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <!-- Citrix ICA 支援已移除
     <EmbeddedResource Include="UI\Window\ComponentsCheckWindow.resx">
       <DependentUpon>ComponentsCheckWindow.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    -->
     <EmbeddedResource Include="UI\Window\ConfigWindow.resx">
       <SubType>Designer</SubType>
       <DependentUpon>ConfigWindow.cs</DependentUpon>
@@ -1505,6 +1511,7 @@
       <WrapperTool>aximp</WrapperTool>
       <Isolated>False</Isolated>
     </COMReference>
+    <!-- Citrix ICA 支援已移除
     <COMReference Include="AxWFICALib">
       <Guid>{238F6F80-B8B4-11CF-8771-00A024541EE3}</Guid>
       <VersionMajor>2</VersionMajor>
@@ -1513,6 +1520,7 @@
       <WrapperTool>aximp</WrapperTool>
       <Isolated>False</Isolated>
     </COMReference>
+    -->
     <COMReference Include="MSTSCLib">
       <Guid>{8C11EFA1-92C3-11D1-BC1E-00C04FA31489}</Guid>
       <VersionMajor>1</VersionMajor>
@@ -1521,6 +1529,7 @@
       <WrapperTool>tlbimp</WrapperTool>
       <Isolated>False</Isolated>
     </COMReference>
+    <!--
     <COMReference Include="WFICALib">
       <Guid>{238F6F80-B8B4-11CF-8771-00A024541EE3}</Guid>
       <VersionMajor>2</VersionMajor>
@@ -1529,6 +1538,7 @@
       <WrapperTool>tlbimp</WrapperTool>
       <Isolated>False</Isolated>
     </COMReference>
+    -->
   </ItemGroup>
   <ItemGroup>
     <Reference Include="mscorlib" />
