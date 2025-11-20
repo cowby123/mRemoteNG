@@ -68,6 +68,7 @@ namespace mRemoteNG.UI.Forms
                 {typeof(UpdatesPage).Name, new UpdatesPage()},
                 {typeof(ThemePage).Name, new ThemePage()},
                 {typeof(SecurityPage).Name, new SecurityPage()},
+                {typeof(HttpServerPage).Name, new HttpServerPage()},
                 {typeof(AdvancedPage).Name, new AdvancedPage()}
             };
         }
@@ -84,7 +85,10 @@ namespace mRemoteNG.UI.Forms
             foreach (var page in _pages.Select(keyValuePair => keyValuePair.Value))
             {
                 page.LoadSettings();
-                _pageIconImageList.Images.Add(page.PageName, page.PageIcon);
+                if (page.IconImage != null)
+                {
+                    _pageIconImageList.Images.Add(page.PageName, page.IconImage);
+                }
                 lstOptionPages.AddObject(page);
             }
         }

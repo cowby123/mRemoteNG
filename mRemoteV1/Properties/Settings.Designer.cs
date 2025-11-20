@@ -2734,5 +2734,41 @@ namespace mRemoteNG {
                 this["OverrideFIPSCheck"] = value;
             }
         }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool HttpServerEnabled {
+            get {
+                return ((bool)(this["HttpServerEnabled"]));
+            }
+            set {
+                this["HttpServerEnabled"] = value;
+            }
+        }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("8080")]
+        public int HttpServerPort {
+            get {
+                return ((int)(this["HttpServerPort"]));
+            }
+            set {
+                this["HttpServerPort"] = value;
+            }
+        }
+
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("127.0.0.1")]
+        public string HttpServerBindAddress {
+            get {
+                return ((string)(this["HttpServerBindAddress"]));
+            }
+            set {
+                this["HttpServerBindAddress"] = value;
+            }
+        }
     }
 }

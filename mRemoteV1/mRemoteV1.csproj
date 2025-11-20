@@ -519,6 +519,12 @@
     <Compile Include="UI\Forms\OptionsPages\SecurityPage.Designer.cs">
       <DependentUpon>SecurityPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Forms\OptionsPages\HttpServerPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\Forms\OptionsPages\HttpServerPage.Designer.cs">
+      <DependentUpon>HttpServerPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Forms\OptionsPages\SqlServerPage.Designer.cs">
       <DependentUpon>SqlServerPage.cs</DependentUpon>
     </Compile>

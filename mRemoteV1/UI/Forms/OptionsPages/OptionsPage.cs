@@ -10,12 +10,17 @@ namespace mRemoteNG.UI.Forms.OptionsPages
 		{
             //InitializeComponent();
             Themes.ThemeManager.getInstance().ThemeChanged += ApplyTheme;
+            // 設定預設圖示
+            if (PageIcon == null)
+            {
+                PageIcon = SystemIcons.Application;
+            }
         }
-			
+
         #region Public Properties
 	    // ReSharper disable once UnusedAutoPropertyAccessor.Global
 	    [Browsable(false)]public virtual string PageName {get; set;}
-			
+
 		public virtual Icon PageIcon {get; protected set;}
         public virtual Image IconImage => PageIcon?.ToBitmap();
 
