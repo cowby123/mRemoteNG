@@ -284,8 +284,9 @@ namespace mRemoteNG.UI.Forms
 
         private void frmMain_Shown(object sender, EventArgs e)
         {
-            PromptForUpdatesPreference();
-            CheckForUpdates();
+            // 已停用自動更新提示和檢查
+            // PromptForUpdatesPreference();
+            // CheckForUpdates();
         }
 
         private void PromptForUpdatesPreference()
