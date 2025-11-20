@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing;
 using mRemoteNG.Connection.Protocol;
 using mRemoteNG.Connection.Protocol.Http;
 using mRemoteNG.Connection.Protocol.RDP;
@@ -22,6 +23,9 @@ namespace mRemoteNG.Connection
         private string _description;
         private string _icon;
         private string _panel;
+        private string _color;
+        private string _tabColor;
+        private ConnectionFrameColor _connectionFrameColor;
 
         private string _hostname;
         private ExternalAddressProvider _externalAddressProvider;
@@ -32,6 +36,9 @@ namespace mRemoteNG.Connection
         private string _username = "";
         //private SecureString _password = null;
         private string _password = null;
+        private string _vaultRole = null;
+        private string _vaultMount = null;
+        private VaultOpenbaoSecretEngine _vaultSecretEngine = VaultOpenbaoSecretEngine.Kv;
         private string _domain = "";
         private string _vmId = "";
         private bool _useEnhancedMode;
@@ -94,6 +101,7 @@ namespace mRemoteNG.Connection
         private string _macAddress;
         private string _openingCommand;
         private string _userField;
+        private string _environmentTags = "";
         private string _rdpStartProgram;
         private string _rdpStartProgramWorkDir;
         private bool _favorite;
@@ -153,6 +161,38 @@ namespace mRemoteNG.Connection
             set => SetField(ref _panel, value, "Panel");
         }
 
+        [LocalizedAttributes.LocalizedCategory(nameof(Language.Display)),
+         LocalizedAttributes.LocalizedDisplayName(nameof(Language.Color)),
+         LocalizedAttributes.LocalizedDescription(nameof(Language.PropertyDescriptionColor)),
+         Editor(typeof(System.Drawing.Design.ColorEditor), typeof(System.Drawing.Design.UITypeEditor)),
+         TypeConverter(typeof(MiscTools.TabColorConverter))]
+        public virtual string Color
+        {
+            get => GetPropertyValue("Color", _color);
+            set => SetField(ref _color, value, "Color");
+        }
+
+        [LocalizedAttributes.LocalizedCategory(nameof(Language.Display)),
+         LocalizedAttributes.LocalizedDisplayName(nameof(Language.TabColor)),
+         LocalizedAttributes.LocalizedDescription(nameof(Language.PropertyDescriptionTabColor)),
+         Editor(typeof(System.Drawing.Design.ColorEditor), typeof(System.Drawing.Design.UITypeEditor)),
+         TypeConverter(typeof(MiscTools.TabColorConverter))]
+        public virtual string TabColor
+        {
+            get => GetPropertyValue("TabColor", _tabColor);
+            set => SetField(ref _tabColor, value, "TabColor");
+        }
+
+        [LocalizedAttributes.LocalizedCategory(nameof(Language.Display)),
+         LocalizedAttributes.LocalizedDisplayName(nameof(Language.ConnectionFrameColor)),
+         LocalizedAttributes.LocalizedDescription(nameof(Language.PropertyDescriptionConnectionFrameColor)),
+         TypeConverter(typeof(MiscTools.EnumTypeConverter))]
+        public virtual ConnectionFrameColor ConnectionFrameColor
+        {
+            get => GetPropertyValue("ConnectionFrameColor", _connectionFrameColor);
+            set => SetField(ref _connectionFrameColor, value, "ConnectionFrameColor");
+        }
+
         #endregion
 
         #region Connection
@@ -203,7 +243,7 @@ namespace mRemoteNG.Connection
         [LocalizedAttributes.LocalizedCategory(nameof(Language.Connection), 2),
          LocalizedAttributes.LocalizedDisplayName(nameof(Language.Username)),
          LocalizedAttributes.LocalizedDescription(nameof(Language.PropertyDescriptionUsername)),
-         AttributeUsedInProtocol(ProtocolType.RDP, ProtocolType.SSH1, ProtocolType.SSH2)]
+         AttributeUsedInProtocol(ProtocolType.RDP, ProtocolType.SSH1, ProtocolType.SSH2, ProtocolType.HTTP, ProtocolType.HTTPS, ProtocolType.IntApp)]
         public virtual string Username
         {
             get => GetPropertyValue("Username", _username);
@@ -223,9 +263,39 @@ namespace mRemoteNG.Connection
         }
 
         [LocalizedAttributes.LocalizedCategory(nameof(Language.Connection), 2),
+         LocalizedAttributes.LocalizedDisplayName(nameof(Language.VaultOpenbaoMount)),
+         LocalizedAttributes.LocalizedDescription(nameof(Language.VaultOpenbaoMountDescription)),
+         AttributeUsedInProtocol(ProtocolType.RDP, ProtocolType.SSH1, ProtocolType.SSH2)]
+        public virtual string VaultOpenbaoMount {
+            get => GetPropertyValue("VaultOpenbaoMount", _vaultMount);
+            set => SetField(ref _vaultMount, value, "VaultOpenbaoMount");
+        }
+
+        [LocalizedAttributes.LocalizedCategory(nameof(Language.Connection), 2),
+         LocalizedAttributes.LocalizedDisplayName(nameof(Language.VaultOpenbaoRole)),
+         LocalizedAttributes.LocalizedDescription(nameof(Language.VaultOpenbaoRoleDescription)),
+         AttributeUsedInProtocol(ProtocolType.RDP, ProtocolType.SSH1, ProtocolType.SSH2)]
+        public virtual string VaultOpenbaoRole {
+            get => GetPropertyValue("VaultOpenbaoRole", _vaultRole);
+            set => SetField(ref _vaultRole, value, "VaultOpenbaoRole");
+        }
+
+        // external credential provider selector
+        [LocalizedAttributes.LocalizedCategory(nameof(Language.Connection), 2),
+         LocalizedAttributes.LocalizedDisplayName(nameof(Language.VaultOpenbaoSecretEngine)),
+         LocalizedAttributes.LocalizedDescription(nameof(Language.PropertyDescriptionVaultOpenbaoSecretEngine)),
+         TypeConverter(typeof(MiscTools.EnumTypeConverter)),
+         AttributeUsedInProtocol(ProtocolType.RDP, ProtocolType.SSH1, ProtocolType.SSH2)]
+        public VaultOpenbaoSecretEngine VaultOpenbaoSecretEngine {
+            get => GetPropertyValue("VaultOpenbaoSecretEngine", _vaultSecretEngine);
+            set => SetField(ref _vaultSecretEngine, value, "VaultOpenbaoSecretEngine");
+        }
+
+
+        [LocalizedAttributes.LocalizedCategory(nameof(Language.Connection), 2),
          LocalizedAttributes.LocalizedDisplayName(nameof(Language.Domain)),
          LocalizedAttributes.LocalizedDescription(nameof(Language.PropertyDescriptionDomain)),
-         AttributeUsedInProtocol(ProtocolType.RDP, ProtocolType.IntApp, ProtocolType.PowerShell)]
+         AttributeUsedInProtocol(ProtocolType.RDP, ProtocolType.IntApp, ProtocolType.PowerShell, ProtocolType.WSL)]
         public string Domain
         {
             get => GetPropertyValue("Domain", _domain).Trim();
@@ -870,6 +940,15 @@ namespace mRemoteNG.Connection
         }
 
         [LocalizedAttributes.LocalizedCategory(nameof(Language.Miscellaneous), 7),
+         LocalizedAttributes.LocalizedDisplayName(nameof(Language.EnvironmentTags)),
+         LocalizedAttributes.LocalizedDescription(nameof(Language.PropertyDescriptionEnvironmentTags))]
+        public virtual string EnvironmentTags
+        {
+            get => GetPropertyValue("EnvironmentTags", _environmentTags);
+            set => SetField(ref _environmentTags, value, "EnvironmentTags");
+        }
+
+        [LocalizedAttributes.LocalizedCategory(nameof(Language.Miscellaneous), 7),
             LocalizedAttributes.LocalizedDisplayName(nameof(Language.Favorite)),
             LocalizedAttributes.LocalizedDescription(nameof(Language.PropertyDescriptionFavorite)),
             TypeConverter(typeof(MiscTools.YesNoTypeConverter))]
@@ -908,7 +987,7 @@ namespace mRemoteNG.Connection
          LocalizedAttributes.LocalizedDisplayName(nameof(Language.Compression)),
          LocalizedAttributes.LocalizedDescription(nameof(Language.PropertyDescriptionCompression)),
          TypeConverter(typeof(MiscTools.EnumTypeConverter)),
-         AttributeUsedInProtocol(ProtocolType.VNC),
+         AttributeUsedInProtocol(ProtocolType.VNC, ProtocolType.ARD),
          Browsable(false)]
         public ProtocolVNC.Compression VNCCompression
         {
@@ -920,7 +999,7 @@ namespace mRemoteNG.Connection
          LocalizedAttributes.LocalizedDisplayName(nameof(Language.Encoding)),
          LocalizedAttributes.LocalizedDescription(nameof(Language.PropertyDescriptionEncoding)),
          TypeConverter(typeof(MiscTools.EnumTypeConverter)),
-         AttributeUsedInProtocol(ProtocolType.VNC),
+         AttributeUsedInProtocol(ProtocolType.VNC, ProtocolType.ARD),
          Browsable(false)]
         public ProtocolVNC.Encoding VNCEncoding
         {
@@ -932,7 +1011,7 @@ namespace mRemoteNG.Connection
          LocalizedAttributes.LocalizedDisplayName(nameof(Language.AuthenticationMode)),
          LocalizedAttributes.LocalizedDescription(nameof(Language.PropertyDescriptionAuthenticationMode)),
          TypeConverter(typeof(MiscTools.EnumTypeConverter)),
-         AttributeUsedInProtocol(ProtocolType.VNC),
+         AttributeUsedInProtocol(ProtocolType.VNC, ProtocolType.ARD),
          Browsable(false)]
         public ProtocolVNC.AuthMode VNCAuthMode
         {
@@ -944,7 +1023,7 @@ namespace mRemoteNG.Connection
             LocalizedAttributes.LocalizedDisplayName(nameof(Language.ProxyType)),
             LocalizedAttributes.LocalizedDescription(nameof(Language.PropertyDescriptionVNCProxyType)),
             TypeConverter(typeof(MiscTools.EnumTypeConverter)),
-            AttributeUsedInProtocol(ProtocolType.VNC),
+            AttributeUsedInProtocol(ProtocolType.VNC, ProtocolType.ARD),
             Browsable(false)]
         public ProtocolVNC.ProxyType VNCProxyType
         {
@@ -955,7 +1034,7 @@ namespace mRemoteNG.Connection
         [LocalizedAttributes.LocalizedCategory(nameof(Language.Proxy), 7),
             LocalizedAttributes.LocalizedDisplayName(nameof(Language.ProxyAddress)),
             LocalizedAttributes.LocalizedDescription(nameof(Language.PropertyDescriptionVNCProxyAddress)),
-            AttributeUsedInProtocol(ProtocolType.VNC),
+            AttributeUsedInProtocol(ProtocolType.VNC, ProtocolType.ARD),
             Browsable(false)]
         public string VNCProxyIP
         {
@@ -966,7 +1045,7 @@ namespace mRemoteNG.Connection
         [LocalizedAttributes.LocalizedCategory(nameof(Language.Proxy), 7),
             LocalizedAttributes.LocalizedDisplayName(nameof(Language.ProxyPort)),
             LocalizedAttributes.LocalizedDescription(nameof(Language.PropertyDescriptionVNCProxyPort)),
-            AttributeUsedInProtocol(ProtocolType.VNC),
+            AttributeUsedInProtocol(ProtocolType.VNC, ProtocolType.ARD),
             Browsable(false)]
         public int VNCProxyPort
         {
@@ -977,7 +1056,7 @@ namespace mRemoteNG.Connection
         [LocalizedAttributes.LocalizedCategory(nameof(Language.Proxy), 7),
             LocalizedAttributes.LocalizedDisplayName(nameof(Language.ProxyUsername)),
             LocalizedAttributes.LocalizedDescription(nameof(Language.PropertyDescriptionVNCProxyUsername)),
-            AttributeUsedInProtocol(ProtocolType.VNC),
+            AttributeUsedInProtocol(ProtocolType.VNC, ProtocolType.ARD),
             Browsable(false)]
         public string VNCProxyUsername
         {
@@ -989,7 +1068,7 @@ namespace mRemoteNG.Connection
             LocalizedAttributes.LocalizedDisplayName(nameof(Language.ProxyPassword)),
             LocalizedAttributes.LocalizedDescription(nameof(Language.PropertyDescriptionVNCProxyPassword)),
             PasswordPropertyText(true),
-            AttributeUsedInProtocol(ProtocolType.VNC),
+            AttributeUsedInProtocol(ProtocolType.VNC, ProtocolType.ARD),
             Browsable(false)]
         public string VNCProxyPassword
         {
@@ -1001,7 +1080,7 @@ namespace mRemoteNG.Connection
          LocalizedAttributes.LocalizedDisplayName(nameof(Language.Colors)),
          LocalizedAttributes.LocalizedDescription(nameof(Language.PropertyDescriptionColors)),
          TypeConverter(typeof(MiscTools.EnumTypeConverter)),
-         AttributeUsedInProtocol(ProtocolType.VNC),
+         AttributeUsedInProtocol(ProtocolType.VNC, ProtocolType.ARD),
          Browsable(false)]
         public ProtocolVNC.Colors VNCColors
         {
@@ -1013,7 +1092,7 @@ namespace mRemoteNG.Connection
          LocalizedAttributes.LocalizedDisplayName(nameof(Language.SmartSizeMode)),
          LocalizedAttributes.LocalizedDescription(nameof(Language.PropertyDescriptionSmartSizeMode)),
          TypeConverter(typeof(MiscTools.EnumTypeConverter)),
-         AttributeUsedInProtocol(ProtocolType.VNC)]
+         AttributeUsedInProtocol(ProtocolType.VNC, ProtocolType.ARD)]
         public ProtocolVNC.SmartSizeMode VNCSmartSizeMode
         {
             get => GetPropertyValue("VNCSmartSizeMode", _vncSmartSizeMode);
@@ -1024,7 +1103,7 @@ namespace mRemoteNG.Connection
          LocalizedAttributes.LocalizedDisplayName(nameof(Language.ViewOnly)),
          LocalizedAttributes.LocalizedDescription(nameof(Language.PropertyDescriptionViewOnly)),
          TypeConverter(typeof(MiscTools.YesNoTypeConverter)),
-         AttributeUsedInProtocol(ProtocolType.VNC)]
+         AttributeUsedInProtocol(ProtocolType.VNC, ProtocolType.ARD)]
         public bool VNCViewOnly
         {
             get => GetPropertyValue("VNCViewOnly", _vncViewOnly);

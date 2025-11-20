@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using WeifenLuo.WinFormsUI.Docking;
 using System.Linq;
 using System.Runtime.Versioning;
@@ -16,6 +17,10 @@ namespace mRemoteNG.Themes
         /// <param name="baseTheme"></param>
         public static void SaveToXmlFile(ThemeInfo themeToSave, ThemeInfo baseTheme)
         {
+            if (baseTheme.URI == null || baseTheme.URI.Contains("../") || baseTheme.URI.Contains(@"..\"))
+                throw new ArgumentException("Invalid file path");
+            if (themeToSave.Name == null || themeToSave.Name.Contains("../") || themeToSave.Name.Contains(@"..\"))
+                throw new ArgumentException("Invalid file path");
             string oldURI = baseTheme.URI;
             string directoryName = Path.GetDirectoryName(oldURI);
             string toSaveURI = directoryName + Path.DirectorySeparatorChar + themeToSave.Name + ".vstheme";
@@ -25,6 +30,8 @@ namespace mRemoteNG.Themes
 
         public static void DeleteFile(ThemeInfo themeToDelete)
         {
+            if (themeToDelete.URI == null || themeToDelete.URI.Contains("../") || themeToDelete.URI.Contains(@"..\"))
+                throw new ArgumentException("Invalid file path");
             File.Delete(themeToDelete.URI);
         }
 
@@ -34,6 +41,8 @@ namespace mRemoteNG.Themes
         /// <param name="themeToUpdate"></param>
         public static void UpdateThemeXMLValues(ThemeInfo themeToUpdate)
         {
+            if (themeToUpdate.URI == null || themeToUpdate.URI.Contains("../") || themeToUpdate.URI.Contains(@"..\"))
+                throw new ArgumentException("Invalid file path");
             byte[] bytesIn = File.ReadAllBytes(themeToUpdate.URI);
             MremoteNGPaletteManipulator manipulator = new(bytesIn, themeToUpdate.ExtendedPalette);
             byte[] bytesOut = manipulator.mergePalette(themeToUpdate.ExtendedPalette);
@@ -48,6 +57,8 @@ namespace mRemoteNG.Themes
         /// <returns></returns>
         public static ThemeInfo LoadFromXmlFile(string filename, ThemeInfo defaultTheme = null)
         {
+            if (filename == null || filename.Contains("../") || filename.Contains(@"..\"))
+                throw new ArgumentException("Invalid file path");
             byte[] bytes = File.ReadAllBytes(filename);
             //Load the dockpanel part
             MremoteNGThemeBase themeBaseLoad = new(bytes);

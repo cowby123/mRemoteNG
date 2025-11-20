@@ -143,6 +143,13 @@ namespace mRemoteNG.UI.Window
                 // TODO: See if we can make this work with DPS...
                 //TabController.HideTabsMode = TabControl.HideTabsModes.HideAlways;
 
+                // Ensure the ConnectionWindow is visible before adding the tab
+                // This prevents visibility issues when the window was created but not yet shown
+                // Check DockState instead of Visible to properly detect if window is shown in DockPanel
+                if (DockState == DockState.Unknown || DockState == DockState.Hidden || !Visible)
+                {
+                    Show(FrmMain.Default.pnlDock, DockState.Document);
+                }
 
                 //Show the tab
                 conTab.Show(connDock, DockState.Document);
@@ -288,16 +295,11 @@ namespace mRemoteNG.UI.Window
                  Settings.Default.ConfirmCloseConnection == (int)ConfirmCloseEnum.Multiple &
                  connDock.Documents.Count() > 1))
             {
-                DialogResult result = CTaskDialog.MessageBox(this, GeneralAppInfo.ProductName,
-                                                    string
-                                                        .Format(Language.ConfirmCloseConnectionPanelMainInstruction,
-                                                                Text), "", "", "",
-                                                    Language.CheckboxDoNotShowThisMessageAgain,
-                                                    ETaskDialogButtons.YesNo, ESysIcons.Question,
-                                                    ESysIcons.Question);
+                DialogResult result = CTaskDialog.MessageBox(this, GeneralAppInfo.ProductName, string.Format(Language.ConfirmCloseConnectionPanelMainInstruction, Text), "", "", "", Language.CheckboxDoNotShowThisMessageAgain, ETaskDialogButtons.YesNo, ESysIcons.Question, ESysIcons.Question);
                 if (CTaskDialog.VerificationChecked)
                 {
-                    Settings.Default.ConfirmCloseConnection--;
+                    Settings.Default.ConfirmCloseConnection = (int)ConfirmCloseEnum.Never;
+                    Settings.Default.Save();
                 }
 
                 if (result == DialogResult.No)
@@ -335,6 +337,54 @@ namespace mRemoteNG.UI.Window
         private void Connection_ResizeEnd(object sender, EventArgs e)
         {
             ResizeEnd?.Invoke(sender, e);
+        }
+
+        internal void NavigateToNextTab()
+        {
+            try
+            {
+                var documents = connDock.DocumentsToArray();
+                if (documents.Length <= 1) return;
+
+                var currentIndex = Array.IndexOf(documents, connDock.ActiveContent);
+                if (currentIndex == -1)
+                {
+                    Runtime.MessageCollector.AddMessage(MessageClass.DebugMsg, "NavigateToNextTab: ActiveContent not found in documents array");
+                    return;
+                }
+
+                var nextIndex = (currentIndex + 1) % documents.Length;
+                documents[nextIndex].DockHandler.Activate();
+            }
+            catch (Exception ex)
+            {
+                Runtime.MessageCollector.AddExceptionMessage("NavigateToNextTab (UI.Window.ConnectionWindow) failed", ex);
+            }
+        }
+
+        internal void NavigateToPreviousTab()
+        {
+            try
+            {
+                var documents = connDock.DocumentsToArray();
+                if (documents.Length <= 1) return;
+
+                var currentIndex = Array.IndexOf(documents, connDock.ActiveContent);
+                if (currentIndex == -1)
+                {
+                    Runtime.MessageCollector.AddMessage(MessageClass.DebugMsg, "NavigateToPreviousTab: ActiveContent not found in documents array");
+                    return;
+                }
+
+                var previousIndex = currentIndex - 1;
+                if (previousIndex < 0)
+                    previousIndex = documents.Length - 1;
+                documents[previousIndex].DockHandler.Activate();
+            }
+            catch (Exception ex)
+            {
+                Runtime.MessageCollector.AddExceptionMessage("NavigateToPreviousTab (UI.Window.ConnectionWindow) failed", ex);
+            }
         }
 
         #endregion
@@ -465,14 +515,14 @@ namespace mRemoteNG.UI.Window
                 InterfaceControl interfaceControl = GetInterfaceControl();
                 if (interfaceControl == null) return;
 
-                App.Windows.Show(WindowType.SSHTransfer);
+                AppWindows.Show(WindowType.SSHTransfer);
                 ConnectionInfo connectionInfo = interfaceControl.Info;
 
-                App.Windows.SshtransferForm.Hostname = connectionInfo.Hostname;
-                App.Windows.SshtransferForm.Username = connectionInfo.Username;
+                AppWindows.SshtransferForm.Hostname = connectionInfo.Hostname;
+                AppWindows.SshtransferForm.Username = connectionInfo.Username;
                 //App.Windows.SshtransferForm.Password = connectionInfo.Password.ConvertToUnsecureString();
-                App.Windows.SshtransferForm.Password = connectionInfo.Password;
-                App.Windows.SshtransferForm.Port = Convert.ToString(connectionInfo.Port);
+                AppWindows.SshtransferForm.Password = connectionInfo.Password;
+                AppWindows.SshtransferForm.Port = Convert.ToString(connectionInfo.Port);
             }
             catch (Exception ex)
             {
@@ -662,7 +712,8 @@ namespace mRemoteNG.UI.Window
                                                     ESysIcons.Question);
                 if (CTaskDialog.VerificationChecked)
                 {
-                    Settings.Default.ConfirmCloseConnection--;
+                    Settings.Default.ConfirmCloseConnection = (int)ConfirmCloseEnum.Never;
+                    Settings.Default.Save();
                 }
 
                 if (result == DialogResult.No)
@@ -671,7 +722,7 @@ namespace mRemoteNG.UI.Window
                 }
             }
 
-            foreach (IDockContent dockContent in connDock.DocumentsToArray())
+            foreach (IDockContent dockContent in connDock.Documents.ToArray())
             {
                 ConnectionTab tab = (ConnectionTab)dockContent;
                 if (selectedTab != tab)
@@ -776,6 +827,7 @@ namespace mRemoteNG.UI.Window
             ProtocolBase protocolBase = sender as ProtocolBase;
             if (!(protocolBase?.InterfaceControl.Parent is ConnectionTab tabPage)) return;
             if (tabPage.Disposing || tabPage.IsDisposed) return;
+            if (IsDisposed || Disposing) return;
             tabPage.protocolClose = true;
             Invoke(new Action(() => tabPage.Close()));
         }

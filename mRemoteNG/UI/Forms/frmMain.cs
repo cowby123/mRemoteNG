@@ -85,6 +85,26 @@ namespace mRemoteNG.UI.Forms
         private readonly FileBackupPruner _backupPruner = new();
         public static FrmOptions OptionsForm;
 
+        /// <summary>
+        /// Recreates the OptionsForm if it has been disposed.
+        /// This method should be called when OptionsForm is in an invalid state.
+        /// </summary>
+        public static void RecreateOptionsForm()
+        {
+            Logger.Instance.Log?.Debug("[FrmMain.RecreateOptionsForm] Recreating OptionsForm");
+
+            // Dispose the old form if it exists
+            if (OptionsForm != null && !OptionsForm.IsDisposed)
+            {
+                Logger.Instance.Log?.Debug("[FrmMain.RecreateOptionsForm] Disposing old OptionsForm");
+                OptionsForm.Dispose();
+            }
+
+            // Create a new instance
+            OptionsForm = new FrmOptions();
+            Logger.Instance.Log?.Debug("[FrmMain.RecreateOptionsForm] New OptionsForm created");
+        }
+
         internal FullscreenHandler Fullscreen { get; set; }
 
         //Added theming support
@@ -216,10 +236,21 @@ namespace mRemoteNG.UI.Forms
 
             Runtime.ConnectionsService.ConnectionsLoaded += ConnectionsServiceOnConnectionsLoaded;
             Runtime.ConnectionsService.ConnectionsSaved += ConnectionsServiceOnConnectionsSaved;
+            
+            // Close splash screen before loading connections to ensure password dialog appears on top
+            FrmSplashScreenNew splash = FrmSplashScreenNew.GetInstance();
+            if (splash.Dispatcher.CheckAccess())
+                splash.Close();
+            else
+                splash.Dispatcher.Invoke(() => splash.Close());
+
             CredsAndConsSetup credsAndConsSetup = new();
             credsAndConsSetup.LoadCredsAndCons();
 
-            App.Windows.TreeForm.Focus();
+            // Initialize panel binding for Connections and Config panels
+            UI.Panels.PanelBinder.Instance.Initialize();
+
+            AppWindows.TreeForm.Focus();
 
             PuttySessionsManager.Instance.StartWatcher();
 
@@ -234,12 +265,6 @@ namespace mRemoteNG.UI.Forms
 
             pnlDock.ShowDocumentIcon = true;
 
-            FrmSplashScreenNew splash = FrmSplashScreenNew.GetInstance();
-            if (splash.Dispatcher.CheckAccess())
-                splash.Close();
-            else
-                splash.Dispatcher.Invoke(() => splash.Close());
-
             if (Properties.OptionsStartupExitPage.Default.StartMinimized)
             {
                 WindowState = FormWindowState.Minimized;
@@ -252,8 +277,11 @@ namespace mRemoteNG.UI.Forms
             }
 
             OptionsForm = new FrmOptions();
-            
-            if (!Properties.OptionsTabsPanelsPage.Default.CreateEmptyPanelOnStartUp) return;
+
+            if (!Properties.OptionsTabsPanelsPage.Default.CreateEmptyPanelOnStartUp)
+            {
+                return;
+            }
             string panelName = !string.IsNullOrEmpty(Properties.OptionsTabsPanelsPage.Default.StartUpPanelName) ? Properties.OptionsTabsPanelsPage.Default.StartUpPanelName : Language.NewPanel;
 
             PanelAdder panelAdder = new();
@@ -302,7 +330,7 @@ namespace mRemoteNG.UI.Forms
             }
         }
 
-        private void ConnectionsServiceOnConnectionsLoaded(object sender, ConnectionsLoadedEventArgs connectionsLoadedEventArgs)
+        private void ConnectionsServiceOnConnectionsLoaded(object? sender, ConnectionsLoadedEventArgs connectionsLoadedEventArgs)
         {
             UpdateWindowTitle();
         }
@@ -317,7 +345,7 @@ namespace mRemoteNG.UI.Forms
 
         private void SetMenuDependencies()
         {
-            fileMenu.TreeWindow = App.Windows.TreeForm;
+            fileMenu.TreeWindow = AppWindows.TreeForm;
 
             viewMenu.TsExternalTools = _externalToolsToolStrip;
             viewMenu.TsQuickConnect = _quickConnectToolStrip;
@@ -396,8 +424,9 @@ namespace mRemoteNG.UI.Forms
 
             if (CTaskDialog.CommandButtonResult != 1) return;
 
-            OptionsForm.SetActivatedPage(Language.Updates);
-            OptionsForm.ShowDialog(this);
+            AppWindows.Show(WindowType.Options);
+            if (AppWindows.OptionsFormWindow != null)
+                AppWindows.OptionsFormWindow.SetActivatedPage(Language.Updates);
         }
 
         private async Task CheckForUpdates()
@@ -467,7 +496,7 @@ namespace mRemoteNG.UI.Forms
                     DialogResult result = CTaskDialog.MessageBox(this, Application.ProductName, Language.ConfirmExitMainInstruction, "", "", "", Language.CheckboxDoNotShowThisMessageAgain, ETaskDialogButtons.YesNo, ESysIcons.Question, ESysIcons.Question);
                     if (CTaskDialog.VerificationChecked)
                     {
-                        Properties.Settings.Default.ConfirmCloseConnection--; //--?
+                        Properties.Settings.Default.ConfirmCloseConnection = (int)ConfirmCloseEnum.Never;
                     }
 
                     if (result == DialogResult.No)
@@ -699,7 +728,7 @@ namespace mRemoteNG.UI.Forms
                 titleBuilder.Append(SelectedConnection.Name);
 
                 if (Properties.Settings.Default.TrackActiveConnectionInConnectionTree)
-                    App.Windows.TreeForm.JumpToNode(SelectedConnection);
+                    AppWindows.TreeForm.JumpToNode(SelectedConnection);
             }
 
             Text = titleBuilder.ToString();
@@ -759,9 +788,9 @@ namespace mRemoteNG.UI.Forms
         {
             pnlDock.Visible = false;
 
-            App.Windows.TreeForm.Show(pnlDock, DockState.DockLeft);
-            App.Windows.ConfigForm.Show(pnlDock, DockState.DockLeft);
-            App.Windows.ErrorsForm.Show(pnlDock, DockState.DockBottomAutoHide);
+            AppWindows.TreeForm.Show(pnlDock, DockState.DockLeft);
+            AppWindows.ConfigForm.Show(pnlDock, DockState.DockLeft);
+            AppWindows.ErrorsForm.Show(pnlDock, DockState.DockBottomAutoHide);
             viewMenu._mMenViewErrorsAndInfos.Checked = true;
 
             ShowFileMenu();
@@ -788,7 +817,7 @@ namespace mRemoteNG.UI.Forms
 
             if (Properties.Settings.Default.ViewMenuMessages == true)
             {
-                App.Windows.ErrorsForm.Show(pnlDock, DockState.DockBottomAutoHide);
+                AppWindows.ErrorsForm.Show(pnlDock, DockState.DockBottomAutoHide);
                 viewMenu._mMenViewErrorsAndInfos.Checked = true;
             }
             else

@@ -10,7 +10,7 @@ using mRemoteNG.UI.Window;
 namespace mRemoteNG.App
 {
     [SupportedOSPlatform("windows")]
-    public static class Windows
+    public static class AppWindows
     {
         private static ActiveDirectoryImportWindow _adimportForm;
         private static ExternalToolsWindow _externalappsForm;
@@ -26,8 +26,9 @@ namespace mRemoteNG.App
 
         internal static ConfigWindow ConfigForm { get; set; } = new ConfigWindow();
         internal static ErrorAndInfoWindow ErrorsForm { get; set; } = new ErrorAndInfoWindow();
-        private static UpdateWindow UpdateForm { get; set; } = new UpdateWindow();
+        internal static UpdateWindow UpdateForm { get; set; } = new UpdateWindow();
         internal static SSHTransferWindow SshtransferForm { get; private set; } = new SSHTransferWindow();
+        internal static OptionsWindow OptionsFormWindow { get; private set; }
 
 
         public static void Show(WindowType windowType)
@@ -44,8 +45,10 @@ namespace mRemoteNG.App
                         _adimportForm.Show(dockPanel);
                         break;
                     case WindowType.Options:
-                        FrmMain.OptionsForm.SetActivatedPage(Language.StartupExit);
-                        FrmMain.OptionsForm.Visible = true;
+                        if (OptionsFormWindow == null || OptionsFormWindow.IsDisposed)
+                            OptionsFormWindow = new OptionsWindow();
+                        OptionsFormWindow.SetActivatedPage(Language.StartupExit);
+                        OptionsFormWindow.Show(dockPanel);
                         break;
                     case WindowType.SSHTransfer:
                         if (SshtransferForm == null || SshtransferForm.IsDisposed)

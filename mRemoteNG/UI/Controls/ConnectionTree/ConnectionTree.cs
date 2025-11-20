@@ -166,6 +166,7 @@ namespace mRemoteNG.UI.Controls.ConnectionTree
             ModelDropped += _dragAndDropHandler.HandleEvent_ModelDropped;
             BeforeLabelEdit += OnBeforeLabelEdit;
             AfterLabelEdit += OnAfterLabelEdit;
+            FormatCell += ConnectionTree_FormatCell;
         }
 
         /// <summary>
@@ -449,7 +450,7 @@ namespace mRemoteNG.UI.Controls.ConnectionTree
         {
             try
             {
-                App.Windows.ConfigForm.SelectedTreeNode = SelectedNode;
+                AppWindows.ConfigForm.SelectedTreeNode = SelectedNode;
             }
             catch (Exception ex)
             {
@@ -512,6 +513,27 @@ namespace mRemoteNG.UI.Controls.ConnectionTree
             _contextMenu.DisableShortcutKeys();
         }
 
+        private void ConnectionTree_FormatCell(object sender, FormatCellEventArgs e)
+        {
+            if (e.Model is not ConnectionInfo connectionInfo)
+                return;
+
+            string colorString = connectionInfo.Color;
+            if (string.IsNullOrEmpty(colorString))
+                return;
+
+            try
+            {
+                System.Drawing.ColorConverter converter = new();
+                System.Drawing.Color color = (System.Drawing.Color)converter.ConvertFromString(colorString);
+                e.SubItem.ForeColor = color;
+            }
+            catch
+            {
+                // If color parsing fails, just ignore and use default color
+            }
+        }
+
         private void OnAfterLabelEdit(object sender, LabelEditEventArgs e)
         {
             if (!_nodeInEditMode)
@@ -526,7 +548,7 @@ namespace mRemoteNG.UI.Controls.ConnectionTree
                 // ensures that if we are filtering and a new item is added that doesn't match the filter, it will be filtered out
                 _connectionTreeSearchTextFilter.SpecialInclusionList.Clear();
                 UpdateFiltering();
-                App.Windows.ConfigForm.SelectedTreeNode = SelectedNode;
+                AppWindows.ConfigForm.SelectedTreeNode = SelectedNode;
             }
             catch (Exception ex)
             {

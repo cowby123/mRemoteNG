@@ -4,6 +4,7 @@ using System.Runtime.Versioning;
 using mRemoteNG.App;
 using mRemoteNG.Messages;
 using mRemoteNG.Resources.Language;
+using mRemoteNG.Tools;
 
 namespace mRemoteNG.Config.DataProviders
 {
@@ -17,8 +18,13 @@ namespace mRemoteNG.Config.DataProviders
                 if (WeDontNeedToBackup(fileName))
                     return;
 
+                PathValidator.ValidatePathOrThrow(fileName, nameof(fileName));
+
                 string backupFileName =
                     string.Format(Properties.OptionsBackupPage.Default.BackupFileNameFormat, fileName, DateTime.Now);
+                
+                PathValidator.ValidatePathOrThrow(backupFileName, nameof(backupFileName));
+                
                 File.Copy(fileName, backupFileName);
             }
             catch (Exception ex)

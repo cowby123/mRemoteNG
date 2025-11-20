@@ -117,7 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="About" xml:space="preserve">
+  <data name="MenuItem_About" xml:space="preserve">
     <value>mRemoteNGについて</value>
   </data>
   <data name="ActiveDirectory" xml:space="preserve">
@@ -232,9 +232,6 @@
   </data>
   <data name="Display" xml:space="preserve">
     <value>ディスプレイ</value>
-  </data>
-  <data name="Gateway" xml:space="preserve">
-    <value>ゲートウェイ</value>
   </data>
   <data name="Miscellaneous" xml:space="preserve">
     <value>その他</value>
@@ -726,7 +723,7 @@ Starting with new connections file.</value>
   <data name="AddConnectionPanel" xml:space="preserve">
     <value>接続表示パネルの追加</value>
   </data>
-  <data name="CheckForUpdates" xml:space="preserve">
+  <data name="MenuItem_CheckForUpdates" xml:space="preserve">
     <value>最新バージョンをチェック</value>
   </data>
   <data name="Config" xml:space="preserve">
@@ -747,7 +744,7 @@ Starting with new connections file.</value>
   <data name="DeleteExternalTool" xml:space="preserve">
     <value>外部ツールを削除...</value>
   </data>
-  <data name="Donate" xml:space="preserve">
+  <data name="MenuItem_Donate" xml:space="preserve">
     <value>寄付のお願い</value>
   </data>
   <data name="DuplicateTab" xml:space="preserve">
@@ -765,7 +762,7 @@ Starting with new connections file.</value>
   <data name="_Help" xml:space="preserve">
     <value>ヘルプ(&amp;H)</value>
   </data>
-  <data name="HelpContents" xml:space="preserve">
+  <data name="MenuItem_HelpContents" xml:space="preserve">
     <value>mRemoteNGヘルプ</value>
   </data>
   <data name="LaunchExternalTool" xml:space="preserve">
@@ -807,7 +804,7 @@ Starting with new connections file.</value>
   <data name="RenameTab" xml:space="preserve">
     <value>タブ名を変更</value>
   </data>
-  <data name="ReportBug" xml:space="preserve">
+  <data name="MenuItem_ReportIssue" xml:space="preserve">
     <value>バグを報告する</value>
   </data>
   <data name="ResetLayout" xml:space="preserve">
@@ -838,7 +835,7 @@ Starting with new connections file.</value>
   <data name="StartChat" xml:space="preserve">
     <value>Start Chat (VNC)</value>
   </data>
-  <data name="SupportForum" xml:space="preserve">
+  <data name="MenuItem_SupportForum" xml:space="preserve">
     <value>サポートフォーラム</value>
   </data>
   <data name="_Tools" xml:space="preserve">
@@ -853,7 +850,7 @@ Starting with new connections file.</value>
   <data name="ViewOnly" xml:space="preserve">
     <value>View Only (VNC)</value>
   </data>
-  <data name="Website" xml:space="preserve">
+  <data name="MenuItem_Website" xml:space="preserve">
     <value>ウェブサイト（英語）</value>
   </data>
   <data name="MinimizeToSysTray" xml:space="preserve">
@@ -1486,9 +1483,6 @@ Message:
   <data name="SaveConnectionsFileBeforeOpeningAnother" xml:space="preserve">
     <value>Do you want to save the current connections file before loading another?</value>
   </data>
-  <data name="SaveConsOnExit" xml:space="preserve">
-    <value>終了時に保存する</value>
-  </data>
   <data name="SaveImageFilter" xml:space="preserve">
     <value>Graphics Interchange Format File (.gif)|*.gif|Joint Photographic Experts Group File (.jpeg)|*.jpeg|Joint Photographic Experts Group File (.jpg)|*.jpg|Portable Network Graphics File (.png)|*.png</value>
   </data>
@@ -1715,5 +1709,48 @@ mRemoteNGを終了してインストールを開始します</value>
   </data>
   <data name="Yes" xml:space="preserve">
     <value>はい</value>
+  </data>
+  <data name="Gateway" xml:space="preserve">
+    <value>ゲートウェイ</value>
+  </data>
+  <data name="SaveConsOnExit" xml:space="preserve">
+    <value>終了時に保存する</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="VaultOpenbaoMount" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="VaultOpenbaoMountDescription" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="VaultOpenbaoRole" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="VaultOpenbaoRoleDescription" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="VaultOpenbaoToken" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="VaultOpenbaoTokenPropertyDescription" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="VaultOpenbaoSecretEngine" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="PropertyDescriptionVaultOpenbaoSecretEngine" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="VaultOpenbaoSecretEngineKeyValue" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="VaultOpenbaoSecretEngineLDAPDynamic" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="VaultOpenbaoSecretEngineLDAPStatic" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="VaultOpenbaoSecretEngineSSHOTP" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
   </data>
 </root>

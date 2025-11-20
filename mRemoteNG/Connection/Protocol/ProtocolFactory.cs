@@ -5,8 +5,12 @@ using mRemoteNG.Connection.Protocol.Rlogin;
 using mRemoteNG.Connection.Protocol.SSH;
 using mRemoteNG.Connection.Protocol.Telnet;
 using mRemoteNG.Connection.Protocol.VNC;
+using mRemoteNG.Connection.Protocol.ARD;
 using System;
 using mRemoteNG.Connection.Protocol.PowerShell;
+using mRemoteNG.Connection.Protocol.WSL;
+using mRemoteNG.Connection.Protocol.Terminal;
+using mRemoteNG.Connection.Protocol.AnyDesk;
 using mRemoteNG.Resources.Language;
 using System.Runtime.Versioning;
 
@@ -28,6 +32,8 @@ namespace mRemoteNG.Connection.Protocol
                     return rdp;
                 case ProtocolType.VNC:
                     return new ProtocolVNC();
+                case ProtocolType.ARD:
+                    return new ProtocolARD();
                 case ProtocolType.SSH1:
                     return new ProtocolSSH1();
                 case ProtocolType.SSH2:
@@ -44,6 +50,12 @@ namespace mRemoteNG.Connection.Protocol
                     return new ProtocolHTTPS(connectionInfo.RenderingEngine);
                 case ProtocolType.PowerShell:
                     return new ProtocolPowerShell(connectionInfo);
+                case ProtocolType.WSL:
+                    return new ProtocolWSL(connectionInfo);
+                case ProtocolType.Terminal:
+                    return new ProtocolTerminal(connectionInfo);
+                case ProtocolType.AnyDesk:
+                    return new ProtocolAnyDesk(connectionInfo);
                 case ProtocolType.IntApp:
                     if (connectionInfo.ExtApp == "")
                     {

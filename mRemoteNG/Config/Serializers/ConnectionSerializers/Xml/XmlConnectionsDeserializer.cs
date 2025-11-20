@@ -94,8 +94,7 @@ namespace mRemoteNG.Config.Serializers.ConnectionSerializers.Xml
             connections = _decryptor.LegacyFullFileDecrypt(connections);
             if (connections != "")
             {
-                _xmlDocument = new XmlDocument();
-                _xmlDocument.LoadXml(connections);
+                _xmlDocument = SecureXmlHelper.LoadXmlFromString(connections);
             }
         }
 
@@ -120,8 +119,7 @@ namespace mRemoteNG.Config.Serializers.ConnectionSerializers.Xml
 
         private void InitializeRootNode(XmlElement connectionsRootElement)
         {
-            string rootNodeName = connectionsRootElement?.Attributes["Name"]?.Value.Trim();
-            _rootNodeInfo.Name = rootNodeName;
+            _rootNodeInfo.Name = connectionsRootElement?.Attributes["Name"]?.Value.Trim();
         }
 
         private void CreateDecryptor(RootNodeInfo rootNodeInfo, XmlElement connectionsRootElement = null)
@@ -329,6 +327,8 @@ namespace mRemoteNG.Config.Serializers.ConnectionSerializers.Xml
                     connectionInfo.Inheritance.DisplayWallpaper = xmlnode.GetAttributeAsBool("InheritDisplayWallpaper");
                     connectionInfo.Inheritance.Icon = xmlnode.GetAttributeAsBool("InheritIcon");
                     connectionInfo.Inheritance.Panel = xmlnode.GetAttributeAsBool("InheritPanel");
+                    connectionInfo.Inheritance.TabColor = xmlnode.GetAttributeAsBool("InheritTabColor");
+                    connectionInfo.Inheritance.ConnectionFrameColor = xmlnode.GetAttributeAsBool("InheritConnectionFrameColor");
                     connectionInfo.Inheritance.Port = xmlnode.GetAttributeAsBool("InheritPort");
                     connectionInfo.Inheritance.Protocol = xmlnode.GetAttributeAsBool("InheritProtocol");
                     connectionInfo.Inheritance.PuttySession = xmlnode.GetAttributeAsBool("InheritPuttySession");
@@ -351,6 +351,8 @@ namespace mRemoteNG.Config.Serializers.ConnectionSerializers.Xml
 
                     connectionInfo.Icon = xmlnode.GetAttributeAsString("Icon");
                     connectionInfo.Panel = xmlnode.GetAttributeAsString("Panel");
+                    connectionInfo.TabColor = xmlnode.GetAttributeAsString("TabColor");
+                    connectionInfo.ConnectionFrameColor = xmlnode.GetAttributeAsEnum<ConnectionFrameColor>("ConnectionFrameColor");
                 }
                 else
                 {
@@ -516,6 +518,9 @@ namespace mRemoteNG.Config.Serializers.ConnectionSerializers.Xml
                     connectionInfo.UserViaAPI = xmlnode.GetAttributeAsString("UserViaAPI");
                     connectionInfo.Inheritance.UserViaAPI = xmlnode.GetAttributeAsBool("InheritUserViaAPI");
                     connectionInfo.ExternalAddressProvider = xmlnode.GetAttributeAsEnum("ExternalAddressProvider", ExternalAddressProvider.None);
+                    connectionInfo.VaultOpenbaoMount = xmlnode.GetAttributeAsString("VaultOpenbaoMount");
+                    connectionInfo.VaultOpenbaoRole = xmlnode.GetAttributeAsString("VaultOpenbaoRole");
+                    connectionInfo.VaultOpenbaoSecretEngine = xmlnode.GetAttributeAsEnum("VaultOpenbaoSecretEngine", VaultOpenbaoSecretEngine.Kv);
                     connectionInfo.EC2InstanceId = xmlnode.GetAttributeAsString("EC2InstanceId");
                     connectionInfo.EC2Region = xmlnode.GetAttributeAsString("EC2Region");
                     connectionInfo.UseRestrictedAdmin = xmlnode.GetAttributeAsBool("UseRestrictedAdmin");
@@ -534,6 +539,8 @@ namespace mRemoteNG.Config.Serializers.ConnectionSerializers.Xml
                         connectionInfo.RedirectDiskDrives = xmlnode.GetAttributeAsEnum<RDPDiskDrives>("RedirectDiskDrives");
                         connectionInfo.RedirectDiskDrivesCustom = xmlnode.GetAttributeAsString("RedirectDiskDrivesCustom");
                         connectionInfo.Inheritance.RedirectDiskDrivesCustom = xmlnode.GetAttributeAsBool("InheritRedirectDiskDrivesCustom");
+                        connectionInfo.EnvironmentTags = xmlnode.GetAttributeAsString("EnvironmentTags");
+                        connectionInfo.Inheritance.EnvironmentTags = xmlnode.GetAttributeAsBool("InheritEnvironmentTags");
                         break;
 
                     case >= 0.5:

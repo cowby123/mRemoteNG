@@ -1,6 +1,18 @@
-**NOTICE: This project currently transited to a new maintainer. Development help would be greatly appreciated.**
+<p align="Left">
+	Developing mRemoteNG to its fullest potential is my personal priority.<br>
+While the project remains non-commercial, it does come with ongoing costs — including VPS hosting for testing, AI tools, domain fees, and more. <br> If you find value in mRemoteNG and want to support its future, even a small donation from our community can make a huge difference.<br>
+Your support helps me keep the project secure, modern, and accessible for everyone who relies on it — and brings us closer to a brighter, more collaborative future.<br><br>
+Consider donating — every contribution counts!
+	<br><br>
+	<a href="https://www.paypal.com/paypalme/mremoteng">
+    	<img height='36' alt="PayPal" style='border:0px;height:36px;' src="https://img.shields.io/badge/%24-PayPal-blue.svg?label=Donate&logo=PayPal&style=flat-square">
+	</a><br>
+	<a href='https://ko-fi.com/Q5Q41I7JS' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://storage.ko-fi.com/cdn/kofi6.png?v=6' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
+  </a>
+</p>
 
-<br/><br/>
+---
+
 <p align="center">
   <img width="450" src="https://github.com/mRemoteNG/mRemoteNG/blob/mRemoteNGProjectFiles/Header_dark.png">
 </p>
@@ -24,14 +36,6 @@
     <img alt="Element" src="https://img.shields.io/matrix/mremoteng:matrix.org?label=Join%20to%20chat%20about%20mRemoteNG&logo=element&style=social&link=https://app.element.io/#/room/#mremoteng:matrix.org">
   </a>  
 </p>
-<p align="center">
-  <a href="https://www.paypal.com/paypalme/mremoteng">
-    <img alt="PayPal" src="https://img.shields.io/badge/%24-PayPal-blue.svg?label=Donate&logo=PayPal&style=flat-square">
-  </a>
-  <a href="bitcoin:16fUnHUM3k7W9Fvpc6dug7TAdfeGEcLbSg">
-    <img alt="Bitcoin" src="https://img.shields.io/badge/%24-Bitcoin.svg?label=Donate&logo=bitcoin&style=flat-square">
-  </a>
-</p>
 
 <p align="center">
   <a href="https://github.com/mRemoteNG/mRemoteNG/blob/develop/COPYING.TXT">
@@ -54,7 +58,7 @@
 | ---------------|--------------|-----------|
 | Stable | ![Build status](https://ci.appveyor.com/api/projects/status/rqwxjxldail7btcf?svg=true) | [![Github Releases (by Release)](https://img.shields.io/github/downloads/mRemoteNG/mRemoteNG/v1.76.20/total.svg)](https://github.com/mRemoteNG/mRemoteNG/releases/tag/v1.76.20) |
 | Preview | ![Build status](https://ci.appveyor.com/api/projects/status/rqwxjxldail7btcf/branch/preview?svg=true) | [![Github Releases (by Release)](https://img.shields.io/github/downloads/mRemoteNG/mRemoteNG/v1.77.1/total.svg)](https://github.com/mRemoteNG/mRemoteNG/releases/tag/v1.77.1) |
-| Nightly | ![Build status](https://ci.appveyor.com/api/projects/status/rqwxjxldail7btcf/branch/develop?svg=true) | [![Github Releases (by Release)](https://img.shields.io/github/downloads/mRemoteNG/mRemoteNG/2023.03.03-v1.77.3-nb/total.svg)](https://github.com/mRemoteNG/mRemoteNG/releases/tag/2023.03.03-v1.77.3-nb) |
+| Nightly | ![Build status](https://ci.appveyor.com/api/projects/status/rqwxjxldail7btcf/branch/develop?svg=true) | [![Github Releases](https://img.shields.io/github/downloads/mRemoteNG/mRemoteNG/20250916-v1.78.2-NB-(3177)/total.svg)](https://github.com/mRemoteNG/mRemoteNG/releases/tag/20250916-v1.78.2-NB-(3177)) |
 
 ## Features
 
@@ -68,6 +72,7 @@ The following protocols are supported:
 * rlogin (Remote Login)
 * Raw Socket Connections
 * Powershell remoting
+* AnyDesk
 
 For a detailed feature list and general usage support, refer to the [Documentation](https://mremoteng.readthedocs.io/en/latest/).
 
@@ -85,15 +90,14 @@ For a detailed feature list and general usage support, refer to the [Documentati
 
 #### Source package
 
-This contains the source code from which mRemoteNG is build.
+This contains the source code from which mRemoteNG is built.
 You will need to compile it yourself using Visual Studio.
 
 ### Minimum Requirements
 
-* [Microsoft Visual C++ Redistributable for Visual Studio 2015 - 2022](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads)
-* [Microsoft .NET 6.0 Desktop Runtime](https://dotnet.microsoft.com/download/dotnet/6.0)
-* Microsoft Terminal Service Client 6.0 or later
-  * Needed if you use RDP. mstscax.dll and/or msrdp.ocx be registered.
+* [Microsoft .NET Desktop Runtime 9.0](https://dotnet.microsoft.com/download/dotnet/9.0)
+* [Microsoft Visual C++ 2015-2022 Redistributable x64](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170#latest-supported-redistributable-version) - [download latest](https://aka.ms/vs/17/release/vc_redist.x64.exe) (note: use x64 installer also in ARM environments as the installer contains both; ~32-bit version required until #2870 is resolved~)
+* Microsoft Terminal Service Client 6.0 or later (needed if you use RDP with mstscax.dll and/or msrdp.ocx to be registered)
 
 ### Download
 
@@ -137,6 +141,7 @@ _If you are using the Portable version, simply deleting the folder that contains
 
 * [PSmRemoteNG](https://github.com/realslacker/PSmRemoteNG) A module to create mRemoteNG connection files from PowerShell.
 * [mRemoteNGOpenVPN](https://github.com/T3los/mRemoteNGOpenVPN) A script that can be embedded as an external tool to control OpenVPN.
+* [mRemoteNG-Icons](https://github.com/bearlikelion/mRemoteNG-Icons) A collection of fancy icons to customize the connections
 
 ## Contribute
 

@@ -407,6 +407,9 @@
     <None Update="Icons\PowerShell.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Icons\WSL.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Icons\Production.ico">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -610,10 +613,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Update="chromiumembeddedframework.runtime.win-x64" Version="139.0.28" />
+    <PackageReference Update="chromiumembeddedframework.runtime.win-x64" Version="141.0.11" />
   </ItemGroup>
   <ItemGroup Condition="'$(Platform)'=='arm64'">
-    <PackageReference Update="chromiumembeddedframework.runtime.win-arm64" Version="139.0.28" />
+    <PackageReference Update="chromiumembeddedframework.runtime.win-arm64" Version="141.0.11" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
@@ -639,4 +642,8 @@
       <ReferenceCopyLocalPaths Condition=" '%(ReferenceCopyLocalPaths.NuGetPackageId)' != '' " Update="%(ReferenceCopyLocalPaths)" DestinationSubDirectory="Assemblies\" />
     </ItemGroup>
   </Target>
+  <PropertyGroup>
+    <!-- Disable CET compatibility check in .NET 9 AppHost -->
+    <CETCompat>false</CETCompat>
+  </PropertyGroup>
 </Project>

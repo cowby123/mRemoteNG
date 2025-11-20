@@ -318,12 +318,21 @@ namespace mRemoteNGTests.UI.Window.ConfigWindowTests
                 case ProtocolType.HTTPS:
                     expectedProperties.AddRange(new []
                     {
+                        nameof(ConnectionInfo.Username),
                         nameof(ConnectionInfo.Password),
                         nameof(ConnectionInfo.Port),
                         nameof(ConnectionInfo.RenderingEngine),
                     });
                     break;
                 case ProtocolType.PowerShell:
+                    expectedProperties.AddRange(new[]
+                    {
+                        nameof(ConnectionInfo.Password),
+                        nameof(ConnectionInfo.Domain),
+                        nameof(ConnectionInfo.Port),
+                    });
+                    break;
+                case ProtocolType.WSL:
                     expectedProperties.AddRange(new[]
                     {
                         nameof(ConnectionInfo.Password),

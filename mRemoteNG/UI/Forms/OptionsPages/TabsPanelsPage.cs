@@ -1,4 +1,5 @@
-﻿using mRemoteNG.Config.Settings.Registry;
+﻿using mRemoteNG.App;
+using mRemoteNG.Config.Settings.Registry;
 using mRemoteNG.Properties;
 using mRemoteNG.Resources.Language;
 using System;
@@ -45,6 +46,7 @@ namespace mRemoteNG.UI.Forms.OptionsPages
             chkDoubleClickClosesTab.Text = Language.DoubleClickTabClosesIt;
             chkAlwaysShowPanelSelectionDlg.Text = Language.AlwaysShowPanelSelection;
             chkCreateEmptyPanelOnStart.Text = Language.CreateEmptyPanelOnStartUp;
+            chkBindConnectionsAndConfigPanels.Text = "Bind Connections and Config panels together when auto-hidden";
             lblPanelName.Text = $@"{Language.PanelName}:";
 
             lblRegistrySettingsUsedInfo.Text = Language.OptionsCompanyPolicyMessage;
@@ -75,6 +77,7 @@ namespace mRemoteNG.UI.Forms.OptionsPages
             chkDoubleClickClosesTab.Checked = Properties.OptionsTabsPanelsPage.Default.DoubleClickOnTabClosesIt;
             chkAlwaysShowPanelSelectionDlg.Checked = Properties.OptionsTabsPanelsPage.Default.AlwaysShowPanelSelectionDlg;
             chkCreateEmptyPanelOnStart.Checked = Properties.OptionsTabsPanelsPage.Default.CreateEmptyPanelOnStartUp;
+            chkBindConnectionsAndConfigPanels.Checked = Properties.OptionsTabsPanelsPage.Default.BindConnectionsAndConfigPanels;
             txtBoxPanelName.Text = Properties.OptionsTabsPanelsPage.Default.StartUpPanelName;
             UpdatePanelNameTextBox();
         }
@@ -89,7 +92,10 @@ namespace mRemoteNG.UI.Forms.OptionsPages
              * Properties.OptionsTabsPanelsPage.Default.AlwaysShowConnectionTabs nerver used
              */
             //Properties.OptionsTabsPanelsPage.Default.AlwaysShowConnectionTabs = chkAlwaysShowConnectionTabs.Checked;
-            FrmMain.Default.ShowHidePanelTabs();
+            
+            // Defer the ShowHidePanelTabs call to avoid corrupting the Options window
+            // This ensures the call happens after the Options window is closed
+            FrmMain.Default.BeginInvoke(new System.Windows.Forms.MethodInvoker(() => FrmMain.Default.ShowHidePanelTabs()));
 
             /* 
              * Comment added: June 16, 2024
@@ -103,6 +109,7 @@ namespace mRemoteNG.UI.Forms.OptionsPages
             Properties.OptionsTabsPanelsPage.Default.DoubleClickOnTabClosesIt = chkDoubleClickClosesTab.Checked;
             Properties.OptionsTabsPanelsPage.Default.AlwaysShowPanelSelectionDlg = chkAlwaysShowPanelSelectionDlg.Checked;
             Properties.OptionsTabsPanelsPage.Default.CreateEmptyPanelOnStartUp = chkCreateEmptyPanelOnStart.Checked;
+            Properties.OptionsTabsPanelsPage.Default.BindConnectionsAndConfigPanels = chkBindConnectionsAndConfigPanels.Checked;
             Properties.OptionsTabsPanelsPage.Default.StartUpPanelName = txtBoxPanelName.Text;
         }
 
@@ -111,6 +118,13 @@ namespace mRemoteNG.UI.Forms.OptionsPages
             Type settingsType = typeof(OptRegistryTabsPanelsPage);
             RegistryLoader.RegistrySettings.TryGetValue(settingsType, out var settings);
             pageRegSettingsInstance = settings as OptRegistryTabsPanelsPage;
+
+            // If registry settings don't exist, create a default instance to prevent null reference exceptions
+            if (pageRegSettingsInstance == null)
+            {
+                pageRegSettingsInstance = new OptRegistryTabsPanelsPage();
+                Logger.Instance.Log?.Debug("[TabsPanelsPage.LoadRegistrySettings] pageRegSettingsInstance was null, created default instance");
+            }
 
             RegistryLoader.Cleanup(settingsType);
 
@@ -141,6 +155,9 @@ namespace mRemoteNG.UI.Forms.OptionsPages
             if (pageRegSettingsInstance.StartUpPanelName.IsSet)
                 DisableControl(txtBoxPanelName);
 
+            if (pageRegSettingsInstance.BindConnectionsAndConfigPanels.IsSet)
+                DisableControl(chkBindConnectionsAndConfigPanels);
+
             // Updates the visibility of the information label indicating whether registry settings are used.
             lblRegistrySettingsUsedInfo.Visible = ShowRegistrySettingsUsedInfo();
         }
@@ -157,7 +174,8 @@ namespace mRemoteNG.UI.Forms.OptionsPages
                 || pageRegSettingsInstance.DoubleClickOnTabClosesIt.IsSet
                 || pageRegSettingsInstance.AlwaysShowPanelSelectionDlg.IsSet
                 || pageRegSettingsInstance.CreateEmptyPanelOnStartUp.IsSet
-                || pageRegSettingsInstance.StartUpPanelName.IsSet;
+                || pageRegSettingsInstance.StartUpPanelName.IsSet
+                || pageRegSettingsInstance.BindConnectionsAndConfigPanels.IsSet;
         }
 
         private void UpdatePanelNameTextBox()

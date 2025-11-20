@@ -117,7 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="About" xml:space="preserve">
+  <data name="MenuItem_About" xml:space="preserve">
     <value>About</value>
   </data>
   <data name="ActiveDirectory" xml:space="preserve">
@@ -158,6 +158,12 @@
   </data>
   <data name="AskUpdatesMainInstruction" xml:space="preserve">
     <value>Automatic update settings</value>
+  </data>
+  <data name="AnyDesk" xml:space="preserve">
+    <value>AnyDesk</value>
+  </data>
+  <data name="Ard" xml:space="preserve">
+    <value>ARD (Apple Remote Desktop)</value>
   </data>
   <data name="Aspect" xml:space="preserve">
     <value>Aspect</value>
@@ -344,6 +350,9 @@
   </data>
   <data name="ConfirmCloseConnectionPanelMainInstruction" xml:space="preserve">
     <value>Are you sure you want to close the panel, "{0}"? Any connections that it contains will also be closed.</value>
+  </data>
+  <data name="ConfirmDisconnectConnection" xml:space="preserve">
+    <value>Are you sure you want to disconnect "{0}"?</value>
   </data>
   <data name="ConfirmDeleteExternalTool" xml:space="preserve">
     <value>Are you sure you want to delete the external tool, "{0}"?</value>
@@ -725,7 +734,7 @@ See the Microsoft Support article at http://support.microsoft.com/kb/811833 for 
   <data name="AddConnectionPanel" xml:space="preserve">
     <value>Add Connection Panel</value>
   </data>
-  <data name="CheckForUpdates" xml:space="preserve">
+  <data name="MenuItem_CheckForUpdates" xml:space="preserve">
     <value>Check for Updates</value>
   </data>
   <data name="Config" xml:space="preserve">
@@ -746,7 +755,7 @@ See the Microsoft Support article at http://support.microsoft.com/kb/811833 for 
   <data name="DeleteExternalTool" xml:space="preserve">
     <value>Delete External Tool...</value>
   </data>
-  <data name="Donate" xml:space="preserve">
+  <data name="MenuItem_Donate" xml:space="preserve">
     <value>Donate</value>
   </data>
   <data name="DuplicateTab" xml:space="preserve">
@@ -764,7 +773,7 @@ See the Microsoft Support article at http://support.microsoft.com/kb/811833 for 
   <data name="_Help" xml:space="preserve">
     <value>&amp;Help</value>
   </data>
-  <data name="HelpContents" xml:space="preserve">
+  <data name="MenuItem_HelpContents" xml:space="preserve">
     <value>mRemoteNG Help</value>
   </data>
   <data name="LaunchExternalTool" xml:space="preserve">
@@ -806,8 +815,8 @@ See the Microsoft Support article at http://support.microsoft.com/kb/811833 for 
   <data name="RenameTab" xml:space="preserve">
     <value>Rename Tab</value>
   </data>
-  <data name="ReportBug" xml:space="preserve">
-    <value>Report a Bug</value>
+  <data name="MenuItem_ReportIssue" xml:space="preserve">
+    <value>Report an Issue</value>
   </data>
   <data name="ResetLayout" xml:space="preserve">
     <value>Reset layout</value>
@@ -836,7 +845,7 @@ See the Microsoft Support article at http://support.microsoft.com/kb/811833 for 
   <data name="StartChat" xml:space="preserve">
     <value>Start Chat (VNC)</value>
   </data>
-  <data name="SupportForum" xml:space="preserve">
+  <data name="MenuItem_SupportForum" xml:space="preserve">
     <value>Support Forum</value>
   </data>
   <data name="_Tools" xml:space="preserve">
@@ -851,7 +860,7 @@ See the Microsoft Support article at http://support.microsoft.com/kb/811833 for 
   <data name="ViewOnly" xml:space="preserve">
     <value>View Only</value>
   </data>
-  <data name="Website" xml:space="preserve">
+  <data name="MenuItem_Website" xml:space="preserve">
     <value>Website</value>
   </data>
   <data name="MinimizeToSysTray" xml:space="preserve">
@@ -1020,6 +1029,12 @@ If you run into such an error, please create a new connection file!</value>
   <data name="PropertyDescriptionPanel" xml:space="preserve">
     <value>Sets the panel in which the connection will open.</value>
   </data>
+  <data name="PropertyDescriptionColor" xml:space="preserve">
+    <value>Sets the color for the connection or folder in the connections tree. Connections inherit this color from their parent folder.</value>
+  </data>
+  <data name="PropertyDescriptionTabColor" xml:space="preserve">
+    <value>Sets the color of the connection tab. Leave empty for default theme color.</value>
+  </data>
   <data name="PropertyDescriptionPassword" xml:space="preserve">
     <value>Enter your password.</value>
   </data>
@@ -1137,6 +1152,9 @@ If you run into such an error, please create a new connection file!</value>
   <data name="CacheBitmaps" xml:space="preserve">
     <value>Cache Bitmaps</value>
   </data>
+  <data name="Color" xml:space="preserve">
+    <value>Color</value>
+  </data>
   <data name="Colors" xml:space="preserve">
     <value>Colors</value>
   </data>
@@ -1181,6 +1199,9 @@ If you run into such an error, please create a new connection file!</value>
   </data>
   <data name="Panel" xml:space="preserve">
     <value>Panel</value>
+  </data>
+  <data name="TabColor" xml:space="preserve">
+    <value>Tab Color</value>
   </data>
   <data name="Password" xml:space="preserve">
     <value>Password</value>
@@ -1253,6 +1274,12 @@ If you run into such an error, please create a new connection file!</value>
   </data>
   <data name="UserField" xml:space="preserve">
     <value>User Field</value>
+  </data>
+  <data name="EnvironmentTags" xml:space="preserve">
+    <value>Environment Tags</value>
+  </data>
+  <data name="PropertyDescriptionEnvironmentTags" xml:space="preserve">
+    <value>Tags to categorize the environment (e.g., #PROD, #UAT, #TEST, #BETA, #FINDEPARTMENT)</value>
   </data>
   <data name="ProxyAddress" xml:space="preserve">
     <value>Proxy Address</value>
@@ -1500,6 +1527,12 @@ If you run into such an error, please create a new connection file!</value>
   </data>
   <data name="SaveConnectionsFileBeforeOpeningAnother" xml:space="preserve">
     <value>Do you want to save the current connections file before loading another?</value>
+  </data>
+  <data name="SaveOptionsBeforeClosing" xml:space="preserve">
+    <value>Do you want to save the changes made to the options?</value>
+  </data>
+  <data name="Discard" xml:space="preserve">
+    <value>Discard</value>
   </data>
   <data name="ConnectionsBackupFrequencyDaily" xml:space="preserve">
     <value>Daily</value>
@@ -1931,6 +1964,15 @@ mRemoteNG will now quit and begin with the installation.</value>
   <data name="DatabaseNotAvailable" xml:space="preserve">
     <value>Database '{0}' not available.</value>
   </data>
+  <data name="ErrorPlatformNotSupported" xml:space="preserve">
+    <value>Platform error: {0}</value>
+  </data>
+  <data name="ErrorMissingDependency" xml:space="preserve">
+    <value>Missing dependency: {0}</value>
+  </data>
+  <data name="ErrorArchitectureMismatch" xml:space="preserve">
+    <value>Architecture mismatch: {0}</value>
+  </data>
   <data name="SaveConnectionsAfterEveryEdit" xml:space="preserve">
     <value>Save connections after every edit</value>
   </data>
@@ -2161,6 +2203,9 @@ Nightly Channel includes Alphas, Betas &amp; Release Candidates.</value>
   <data name="PowerShell" xml:space="preserve">
     <value>PowerShell</value>
   </data>
+  <data name="Terminal" xml:space="preserve">
+    <value>Terminal</value>
+  </data>
   <data name="Changelog" xml:space="preserve">
     <value>Changelog</value>
   </data>
@@ -2206,7 +2251,8 @@ Nightly Channel includes Alphas, Betas &amp; Release Candidates.</value>
     <comment>https://docs.microsoft.com/en-us/windows/win32/termserv/imstscsecuredsettings-workdir</comment>
   </data>
   <data name="OpeningCommand" xml:space="preserve">
-    <value>OpeningCommand TODO</value>
+    <value>Opening Command </value>
+    <comment>Command what will be run after connection</comment>
   </data>
   <data name="PropertyDescriptionOpeningCommand" xml:space="preserve">
     <value>Description of OpeningCommand TODO</value>
@@ -2297,6 +2343,15 @@ Nightly Channel includes Alphas, Betas &amp; Release Candidates.</value>
   </data>
   <data name="ECPClickstudiosPasswordstate" xml:space="preserve">
     <value>Clickstudios Passwordstate</value>
+  </data>
+  <data name="ECPOnePassword" xml:space="preserve">
+    <value>1Password</value>
+  </data>
+  <data name="ECPOnePasswordReadFailed" xml:space="preserve">
+    <value>1Password read failed</value>
+  </data>
+  <data name="ECPOnePasswordCommandLine" xml:space="preserve">
+    <value>1Password command line</value>
   </data>
   <data name="ECPNone" xml:space="preserve">
     <value>None</value>
@@ -2421,5 +2476,93 @@ Nightly Channel includes Alphas, Betas &amp; Release Candidates.</value>
   </data>
   <data name="WarnMeOnlyWhenClosingMultipleConnections" xml:space="preserve">
     <value>WarnMeOnlyWhenClosingMultipleConnections</value>
+  </data>
+  <data name="MsgExit" xml:space="preserve">
+    <value>The application will now exit.</value>
+    <comment>Message shown then application will normally close</comment>
+  </data>
+  <data name="MsgDownloadLatestRuntime" xml:space="preserve">
+    <value>Please download and install latest runtime:</value>
+    <comment>Appears then missing a runtime</comment>
+  </data>
+  <data name="MsgMissingRuntime" xml:space="preserve">
+    <value>Missing Runtime:</value>
+  </data>
+  <data name="MsgRuntimeIsRequired" xml:space="preserve">
+    <value>runtime library is required</value>
+  </data>
+  <data name="VaultOpenbao" xml:space="preserve">
+    <value>Vault or Openbao</value>
+  </data>
+  <data name="VaultOpenbaoMount" xml:space="preserve">
+    <value>Mount</value>
+  </data>
+  <data name="VaultOpenbaoMountDescription" xml:space="preserve">
+    <value>Mount where the secret is stored</value>
+  </data>
+  <data name="VaultOpenbaoRole" xml:space="preserve">
+    <value>Role</value>
+  </data>
+  <data name="VaultOpenbaoRoleDescription" xml:space="preserve">
+    <value>Name or path of the secret</value>
+  </data>
+  <data name="VaultOpenbaoToken" xml:space="preserve">
+    <value>Token for Vault/Openbao</value>
+  </data>
+  <data name="VaultOpenbaoTokenPropertyDescription" xml:space="preserve">
+    <value>Token to access Vault/Openbao server</value>
+  </data>
+  <data name="VaultOpenbaoSecretEngine" xml:space="preserve">
+    <value>Vault/Openbao Secret Engine</value>
+  </data>
+  <data name="PropertyDescriptionVaultOpenbaoSecretEngine" xml:space="preserve">
+    <value>Secret engine used in Vault/Openbao to store the secret</value>
+  </data>
+  <data name="VaultOpenbaoSecretEngineKeyValue" xml:space="preserve">
+    <value>KeyValue (Username as Key)</value>
+  </data>
+  <data name="VaultOpenbaoSecretEngineLDAPDynamic" xml:space="preserve">
+    <value>LDAP dynamic role</value>
+  </data>
+  <data name="VaultOpenbaoSecretEngineLDAPStatic" xml:space="preserve">
+    <value>LDAP static role</value>
+  </data>
+  <data name="MenuItem_Chat" xml:space="preserve">
+    <value>mR Chat</value>
+    <comment>Chat to dev</comment>
+  </data>
+  <data name="MenuItem_Community" xml:space="preserve">
+    <value>Community</value>
+    <comment>Reddit</comment>
+  </data>
+  <data name="ConnectionFrameColor" xml:space="preserve">
+    <value>Connection Frame Color</value>
+  </data>
+  <data name="PropertyDescriptionConnectionFrameColor" xml:space="preserve">
+    <value>Sets a colored border around the connection panel to visually distinguish between different environments (e.g., production, test, development).</value>
+  </data>
+  <data name="FrameColorNone" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="FrameColorRed" xml:space="preserve">
+    <value>Red (Production)</value>
+  </data>
+  <data name="FrameColorYellow" xml:space="preserve">
+    <value>Yellow (Staging/UAT)</value>
+  </data>
+  <data name="FrameColorGreen" xml:space="preserve">
+    <value>Green (Test)</value>
+  </data>
+  <data name="FrameColorBlue" xml:space="preserve">
+    <value>Blue (Development)</value>
+  </data>
+  <data name="FrameColorPurple" xml:space="preserve">
+    <value>Purple (Custom)</value>
+  </data>
+  <data name="Wsl" xml:space="preserve">
+    <value>WSL</value>
+  </data>
+  <data name="VaultOpenbaoSecretEngineSSHOTP" xml:space="preserve">
+    <value>SSH engine OTP mode</value>
   </data>
 </root>

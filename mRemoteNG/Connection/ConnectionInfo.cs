@@ -5,8 +5,11 @@ using System.Linq;
 using System.Reflection;
 using mRemoteNG.App;
 using mRemoteNG.Connection.Protocol;
+using mRemoteNG.Connection.Protocol.ARD;
 using mRemoteNG.Connection.Protocol.Http;
 using mRemoteNG.Connection.Protocol.PowerShell;
+using mRemoteNG.Connection.Protocol.Terminal;
+using mRemoteNG.Connection.Protocol.WSL;
 using mRemoteNG.Connection.Protocol.RAW;
 using mRemoteNG.Connection.Protocol.RDP;
 using mRemoteNG.Connection.Protocol.Rlogin;
@@ -254,6 +257,8 @@ namespace mRemoteNG.Connection
                         return (int)RdpProtocol.Defaults.Port;
                     case ProtocolType.VNC:
                         return (int)ProtocolVNC.Defaults.Port;
+                    case ProtocolType.ARD:
+                        return (int)ProtocolARD.Defaults.Port;
                     case ProtocolType.SSH1:
                         return (int)ProtocolSSH1.Defaults.Port;
                     case ProtocolType.SSH2:
@@ -270,6 +275,10 @@ namespace mRemoteNG.Connection
                         return (int)ProtocolHTTPS.Defaults.Port;
                     case ProtocolType.PowerShell:
                         return (int)ProtocolPowerShell.Defaults.Port;
+                    case ProtocolType.WSL:
+                        return (int)ProtocolWSL.Defaults.Port;
+                    case ProtocolType.Terminal:
+                        return (int)ProtocolTerminal.Defaults.Port;
                     case ProtocolType.IntApp:
                         return (int)IntegratedProgram.Defaults.Port;
                 }
@@ -289,6 +298,9 @@ namespace mRemoteNG.Connection
             Description = Settings.Default.ConDefaultDescription;
             Icon = Settings.Default.ConDefaultIcon;
             Panel = Language.General;
+            Color = string.Empty;
+            TabColor = string.Empty;
+            ConnectionFrameColor = ConnectionFrameColor.None;
         }
 
         private void SetConnectionDefaults()
@@ -373,6 +385,7 @@ namespace mRemoteNG.Connection
             PostExtApp = Settings.Default.ConDefaultPostExtApp;
             MacAddress = Settings.Default.ConDefaultMacAddress;
             UserField = Settings.Default.ConDefaultUserField;
+            EnvironmentTags = Settings.Default.ConDefaultEnvironmentTags;
             Favorite = Settings.Default.ConDefaultFavorite;
             RDPStartProgram = Settings.Default.ConDefaultRDPStartProgram;
             RDPStartProgramWorkDir = Settings.Default.ConDefaultRDPStartProgramWorkDir;

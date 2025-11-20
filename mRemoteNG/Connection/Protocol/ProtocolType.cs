@@ -35,6 +35,18 @@ namespace mRemoteNG.Connection.Protocol
         [LocalizedAttributes.LocalizedDescription(nameof(Language.PowerShell))]
         PowerShell = 10,
 
+        [LocalizedAttributes.LocalizedDescription(nameof(Language.Ard))]
+        ARD = 11,
+
+        [LocalizedAttributes.LocalizedDescription(nameof(Language.Terminal))]
+        Terminal = 12,
+        
+        [LocalizedAttributes.LocalizedDescription(nameof(Language.Wsl))]
+        WSL = 13,
+
+        [LocalizedAttributes.LocalizedDescription(nameof(Language.AnyDesk))]
+        AnyDesk = 14,
+
         [LocalizedAttributes.LocalizedDescription(nameof(Language.ExternalTool))]
         IntApp = 20
     }
@@ -43,7 +55,7 @@ namespace mRemoteNG.Connection.Protocol
     {
         public static bool SupportBlankHostname(ProtocolType protocolType)
         {
-            return (protocolType == ProtocolType.IntApp || protocolType == ProtocolType.PowerShell);
+            return (protocolType == ProtocolType.IntApp || protocolType == ProtocolType.PowerShell || protocolType == ProtocolType.WSL || protocolType == ProtocolType.Terminal);
         }
     }
 }

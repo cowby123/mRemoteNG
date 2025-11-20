@@ -50,6 +50,24 @@ namespace mRemoteNG.Connection
          TypeConverter(typeof(MiscTools.YesNoTypeConverter))]
         public bool Panel { get; set; }
 
+        [LocalizedAttributes.LocalizedCategory(nameof(Language.Display), 2),
+         LocalizedAttributes.LocalizedDisplayNameInherit(nameof(Language.Color)),
+         LocalizedAttributes.LocalizedDescriptionInherit(nameof(Language.PropertyDescriptionColor)),
+         TypeConverter(typeof(MiscTools.YesNoTypeConverter))]
+        public bool Color { get; set; }
+
+        [LocalizedAttributes.LocalizedCategory(nameof(Language.Display), 2),
+         LocalizedAttributes.LocalizedDisplayNameInherit(nameof(Language.TabColor)),
+         LocalizedAttributes.LocalizedDescriptionInherit(nameof(Language.PropertyDescriptionTabColor)),
+         TypeConverter(typeof(MiscTools.YesNoTypeConverter))]
+        public bool TabColor { get; set; }
+
+        [LocalizedAttributes.LocalizedCategory(nameof(Language.Display), 2),
+         LocalizedAttributes.LocalizedDisplayNameInherit(nameof(Language.ConnectionFrameColor)),
+         LocalizedAttributes.LocalizedDescriptionInherit(nameof(Language.PropertyDescriptionConnectionFrameColor)),
+         TypeConverter(typeof(MiscTools.YesNoTypeConverter))]
+        public bool ConnectionFrameColor { get; set; }
+
         #endregion
 
         #region Connection
@@ -438,6 +456,12 @@ namespace mRemoteNG.Connection
          LocalizedAttributes.LocalizedDescriptionInherit(nameof(Language.PropertyDescriptionUser1)),
          TypeConverter(typeof(MiscTools.YesNoTypeConverter))]
         public bool UserField { get; set; }
+
+        [LocalizedAttributes.LocalizedCategory(nameof(Language.Miscellaneous), 8),
+         LocalizedAttributes.LocalizedDisplayNameInherit(nameof(Language.EnvironmentTags)),
+         LocalizedAttributes.LocalizedDescriptionInherit(nameof(Language.PropertyDescriptionEnvironmentTags)),
+         TypeConverter(typeof(MiscTools.YesNoTypeConverter))]
+        public bool EnvironmentTags { get; set; }
 
         [LocalizedAttributes.LocalizedCategory(nameof(Language.Miscellaneous), 8),
         LocalizedAttributes.LocalizedDisplayNameInherit(nameof(Language.Favorite)),

@@ -42,6 +42,8 @@ namespace mRemoteNG.Config.Serializers.ConnectionSerializers.Xml
             element.Add(new XAttribute("Descr", connectionInfo.Description));
             element.Add(new XAttribute("Icon", connectionInfo.Icon));
             element.Add(new XAttribute("Panel", connectionInfo.Panel));
+            element.Add(new XAttribute("TabColor", connectionInfo.TabColor));
+            element.Add(new XAttribute("ConnectionFrameColor", connectionInfo.ConnectionFrameColor));
             element.Add(new XAttribute("Id", connectionInfo.ConstantID));
 
             if (!Runtime.UseCredentialManager)
@@ -103,6 +105,7 @@ namespace mRemoteNG.Config.Serializers.ConnectionSerializers.Xml
             element.Add(new XAttribute("PostExtApp", connectionInfo.PostExtApp));
             element.Add(new XAttribute("MacAddress", connectionInfo.MacAddress));
             element.Add(new XAttribute("UserField", connectionInfo.UserField));
+            element.Add(new XAttribute("EnvironmentTags", connectionInfo.EnvironmentTags));
             element.Add(new XAttribute("Favorite", connectionInfo.Favorite));
             element.Add(new XAttribute("ExtApp", connectionInfo.ExtApp));
             element.Add(new XAttribute("StartProgram", connectionInfo.RDPStartProgram));
@@ -151,6 +154,11 @@ namespace mRemoteNG.Config.Serializers.ConnectionSerializers.Xml
             element.Add(new XAttribute("EC2Region", connectionInfo.EC2Region));
             element.Add(new XAttribute("ExternalCredentialProvider", connectionInfo.ExternalCredentialProvider));
             element.Add(new XAttribute("ExternalAddressProvider", connectionInfo.ExternalAddressProvider));
+
+            // Vault/OpenBao specific
+            element.Add(new XAttribute("VaultOpenbaoMount", connectionInfo.VaultOpenbaoMount ?? string.Empty));
+            element.Add(new XAttribute("VaultOpenbaoRole", connectionInfo.VaultOpenbaoRole ?? string.Empty));
+            element.Add(new XAttribute("VaultOpenbaoSecretEngine", connectionInfo.VaultOpenbaoSecretEngine));
         }
 
         private void SetInheritanceAttributes(XContainer element, IInheritable connectionInfo)
@@ -187,6 +195,10 @@ namespace mRemoteNG.Config.Serializers.ConnectionSerializers.Xml
                 element.Add(new XAttribute("InheritIcon", inheritance.Icon.ToString().ToLowerInvariant()));
             if (inheritance.Panel)
                 element.Add(new XAttribute("InheritPanel", inheritance.Panel.ToString().ToLowerInvariant()));
+            if (inheritance.TabColor)
+                element.Add(new XAttribute("InheritTabColor", inheritance.TabColor.ToString().ToLowerInvariant()));
+            if (inheritance.ConnectionFrameColor)
+                element.Add(new XAttribute("InheritConnectionFrameColor", inheritance.ConnectionFrameColor.ToString().ToLowerInvariant()));
             if (inheritance.Password)
                 element.Add(new XAttribute("InheritPassword", inheritance.Password.ToString().ToLowerInvariant()));
             if (inheritance.Port)
@@ -251,6 +263,8 @@ namespace mRemoteNG.Config.Serializers.ConnectionSerializers.Xml
                 element.Add(new XAttribute("InheritMacAddress", inheritance.MacAddress.ToString().ToLowerInvariant()));
             if (inheritance.UserField)
                 element.Add(new XAttribute("InheritUserField", inheritance.UserField.ToString().ToLowerInvariant()));
+            if (inheritance.EnvironmentTags)
+                element.Add(new XAttribute("InheritEnvironmentTags", inheritance.EnvironmentTags.ToString().ToLowerInvariant()));
             if (inheritance.Favorite)
                 element.Add(new XAttribute("InheritFavorite", inheritance.Favorite.ToString().ToLowerInvariant()));
             if (inheritance.ExtApp)

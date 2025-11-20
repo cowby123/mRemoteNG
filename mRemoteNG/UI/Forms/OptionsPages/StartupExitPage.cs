@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Runtime.Versioning;
+using mRemoteNG.App;
 using mRemoteNG.Config.Settings.Registry;
 using mRemoteNG.Properties;
 using mRemoteNG.Resources.Language;
@@ -46,6 +47,7 @@ namespace mRemoteNG.UI.Forms.OptionsPages
             Properties.OptionsStartupExitPage.Default.SingleInstance = chkSingleInstance.Checked;
             Properties.OptionsStartupExitPage.Default.StartMinimized = chkStartMinimized.Checked;
             Properties.OptionsStartupExitPage.Default.StartFullScreen = chkStartFullScreen.Checked;
+            Properties.OptionsStartupExitPage.Default.DisableRefocus = chkDisableRefocus.Checked;
         }
 
         public override void LoadRegistrySettings()
@@ -53,6 +55,13 @@ namespace mRemoteNG.UI.Forms.OptionsPages
             Type settingsType = typeof(OptRegistryStartupExitPage);
             RegistryLoader.RegistrySettings.TryGetValue(settingsType, out var settings);
             pageRegSettingsInstance = settings as OptRegistryStartupExitPage;
+
+            // If registry settings don't exist, create a default instance to prevent null reference exceptions
+            if (pageRegSettingsInstance == null)
+            {
+                pageRegSettingsInstance = new OptRegistryStartupExitPage();
+                Logger.Instance.Log?.Debug("[StartupExitPage.LoadRegistrySettings] pageRegSettingsInstance was null, created default instance");
+            }
 
             RegistryLoader.Cleanup(settingsType);
 
@@ -104,6 +113,7 @@ namespace mRemoteNG.UI.Forms.OptionsPages
             chkSingleInstance.Checked = Properties.OptionsStartupExitPage.Default.SingleInstance;
             chkStartMinimized.Checked = Properties.OptionsStartupExitPage.Default.StartMinimized;
             chkStartFullScreen.Checked = Properties.OptionsStartupExitPage.Default.StartFullScreen;
+            chkDisableRefocus.Checked = Properties.OptionsStartupExitPage.Default.DisableRefocus;
         }
 
         private void chkStartFullScreen_CheckedChanged(object sender, EventArgs e)

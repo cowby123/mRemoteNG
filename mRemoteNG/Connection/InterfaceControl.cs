@@ -32,6 +32,12 @@ namespace mRemoteNG.Connection
                 Size = Parent.Size;
                 Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top;
                 InitializeComponent();
+                
+                // Enable custom painting for border
+                this.Paint += InterfaceControl_Paint;
+                
+                // Set padding to prevent content from covering the frame border
+                UpdatePaddingForFrameColor();
             }
             catch (Exception ex)
             {
@@ -39,6 +45,57 @@ namespace mRemoteNG.Connection
                                                     "Couldn\'t create new InterfaceControl" + Environment.NewLine +
                                                     ex.Message);
             }
+        }
+
+        private void InterfaceControl_Paint(object sender, PaintEventArgs e)
+        {
+            // Draw colored border based on ConnectionFrameColor property
+            if (Info?.ConnectionFrameColor != null && Info.ConnectionFrameColor != ConnectionFrameColor.None)
+            {
+                Color frameColor = GetFrameColor(Info.ConnectionFrameColor);
+                int borderWidth = 4; // 4 pixel border for visibility
+                
+                using (Pen pen = new Pen(frameColor, borderWidth))
+                {
+                    // Draw border inside the control bounds
+                    Rectangle rect = new Rectangle(
+                        borderWidth / 2,
+                        borderWidth / 2,
+                        this.Width - borderWidth,
+                        this.Height - borderWidth
+                    );
+                    e.Graphics.DrawRectangle(pen, rect);
+                }
+            }
+        }
+
+        private void UpdatePaddingForFrameColor()
+        {
+            // Add padding to prevent content from covering the frame border
+            if (Info?.ConnectionFrameColor != null && Info.ConnectionFrameColor != ConnectionFrameColor.None)
+            {
+                int borderWidth = 4; // Must match the border width in InterfaceControl_Paint
+                // Add 2px margin so the border is fully visible and not covered by child controls
+                int padding = borderWidth / 2 + 2;
+                this.Padding = new Padding(padding);
+            }
+            else
+            {
+                this.Padding = new Padding(0);
+            }
+        }
+
+        private Color GetFrameColor(ConnectionFrameColor frameColor)
+        {
+            return frameColor switch
+            {
+                ConnectionFrameColor.Red => Color.FromArgb(220, 53, 69),      // Bootstrap danger red
+                ConnectionFrameColor.Yellow => Color.FromArgb(255, 193, 7),   // Warning yellow
+                ConnectionFrameColor.Green => Color.FromArgb(40, 167, 69),    // Success green
+                ConnectionFrameColor.Blue => Color.FromArgb(0, 123, 255),     // Primary blue
+                ConnectionFrameColor.Purple => Color.FromArgb(111, 66, 193),  // Purple
+                _ => Color.Transparent
+            };
         }
 
         public static InterfaceControl FindInterfaceControl(DockPanel DockPnl)

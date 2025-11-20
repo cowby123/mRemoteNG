@@ -59,7 +59,7 @@
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
     <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
@@ -105,19 +105,19 @@
       </xsd:complexType>
     </xsd:element>
   </xsd:schema>
-  <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </resheader>
   <resheader name="resmimetype">
     <value>text/microsoft-resx</value>
   </resheader>
   <resheader name="version">
     <value>2.0</value>
   </resheader>
-  <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="About" xml:space="preserve">
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="MenuItem_About" xml:space="preserve">
     <value>Sobre</value>
   </data>
   <data name="AddNodeFromXmlFailed" xml:space="preserve">
@@ -224,9 +224,6 @@
   </data>
   <data name="Display" xml:space="preserve">
     <value>Ecrã</value>
-  </data>
-  <data name="Gateway" xml:space="preserve">
-    <value>Gateway</value>
   </data>
   <data name="Miscellaneous" xml:space="preserve">
     <value>Diversos</value>
@@ -630,7 +627,7 @@
   <data name="AddConnectionPanel" xml:space="preserve">
     <value>Adicionar o Painel de Ligação</value>
   </data>
-  <data name="CheckForUpdates" xml:space="preserve">
+  <data name="MenuItem_CheckForUpdates" xml:space="preserve">
     <value>Verificar se há atualizações</value>
   </data>
   <data name="Config" xml:space="preserve">
@@ -651,7 +648,7 @@
   <data name="DeleteExternalTool" xml:space="preserve">
     <value>Excluir ferramenta externa...</value>
   </data>
-  <data name="Donate" xml:space="preserve">
+  <data name="MenuItem_Donate" xml:space="preserve">
     <value>Doar</value>
   </data>
   <data name="DuplicateTab" xml:space="preserve">
@@ -669,7 +666,7 @@
   <data name="_Help" xml:space="preserve">
     <value>&amp;Ajuda</value>
   </data>
-  <data name="HelpContents" xml:space="preserve">
+  <data name="MenuItem_HelpContents" xml:space="preserve">
     <value>Ajuda mRemoteNG</value>
   </data>
   <data name="LaunchExternalTool" xml:space="preserve">
@@ -711,7 +708,7 @@
   <data name="RenameTab" xml:space="preserve">
     <value>Renomear aba</value>
   </data>
-  <data name="ReportBug" xml:space="preserve">
+  <data name="MenuItem_ReportIssue" xml:space="preserve">
     <value>Relatar um erro</value>
   </data>
   <data name="ResetLayout" xml:space="preserve">
@@ -738,7 +735,7 @@
   <data name="StartChat" xml:space="preserve">
     <value>Iniciar chat (VNC)</value>
   </data>
-  <data name="SupportForum" xml:space="preserve">
+  <data name="MenuItem_SupportForum" xml:space="preserve">
     <value>Fórum de suporte</value>
   </data>
   <data name="_Tools" xml:space="preserve">
@@ -753,7 +750,7 @@
   <data name="ViewOnly" xml:space="preserve">
     <value>Somente ver (VNC)</value>
   </data>
-  <data name="Website" xml:space="preserve">
+  <data name="MenuItem_Website" xml:space="preserve">
     <value>Sítio</value>
   </data>
   <data name="MinimizeToSysTray" xml:space="preserve">
@@ -1341,9 +1338,6 @@
   <data name="SaveConnectionsFileBeforeOpeningAnother" xml:space="preserve">
     <value>Você deseja salvar o arquivo atual de ligações antes de carregar outro?</value>
   </data>
-  <data name="SaveConsOnExit" xml:space="preserve">
-    <value>Salvar as ligações à saída</value>
-  </data>
   <data name="SaveImageFilter" xml:space="preserve">
     <value>Graphics Interchange Format File (.gif)|*.gif|Joint Photographic Experts Group File (.jpeg)|*.jpeg|Joint Photographic Experts Group File (.jpg)|*.jpg|Portable Network Graphics File (.png)|*.png</value>
   </data>
@@ -1553,5 +1547,48 @@
   </data>
   <data name="Yes" xml:space="preserve">
     <value>Sim</value>
+  </data>
+  <data name="Gateway" xml:space="preserve">
+    <value>Gateway</value>
+  </data>
+  <data name="SaveConsOnExit" xml:space="preserve">
+    <value>Salvar as ligações à saída</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="VaultOpenbaoMount" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="VaultOpenbaoMountDescription" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="VaultOpenbaoRole" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="VaultOpenbaoRoleDescription" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="VaultOpenbaoToken" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="VaultOpenbaoTokenPropertyDescription" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="VaultOpenbaoSecretEngine" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="PropertyDescriptionVaultOpenbaoSecretEngine" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="VaultOpenbaoSecretEngineKeyValue" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="VaultOpenbaoSecretEngineLDAPDynamic" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="VaultOpenbaoSecretEngineLDAPStatic" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="VaultOpenbaoSecretEngineSSHOTP" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
   </data>
 </root>

@@ -1,26 +1,23 @@
-﻿using System;
-using System.Diagnostics;
-using System.IO;
-using System.Runtime.InteropServices;
-using System.Threading;
-using System.Timers;
-using System.Windows.Forms;
-using AxMSTSCLib;
+﻿using AxMSTSCLib;
 using mRemoteNG.App;
 using mRemoteNG.Messages;
 using mRemoteNG.Properties;
+using mRemoteNG.Resources.Language;
 using mRemoteNG.Security.SymmetricEncryption;
 using mRemoteNG.Tools;
+using mRemoteNG.Tree.Root;
 using mRemoteNG.UI;
 using mRemoteNG.UI.Forms;
 using mRemoteNG.UI.Tabs;
 using MSTSCLib;
-using mRemoteNG.Resources.Language;
+using System;
+using System.Diagnostics;
+using System.IO;
+using System.Runtime.InteropServices;
 using System.Runtime.Versioning;
-using FileDialog = Microsoft.Win32.FileDialog;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
-using System.DirectoryServices.ActiveDirectory;
-using mRemoteNG.Security;
+using System.Threading;
+using System.Timers;
+using System.Windows.Forms;
 
 namespace mRemoteNG.Connection.Protocol.RDP
 {
@@ -168,7 +165,10 @@ namespace mRemoteNG.Connection.Protocol.RDP
         {
             try
             {
-                Control.GotFocus += RdpClient_GotFocus;
+                if (!Properties.OptionsStartupExitPage.Default.DisableRefocus)
+                {
+                    Control.GotFocus += RdpClient_GotFocus;
+                }
 
                 Control.CreateControl();
 
@@ -467,9 +467,32 @@ namespace mRemoteNG.Connection.Protocol.RDP
                                 Event_ErrorOccured(this, "Passwordstate Interface Error: " + ex.Message, 0);
                             }
                         }
+                        else if (InterfaceControl.Info.ExternalCredentialProvider == ExternalCredentialProvider.OnePassword)
+                        {
+                            try
+                            {
+                                string RDGUserViaAPI = InterfaceControl.Info.RDGatewayUserViaAPI;
+                                ExternalConnectors.OP.OnePasswordCli.ReadPassword($"{RDGUserViaAPI}", out gwu, out gwp, out gwd, out pkey);
+                            }
+                            catch (ExternalConnectors.OP.OnePasswordCliException ex)
+                            {
+                                Runtime.MessageCollector.AddMessage(MessageClass.InformationMsg, Language.ECPOnePasswordCommandLine + ": " + ex.Arguments);
+                                Runtime.MessageCollector.AddMessage(MessageClass.ErrorMsg, Language.ECPOnePasswordReadFailed + Environment.NewLine + ex.Message);
+                            }
+                        }
+                        else if (InterfaceControl.Info.ExternalCredentialProvider == ExternalCredentialProvider.VaultOpenbao)
+                        {
+                            try {
+                                if (connectionInfo.VaultOpenbaoSecretEngine == VaultOpenbaoSecretEngine.Kv)
+                                    gwu = connectionInfo.RDGatewayUsername;
+                                ExternalConnectors.VO.VaultOpenbao.ReadPasswordRDP((int)connectionInfo.VaultOpenbaoSecretEngine, connectionInfo.VaultOpenbaoMount, connectionInfo.VaultOpenbaoRole, ref gwu, out gwp);
+                            } catch (ExternalConnectors.VO.VaultOpenbaoException ex) {
+                                Event_ErrorOccured(this, "Secret Server Interface Error: " + ex.Message, 0);
+                            }
+                        }
 
 
-                        if (connectionInfo.RDGatewayUseConnectionCredentials != RDGatewayUseConnectionCredentials.AccessToken)
+                            if (connectionInfo.RDGatewayUseConnectionCredentials != RDGatewayUseConnectionCredentials.AccessToken)
                         {
                             _rdpClient.TransportSettings2.GatewayUsername = gwu;
                             _rdpClient.TransportSettings2.GatewayPassword = gwp;
@@ -565,6 +588,27 @@ namespace mRemoteNG.Connection.Protocol.RDP
                     catch (Exception ex)
                     {
                         Event_ErrorOccured(this, "Passwordstate Interface Error: " + ex.Message, 0);
+                    }
+                }
+                else if (InterfaceControl.Info.ExternalCredentialProvider == ExternalCredentialProvider.OnePassword)
+                {
+                    try
+                    {
+                        ExternalConnectors.OP.OnePasswordCli.ReadPassword($"{userViaApi}", out userName, out password, out domain, out pkey);
+                    }
+                    catch (ExternalConnectors.OP.OnePasswordCliException ex)
+                    {
+                        Runtime.MessageCollector.AddMessage(MessageClass.InformationMsg, Language.ECPOnePasswordCommandLine + ": " + ex.Arguments);
+                        Runtime.MessageCollector.AddMessage(MessageClass.ErrorMsg, Language.ECPOnePasswordReadFailed + Environment.NewLine + ex.Message);
+                    }
+                }
+                else if (InterfaceControl.Info.ExternalCredentialProvider == ExternalCredentialProvider.VaultOpenbao) {
+                    try {
+                        if(connectionInfo.VaultOpenbaoSecretEngine == VaultOpenbaoSecretEngine.Kv)
+                            userName = connectionInfo?.Username ?? "";
+                        ExternalConnectors.VO.VaultOpenbao.ReadPasswordRDP((int)connectionInfo.VaultOpenbaoSecretEngine, connectionInfo?.VaultOpenbaoMount ?? "", connectionInfo?.VaultOpenbaoRole ?? "", ref userName, out password);
+                    } catch (ExternalConnectors.VO.VaultOpenbaoException ex) {
+                        Event_ErrorOccured(this, "Secret Server Interface Error: " + ex.Message, 0);
                     }
                 }
 

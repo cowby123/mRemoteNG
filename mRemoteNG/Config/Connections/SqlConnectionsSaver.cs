@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Data.Common;
 using mRemoteNG.App;
 using mRemoteNG.App.Info;
 using mRemoteNG.Config.DatabaseConnectors;
@@ -126,11 +127,20 @@ namespace mRemoteNG.Config.Connections
 
             if (rootTreeNode != null)
             {
-                dbQuery =
-                    databaseConnector.DbCommand(
-                        "INSERT INTO tblRoot (Name, Export, Protected, ConfVersion) VALUES('" +
-                        MiscTools.PrepareValueForDB(rootTreeNode.Name) + "', 0, '" + strProtected + "','" +
-                        ConnectionsFileInfo.ConnectionFileVersion + "')");
+                dbQuery = databaseConnector.DbCommand(
+                    "INSERT INTO tblRoot (Name, Export, Protected, ConfVersion) VALUES(@Name, 0, @Protected, @Version)");
+                DbParameter nameParam = dbQuery.CreateParameter();
+                nameParam.ParameterName = "@Name";
+                nameParam.Value = rootTreeNode.Name;
+                DbParameter protectedParam = dbQuery.CreateParameter();
+                protectedParam.ParameterName = "@Protected";
+                protectedParam.Value = strProtected;
+                DbParameter versionParam = dbQuery.CreateParameter();
+                versionParam.ParameterName = "@Version";
+                versionParam.Value = ConnectionsFileInfo.ConnectionFileVersion;
+                dbQuery.Parameters.Add(nameParam);
+                dbQuery.Parameters.Add(protectedParam);
+                dbQuery.Parameters.Add(versionParam);
                 dbQuery.ExecuteNonQuery();
             }
             else
@@ -158,7 +168,15 @@ namespace mRemoteNG.Config.Connections
             // TODO: use transaction
             System.Data.Common.DbCommand dbQuery = databaseConnector.DbCommand("TRUNCATE TABLE tblUpdate");
             dbQuery.ExecuteNonQuery();
-            dbQuery = databaseConnector.DbCommand("INSERT INTO tblUpdate (LastUpdate) VALUES('" + MiscTools.DBDate(DateTime.Now.ToUniversalTime()) + "')");
+            dbQuery = databaseConnector.DbCommand("INSERT INTO tblUpdate (LastUpdate) VALUES(@LastUpdate)");
+            
+            DbParameter lastUpdateParam = dbQuery.CreateParameter();
+            lastUpdateParam.ParameterName = "@LastUpdate";
+            // Use DBTimeStampNow() instead of DBDate() - the column is datetime type, not string
+            // DBTimeStampNow() returns the database-specific .NET type: DateTime for MSSQL, MySqlDateTime for MySQL
+            lastUpdateParam.Value = MiscTools.DBTimeStampNow();
+            dbQuery.Parameters.Add(lastUpdateParam);
+            
             dbQuery.ExecuteNonQuery();
         }
 

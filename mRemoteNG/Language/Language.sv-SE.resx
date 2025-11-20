@@ -1,17 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
-  <!--
-    Microsoft ResX Schema
-
+  <!-- 
+    Microsoft ResX Schema 
+    
     Version 2.0
-
-    The primary goals of this format is to allow a simple XML format
-    that is mostly human readable. The generation and parsing of the
-    various data types are done through the TypeConverter classes
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
     associated with the data types.
-
+    
     Example:
-
+    
     ... ado.net/XML headers & schema ...
     <resheader name="resmimetype">text/microsoft-resx</resheader>
     <resheader name="version">2.0</resheader>
@@ -26,79 +26,79 @@
         <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
         <comment>This is a comment</comment>
     </data>
-
-    There are any number of "resheader" rows that contain simple
+                
+    There are any number of "resheader" rows that contain simple 
     name/value pairs.
-
-    Each data row contains a name, and value. The row also contains a
-    type or mimetype. Type corresponds to a .NET class that support
-    text/value conversion through the TypeConverter architecture.
-    Classes that don't support this are serialized and stored with the
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
     mimetype set.
-
-    The mimetype is used for serialized objects, and tells the
-    ResXResourceReader how to depersist the object. This is currently not
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
     extensible. For a given mimetype the value must be set accordingly:
-
-    Note - application/x-microsoft.net.object.binary.base64 is the format
-    that the ResXResourceWriter will generate, however the reader can
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
     read any of the formats listed below.
-
+    
     mimetype: application/x-microsoft.net.object.binary.base64
-    value   : The object must be serialized with
+    value   : The object must be serialized with 
             : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
             : and then encoded with base64 encoding.
-
+    
     mimetype: application/x-microsoft.net.object.soap.base64
-    value   : The object must be serialized with
+    value   : The object must be serialized with 
             : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
             : and then encoded with base64 encoding.
 
     mimetype: application/x-microsoft.net.object.bytearray.base64
-    value   : The object must be serialized into a byte array
+    value   : The object must be serialized into a byte array 
             : using a System.ComponentModel.TypeConverter
             : and then encoded with base64 encoding.
     -->
-  <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" id="root">
-    <xsd:import namespace="http://www.w3.org/XML/1998/namespace"/>
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
     <xsd:element name="root" msdata:IsDataSet="true">
       <xsd:complexType>
         <xsd:choice maxOccurs="unbounded">
           <xsd:element name="metadata">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
               </xsd:sequence>
-              <xsd:attribute name="name" use="required" type="xsd:string"/>
-              <xsd:attribute name="type" type="xsd:string"/>
-              <xsd:attribute name="mimetype" type="xsd:string"/>
-              <xsd:attribute ref="xml:space"/>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="assembly">
             <xsd:complexType>
-              <xsd:attribute name="alias" type="xsd:string"/>
-              <xsd:attribute name="name" type="xsd:string"/>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="data">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
-                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1"/>
-              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3"/>
-              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4"/>
-              <xsd:attribute ref="xml:space"/>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
             </xsd:complexType>
           </xsd:element>
           <xsd:element name="resheader">
             <xsd:complexType>
               <xsd:sequence>
-                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1"/>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
               </xsd:sequence>
-              <xsd:attribute name="name" type="xsd:string" use="required"/>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
             </xsd:complexType>
           </xsd:element>
         </xsd:choice>
@@ -117,7 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="About" xml:space="preserve">
+  <data name="MenuItem_About" xml:space="preserve">
     <value>Om</value>
   </data>
   <data name="AddNodeFromXmlFailed" xml:space="preserve">
@@ -227,9 +227,6 @@
   </data>
   <data name="Display" xml:space="preserve">
     <value>Skärm</value>
-  </data>
-  <data name="Gateway" xml:space="preserve">
-    <value>Nätverksnod (gateway)</value>
   </data>
   <data name="Miscellaneous" xml:space="preserve">
     <value>Blandat</value>
@@ -713,7 +710,7 @@ Se Microsofts supportartikel på http://support.microsoft.com/kb/811833 för mer
   <data name="AddConnectionPanel" xml:space="preserve">
     <value>Lägg till anslutningspanel</value>
   </data>
-  <data name="CheckForUpdates" xml:space="preserve">
+  <data name="MenuItem_CheckForUpdates" xml:space="preserve">
     <value>Sök efter uppdateringar</value>
   </data>
   <data name="Config" xml:space="preserve">
@@ -728,7 +725,7 @@ Se Microsofts supportartikel på http://support.microsoft.com/kb/811833 för mer
   <data name="DeleteExternalTool" xml:space="preserve">
     <value>Ta bort externt verktyg...</value>
   </data>
-  <data name="Donate" xml:space="preserve">
+  <data name="MenuItem_Donate" xml:space="preserve">
     <value>Donera</value>
   </data>
   <data name="DuplicateTab" xml:space="preserve">
@@ -746,7 +743,7 @@ Se Microsofts supportartikel på http://support.microsoft.com/kb/811833 för mer
   <data name="_Help" xml:space="preserve">
     <value>&amp;Hjälp</value>
   </data>
-  <data name="HelpContents" xml:space="preserve">
+  <data name="MenuItem_HelpContents" xml:space="preserve">
     <value>mRemoteNG hjälp</value>
   </data>
   <data name="LaunchExternalTool" xml:space="preserve">
@@ -788,7 +785,7 @@ Se Microsofts supportartikel på http://support.microsoft.com/kb/811833 för mer
   <data name="RenameTab" xml:space="preserve">
     <value>Byt namn på flik</value>
   </data>
-  <data name="ReportBug" xml:space="preserve">
+  <data name="MenuItem_ReportIssue" xml:space="preserve">
     <value>Rapportera en bugg</value>
   </data>
   <data name="ResetLayout" xml:space="preserve">
@@ -815,7 +812,7 @@ Se Microsofts supportartikel på http://support.microsoft.com/kb/811833 för mer
   <data name="StartChat" xml:space="preserve">
     <value>Starta chatt (VNC)</value>
   </data>
-  <data name="SupportForum" xml:space="preserve">
+  <data name="MenuItem_SupportForum" xml:space="preserve">
     <value>Supportforum</value>
   </data>
   <data name="_Tools" xml:space="preserve">
@@ -830,7 +827,7 @@ Se Microsofts supportartikel på http://support.microsoft.com/kb/811833 för mer
   <data name="ViewOnly" xml:space="preserve">
     <value>Visa endast</value>
   </data>
-  <data name="Website" xml:space="preserve">
+  <data name="MenuItem_Website" xml:space="preserve">
     <value>Webbplats</value>
   </data>
   <data name="MinimizeToSysTray" xml:space="preserve">
@@ -2171,5 +2168,45 @@ Nattliga kanalen inkluderar Alfa, Betor &amp; Utgåvokandidater.</value>
   </data>
   <data name="FiltermRemoteRemoteDesktopManagerCSV" xml:space="preserve">
     <value>Remote Desktop Manager-filer (*.csv)</value>
+  </data>
+  <data name="Gateway" xml:space="preserve">
+    <value>Nätverksnod (gateway)</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="VaultOpenbaoMount" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="VaultOpenbaoMountDescription" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="VaultOpenbaoRole" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="VaultOpenbaoRoleDescription" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="VaultOpenbaoToken" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="VaultOpenbaoTokenPropertyDescription" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="VaultOpenbaoSecretEngine" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="PropertyDescriptionVaultOpenbaoSecretEngine" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="VaultOpenbaoSecretEngineKeyValue" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="VaultOpenbaoSecretEngineLDAPDynamic" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="VaultOpenbaoSecretEngineLDAPStatic" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="VaultOpenbaoSecretEngineSSHOTP" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
   </data>
 </root>

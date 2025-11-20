@@ -135,6 +135,13 @@ namespace mRemoteNG.UI.Forms.OptionsPages
             RegistryLoader.RegistrySettings.TryGetValue(settingsType, out var settings);
             pageRegSettingsInstance = settings as OptRegistryUpdatesPage;
 
+            // If registry settings don't exist, create a default instance to prevent null reference exceptions
+            if (pageRegSettingsInstance == null)
+            {
+                pageRegSettingsInstance = new OptRegistryUpdatesPage();
+                Logger.Instance.Log?.Debug("[UpdatesPage.LoadRegistrySettings] pageRegSettingsInstance was null, created default instance");
+            }
+
             RegistryLoader.Cleanup(settingsType);
 
             // Checks updates are generaly disallowed.
@@ -215,9 +222,14 @@ namespace mRemoteNG.UI.Forms.OptionsPages
             InitialiseCheckForUpdatesOnStartupComboBox();
         }
 
-        private void btnUpdateCheckNow_Click(object sender, EventArgs e)
+        private async void btnUpdateCheckNow_Click(object sender, EventArgs e)
         {
-            App.Windows.Show(WindowType.Update);
+            AppWindows.Show(WindowType.Update);
+            var updateWindow = AppWindows.UpdateForm;
+            if (updateWindow != null && !updateWindow.IsDisposed)
+            {
+                await updateWindow.PerformUpdateCheckAsync();
+            }
         }
 
         private void chkUseProxyForAutomaticUpdates_CheckedChanged(object sender, EventArgs e)
