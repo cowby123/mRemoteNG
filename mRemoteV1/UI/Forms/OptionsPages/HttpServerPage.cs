@@ -48,11 +48,17 @@ namespace mRemoteNG.UI.Forms.OptionsPages
         private static Icon ResizeIcon(Icon originalIcon, int width, int height)
         {
             // 將圖示轉換為 Bitmap，調整大小，然後轉回 Icon
-            using (Bitmap bitmap = originalIcon.ToBitmap())
-            {
-                Bitmap resizedBitmap = new Bitmap(bitmap, new Size(width, height));
-                return Icon.FromHandle(resizedBitmap.GetHicon());
-            }
+            Bitmap originalBitmap = originalIcon.ToBitmap();
+            Bitmap resizedBitmap = new Bitmap(originalBitmap, new Size(width, height));
+            IntPtr hIcon = resizedBitmap.GetHicon();
+            Icon newIcon = (Icon)Icon.FromHandle(hIcon).Clone();
+
+            // 清理資源
+            DestroyIcon(hIcon);
+            originalBitmap.Dispose();
+            resizedBitmap.Dispose();
+
+            return newIcon;
         }
 
         [DllImport("shell32.dll", CharSet = CharSet.Auto)]
