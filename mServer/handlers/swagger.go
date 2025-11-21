@@ -1,6 +1,7 @@
 package handlers
 
 import (
+	"mserver/models"
 	"net/http"
 	"os"
 
@@ -11,7 +12,7 @@ import (
 func ServeSwaggerYAML(c *gin.Context) {
 	data, err := os.ReadFile("swagger.yaml")
 	if err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{"error": "無法讀取 Swagger 文件"})
+		c.JSON(http.StatusInternalServerError, models.NewErrorResponse("無法讀取 Swagger 文件", 5005))
 		return
 	}
 	c.Data(http.StatusOK, "application/yaml", data)

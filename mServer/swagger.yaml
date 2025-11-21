@@ -17,6 +17,10 @@ servers:
 tags:
   - name: 認證
     description: 用戶認證相關 API
+  - name: 用戶設定
+    description: 用戶個人設定相關 API
+  - name: 連線設定
+    description: 連線設定相關 API
 
 components:
   securitySchemes:
@@ -82,7 +86,7 @@ components:
           description: Email 地址
           example: john@example.com
 
-    AuthResponse:
+    AuthData:
       type: object
       properties:
         token:
@@ -92,21 +96,108 @@ components:
         user:
           $ref: '#/components/schemas/UserResponse'
 
-    ErrorResponse:
+    JSendSuccess:
       type: object
       properties:
-        error:
+        status:
           type: string
-          description: 錯誤訊息
-          example: 用戶名或密碼錯誤
+          enum: [success]
+          description: 狀態碼
+          example: success
+        data:
+          type: object
+          description: 成功時的資料
 
-    SuccessResponse:
+    JSendFail:
       type: object
       properties:
+        status:
+          type: string
+          enum: [fail]
+          description: 狀態碼
+          example: fail
         message:
           type: string
-          description: 成功訊息
-          example: 操作成功
+          description: 失敗訊息
+          example: 用戶名或密碼錯誤
+
+    JSendError:
+      type: object
+      properties:
+        status:
+          type: string
+          enum: [error]
+          description: 狀態碼
+          example: error
+        message:
+          type: string
+          description: 錯誤訊息
+          example: 伺服器內部錯誤
+        code:
+          type: integer
+          description: 錯誤碼
+          example: 5001
+
+    AuthSuccessResponse:
+      allOf:
+        - $ref: '#/components/schemas/JSendSuccess'
+        - type: object
+          properties:
+            data:
+              $ref: '#/components/schemas/AuthData'
+
+    LogoutSuccessResponse:
+      allOf:
+        - $ref: '#/components/schemas/JSendSuccess'
+        - type: object
+          properties:
+            data:
+              type: object
+              properties:
+                message:
+                  type: string
+                  example: 登出成功
+
+    SaveConfigRequest:
+      type: object
+      required:
+        - data
+      properties:
+        data:
+          type: string
+          description: 設定資料（任意格式字串）
+          example: '{"theme":"dark","language":"zh-TW"}'
+
+    ConfigDataResponse:
+      type: object
+      properties:
+        data:
+          type: string
+          description: 設定資料
+          example: '{"theme":"dark","language":"zh-TW"}'
+
+    SaveConfigSuccessResponse:
+      allOf:
+        - $ref: '#/components/schemas/JSendSuccess'
+        - type: object
+          properties:
+            data:
+              type: object
+              properties:
+                message:
+                  type: string
+                  example: 用戶設定儲存成功
+                id:
+                  type: integer
+                  example: 1
+
+    GetConfigSuccessResponse:
+      allOf:
+        - $ref: '#/components/schemas/JSendSuccess'
+        - type: object
+          properties:
+            data:
+              $ref: '#/components/schemas/ConfigDataResponse'
 
 paths:
   /api/register:
@@ -127,25 +218,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AuthResponse'
+                $ref: '#/components/schemas/AuthSuccessResponse'
         '400':
           description: 請求參數錯誤
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: '#/components/schemas/JSendFail'
         '409':
           description: 用戶名或 Email 已存在
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: '#/components/schemas/JSendFail'
         '500':
           description: 伺服器內部錯誤
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: '#/components/schemas/JSendError'
 
   /api/login:
     post:
@@ -165,25 +256,25 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AuthResponse'
+                $ref: '#/components/schemas/AuthSuccessResponse'
         '400':
           description: 請求參數錯誤
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: '#/components/schemas/JSendFail'
         '401':
           description: 用戶名或密碼錯誤
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: '#/components/schemas/JSendFail'
         '500':
           description: 伺服器內部錯誤
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: '#/components/schemas/JSendError'
 
   /api/logout:
     post:
@@ -199,16 +290,162 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SuccessResponse'
+                $ref: '#/components/schemas/LogoutSuccessResponse'
         '401':
           description: 未授權或 Token 無效
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: '#/components/schemas/JSendFail'
         '500':
           description: 伺服器內部錯誤
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ErrorResponse'
+                $ref: '#/components/schemas/JSendError'
+
+  /api/user/userconf:
+    post:
+      tags:
+        - 用戶設定
+      summary: 儲存用戶設定
+      description: 儲存用戶的個人設定，後續儲存會覆蓋先前的設定
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SaveConfigRequest'
+      responses:
+        '200':
+          description: 儲存成功
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SaveConfigSuccessResponse'
+        '400':
+          description: 請求參數錯誤
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSendFail'
+        '401':
+          description: 未授權或 Token 無效
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSendFail'
+        '500':
+          description: 伺服器內部錯誤
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSendError'
+
+    get:
+      tags:
+        - 用戶設定
+      summary: 取得用戶設定
+      description: 取得用戶的個人設定
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: 取得成功
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetConfigSuccessResponse'
+        '401':
+          description: 未授權或 Token 無效
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSendFail'
+        '404':
+          description: 設定不存在
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSendFail'
+        '500':
+          description: 伺服器內部錯誤
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSendError'
+
+  /api/user/conconf:
+    post:
+      tags:
+        - 連線設定
+      summary: 儲存連線設定
+      description: 儲存用戶的連線設定，後續儲存會覆蓋先前的設定
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SaveConfigRequest'
+      responses:
+        '200':
+          description: 儲存成功
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SaveConfigSuccessResponse'
+        '400':
+          description: 請求參數錯誤
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSendFail'
+        '401':
+          description: 未授權或 Token 無效
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSendFail'
+        '500':
+          description: 伺服器內部錯誤
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSendError'
+
+    get:
+      tags:
+        - 連線設定
+      summary: 取得連線設定
+      description: 取得用戶的連線設定
+      security:
+        - BearerAuth: []
+      responses:
+        '200':
+          description: 取得成功
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GetConfigSuccessResponse'
+        '401':
+          description: 未授權或 Token 無效
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSendFail'
+        '404':
+          description: 設定不存在
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSendFail'
+        '500':
+          description: 伺服器內部錯誤
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/JSendError'

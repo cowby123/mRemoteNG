@@ -17,7 +17,7 @@ func AuthMiddleware(db *gorm.DB, cfg *config.Config) gin.HandlerFunc {
 		// 從 Header 取得 Token
 		authHeader := c.GetHeader("Authorization")
 		if authHeader == "" {
-			c.JSON(http.StatusUnauthorized, gin.H{"error": "未提供認證 Token"})
+			c.JSON(http.StatusUnauthorized, models.NewFailResponse("未提供認證 Token"))
 			c.Abort()
 			return
 		}
@@ -25,7 +25,7 @@ func AuthMiddleware(db *gorm.DB, cfg *config.Config) gin.HandlerFunc {
 		// 檢查格式是否為 "Bearer <token>"
 		parts := strings.SplitN(authHeader, " ", 2)
 		if len(parts) != 2 || parts[0] != "Bearer" {
-			c.JSON(http.StatusUnauthorized, gin.H{"error": "Token 格式錯誤"})
+			c.JSON(http.StatusUnauthorized, models.NewFailResponse("Token 格式錯誤"))
 			c.Abort()
 			return
 		}
@@ -35,7 +35,7 @@ func AuthMiddleware(db *gorm.DB, cfg *config.Config) gin.HandlerFunc {
 		// 檢查 Token 是否在黑名單中
 		var blacklistedToken models.Token
 		if err := db.Where("token = ?", tokenString).First(&blacklistedToken).Error; err == nil {
-			c.JSON(http.StatusUnauthorized, gin.H{"error": "Token 已失效"})
+			c.JSON(http.StatusUnauthorized, models.NewFailResponse("Token 已失效"))
 			c.Abort()
 			return
 		}
@@ -43,7 +43,7 @@ func AuthMiddleware(db *gorm.DB, cfg *config.Config) gin.HandlerFunc {
 		// 解析並驗證 Token
 		claims, err := utils.ParseToken(tokenString, cfg.JWT.SecretKey)
 		if err != nil {
-			c.JSON(http.StatusUnauthorized, gin.H{"error": "無效的 Token"})
+			c.JSON(http.StatusUnauthorized, models.NewFailResponse("無效的 Token"))
 			c.Abort()
 			return
 		}

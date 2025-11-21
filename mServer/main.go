@@ -58,7 +58,7 @@ func main() {
 	log.Println("資料庫連接成功")
 
 	// 自動遷移資料庫結構
-	if err := db.AutoMigrate(&models.User{}, &models.Token{}); err != nil {
+	if err := db.AutoMigrate(&models.User{}, &models.Token{}, &models.UserConf{}, &models.ConConf{}); err != nil {
 		log.Fatalf("資料庫遷移失敗: %v", err)
 	}
 
@@ -69,6 +69,11 @@ func main() {
 
 	// 建立處理器
 	authHandler := &handlers.AuthHandler{
+		DB:     db,
+		Config: cfg,
+	}
+
+	configHandler := &handlers.ConfigHandler{
 		DB:     db,
 		Config: cfg,
 	}
@@ -101,7 +106,14 @@ func main() {
 	protected.Use(middleware.AuthMiddleware(db, cfg))
 	{
 		protected.POST("/logout", authHandler.Logout)
-		// 可以在這裡加入其他需要認證的路由
+
+		// 用戶設定相關
+		protected.POST("/user/userconf", configHandler.SaveUserConf)
+		protected.GET("/user/userconf", configHandler.GetUserConf)
+
+		// 連線設定相關
+		protected.POST("/user/conconf", configHandler.SaveConConf)
+		protected.GET("/user/conconf", configHandler.GetConConf)
 	}
 
 	// 啟動伺服器

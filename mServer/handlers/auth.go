@@ -47,20 +47,20 @@ type UserResponse struct {
 func (h *AuthHandler) Register(c *gin.Context) {
 	var req RegisterRequest
 	if err := c.ShouldBindJSON(&req); err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": "請求參數錯誤: " + err.Error()})
+		c.JSON(http.StatusBadRequest, models.NewFailResponse("請求參數錯誤: "+err.Error()))
 		return
 	}
 
 	// 檢查用戶名是否已存在
 	var existingUser models.User
 	if err := h.DB.Where("username = ?", req.Username).First(&existingUser).Error; err == nil {
-		c.JSON(http.StatusConflict, gin.H{"error": "用戶名已存在"})
+		c.JSON(http.StatusConflict, models.NewFailResponse("用戶名已存在"))
 		return
 	}
 
 	// 檢查 Email 是否已存在
 	if err := h.DB.Where("email = ?", req.Email).First(&existingUser).Error; err == nil {
-		c.JSON(http.StatusConflict, gin.H{"error": "Email 已被使用"})
+		c.JSON(http.StatusConflict, models.NewFailResponse("Email 已被使用"))
 		return
 	}
 
@@ -71,12 +71,12 @@ func (h *AuthHandler) Register(c *gin.Context) {
 	}
 
 	if err := user.HashPassword(req.Password); err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{"error": "密碼加密失敗"})
+		c.JSON(http.StatusInternalServerError, models.NewErrorResponse("密碼加密失敗", 5001))
 		return
 	}
 
 	if err := h.DB.Create(&user).Error; err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{"error": "建立用戶失敗"})
+		c.JSON(http.StatusInternalServerError, models.NewErrorResponse("建立用戶失敗", 5002))
 		return
 	}
 
@@ -88,38 +88,38 @@ func (h *AuthHandler) Register(c *gin.Context) {
 		h.Config.JWT.ExpirationMin,
 	)
 	if err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{"error": "Token 產生失敗"})
+		c.JSON(http.StatusInternalServerError, models.NewErrorResponse("Token 產生失敗", 5003))
 		return
 	}
 
-	c.JSON(http.StatusCreated, AuthResponse{
+	c.JSON(http.StatusCreated, models.NewSuccessResponse(AuthResponse{
 		Token: token,
 		User: UserResponse{
 			ID:       user.ID,
 			Username: user.Username,
 			Email:    user.Email,
 		},
-	})
+	}))
 }
 
 // Login 用戶登入
 func (h *AuthHandler) Login(c *gin.Context) {
 	var req LoginRequest
 	if err := c.ShouldBindJSON(&req); err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": "請求參數錯誤: " + err.Error()})
+		c.JSON(http.StatusBadRequest, models.NewFailResponse("請求參數錯誤: "+err.Error()))
 		return
 	}
 
 	// 查詢用戶
 	var user models.User
 	if err := h.DB.Where("username = ?", req.Username).First(&user).Error; err != nil {
-		c.JSON(http.StatusUnauthorized, gin.H{"error": "用戶名或密碼錯誤"})
+		c.JSON(http.StatusUnauthorized, models.NewFailResponse("用戶名或密碼錯誤"))
 		return
 	}
 
 	// 驗證密碼
 	if !user.CheckPassword(req.Password) {
-		c.JSON(http.StatusUnauthorized, gin.H{"error": "用戶名或密碼錯誤"})
+		c.JSON(http.StatusUnauthorized, models.NewFailResponse("用戶名或密碼錯誤"))
 		return
 	}
 
@@ -131,18 +131,18 @@ func (h *AuthHandler) Login(c *gin.Context) {
 		h.Config.JWT.ExpirationMin,
 	)
 	if err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{"error": "Token 產生失敗"})
+		c.JSON(http.StatusInternalServerError, models.NewErrorResponse("Token 產生失敗", 5003))
 		return
 	}
 
-	c.JSON(http.StatusOK, AuthResponse{
+	c.JSON(http.StatusOK, models.NewSuccessResponse(AuthResponse{
 		Token: token,
 		User: UserResponse{
 			ID:       user.ID,
 			Username: user.Username,
 			Email:    user.Email,
 		},
-	})
+	}))
 }
 
 // Logout 用戶登出
@@ -150,14 +150,14 @@ func (h *AuthHandler) Logout(c *gin.Context) {
 	// 從 context 取得 token（由 middleware 設置）
 	tokenString, exists := c.Get("token")
 	if !exists {
-		c.JSON(http.StatusUnauthorized, gin.H{"error": "未提供 Token"})
+		c.JSON(http.StatusUnauthorized, models.NewFailResponse("未提供 Token"))
 		return
 	}
 
 	// 解析 token 取得過期時間
 	claims, err := utils.ParseToken(tokenString.(string), h.Config.JWT.SecretKey)
 	if err != nil {
-		c.JSON(http.StatusUnauthorized, gin.H{"error": "無效的 Token"})
+		c.JSON(http.StatusUnauthorized, models.NewFailResponse("無效的 Token"))
 		return
 	}
 
@@ -168,11 +168,11 @@ func (h *AuthHandler) Logout(c *gin.Context) {
 	}
 
 	if err := h.DB.Create(&blacklistedToken).Error; err != nil {
-		c.JSON(http.StatusInternalServerError, gin.H{"error": "登出失敗"})
+		c.JSON(http.StatusInternalServerError, models.NewErrorResponse("登出失敗", 5004))
 		return
 	}
 
-	c.JSON(http.StatusOK, gin.H{"message": "登出成功"})
+	c.JSON(http.StatusOK, models.NewSuccessResponse(gin.H{"message": "登出成功"}))
 }
 
 // CleanExpiredTokens 清理過期的黑名單 Token
