@@ -323,7 +323,76 @@ namespace mRemoteNG.UI.Window
         #endregion
 
         #region Upload/Download Config
+
+        /// <summary>
+        /// 自動登入 HTTP 伺服器
+        /// </summary>
+        private bool AutoLogin()
+        {
+            try
+            {
+                var httpConfig = Config.HttpServerConfigManager.Instance.Config;
+
+                // 檢查是否有儲存的帳號密碼
+                if (string.IsNullOrEmpty(httpConfig.Username) || string.IsNullOrEmpty(httpConfig.Password))
+                {
+                    MessageBox.Show("請先在設定中配置 HTTP 伺服器帳號密碼", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+
+                string apiUrl = $"http://{httpConfig.BindAddress}:{httpConfig.Port}/api/login";
+                var postData = $"{{\"username\":\"{httpConfig.Username}\",\"password\":\"{httpConfig.Password}\"}}";
+                byte[] byteArray = Encoding.UTF8.GetBytes(postData);
+
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(apiUrl);
+                request.Method = "POST";
+                request.ContentType = "application/json";
+                request.ContentLength = byteArray.Length;
+
+                using (Stream dataStream = request.GetRequestStream())
+                {
+                    dataStream.Write(byteArray, 0, byteArray.Length);
+                }
+
+                using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+                using (Stream responseStream = response.GetResponseStream())
+                using (StreamReader reader = new StreamReader(responseStream))
+                {
+                    string responseText = reader.ReadToEnd();
+
+                    if (responseText.Contains("\"status\":\"success\""))
+                    {
+                        // 提取 token
+                        int tokenStart = responseText.IndexOf("\"token\":\"") + 9;
+                        int tokenEnd = responseText.IndexOf("\"", tokenStart);
+                        string token = responseText.Substring(tokenStart, tokenEnd - tokenStart);
+
+                        if (!string.IsNullOrEmpty(token))
+                        {
+                            httpConfig.Token = token;
+                            Config.HttpServerConfigManager.Instance.SaveConfig();
+                            return true;
+                        }
+                    }
+                }
+
+                return false;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
         private void mMenUpload_Click(object sender, EventArgs e)
+        {
+            UploadConfig(false);
+        }
+
+        /// <summary>
+        /// 上傳連線設定
+        /// </summary>
+        private void UploadConfig(bool isRetry)
         {
             try
             {
@@ -332,8 +401,12 @@ namespace mRemoteNG.UI.Window
 
                 if (string.IsNullOrEmpty(httpConfig.Token))
                 {
-                    MessageBox.Show("請先登入 HTTP 伺服器", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
+                    // 嘗試自動登入
+                    if (!AutoLogin())
+                    {
+                        MessageBox.Show("請先登入 HTTP 伺服器", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
                 }
 
                 // 取得連線設定檔路徑
@@ -391,7 +464,16 @@ namespace mRemoteNG.UI.Window
             {
                 if (ex.Response != null && ((HttpWebResponse)ex.Response).StatusCode == HttpStatusCode.Unauthorized)
                 {
-                    MessageBox.Show("Token 已過期，請重新登入", "認證失敗", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    // Token 過期，嘗試重新登入
+                    if (!isRetry && AutoLogin())
+                    {
+                        // 重新登入成功，重試上傳
+                        UploadConfig(true);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Token 已過期且自動重新登入失敗，請手動登入", "認證失敗", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
@@ -406,6 +488,14 @@ namespace mRemoteNG.UI.Window
 
         private void mMenDownload_Click(object sender, EventArgs e)
         {
+            DownloadConfig(false);
+        }
+
+        /// <summary>
+        /// 下載連線設定
+        /// </summary>
+        private void DownloadConfig(bool isRetry)
+        {
             try
             {
                 // 取得 HTTP 伺服器設定
@@ -413,8 +503,12 @@ namespace mRemoteNG.UI.Window
 
                 if (string.IsNullOrEmpty(httpConfig.Token))
                 {
-                    MessageBox.Show("請先登入 HTTP 伺服器", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
+                    // 嘗試自動登入
+                    if (!AutoLogin())
+                    {
+                        MessageBox.Show("請先登入 HTTP 伺服器", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
                 }
 
                 // 建立 API URL
@@ -482,7 +576,16 @@ namespace mRemoteNG.UI.Window
             {
                 if (ex.Response != null && ((HttpWebResponse)ex.Response).StatusCode == HttpStatusCode.Unauthorized)
                 {
-                    MessageBox.Show("Token 已過期，請重新登入", "認證失敗", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    // Token 過期，嘗試重新登入
+                    if (!isRetry && AutoLogin())
+                    {
+                        // 重新登入成功，重試下載
+                        DownloadConfig(true);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Token 已過期且自動重新登入失敗，請手動登入", "認證失敗", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
