@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(test:*)",
+      "Bash(cat:*)",
+      "Bash(mkdir:*)",
+      "Bash(go mod tidy:*)",
+      "Bash(go build:*)",
+      "Bash(go vet:*)",
+      "Bash(./mserver.exe)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

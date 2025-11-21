@@ -1,6 +1,9 @@
 package handlers
 
 import (
+	"bytes"
+	"io"
+	"log"
 	"mserver/config"
 	"mserver/models"
 	"net/http"
@@ -112,11 +115,24 @@ func (h *ConfigHandler) SaveConConf(c *gin.Context) {
 		return
 	}
 
+	// 記錄請求資訊
+	log.Printf("[SaveConConf] 收到請求，用戶 ID: %v", userID)
+
+	// 讀取原始請求體進行記錄
+	bodyBytes, _ := c.GetRawData()
+	log.Printf("[SaveConConf] 請求體內容: %s", string(bodyBytes))
+
+	// 重新設置請求體供後續解析
+	c.Request.Body = io.NopCloser(bytes.NewBuffer(bodyBytes))
+
 	var req SaveConConfRequest
 	if err := c.ShouldBindJSON(&req); err != nil {
+		log.Printf("[SaveConConf] JSON 綁定失敗: %v", err)
 		c.JSON(http.StatusBadRequest, models.NewFailResponse("請求參數錯誤: "+err.Error()))
 		return
 	}
+
+	log.Printf("[SaveConConf] 成功解析請求，資料長度: %d", len(req.Data))
 
 	// 查詢是否已存在設定
 	var conConf models.ConConf
