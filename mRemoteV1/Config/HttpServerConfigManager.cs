@@ -38,7 +38,7 @@ namespace mRemoteNG.Config
         private HttpServerConfigManager()
         {
             // 設定檔案路徑：使用者設定資料夾/httpserver.config
-            string settingsPath = GeneralAppInfo.HomePath;
+            string settingsPath = SettingsFileInfo.SettingsPath;
             _configFilePath = Path.Combine(settingsPath, "httpserver.config");
             LoadConfig();
         }
