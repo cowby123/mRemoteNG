@@ -92,6 +92,16 @@ go run main.go
 
 **注意：** 確保 PostgreSQL 伺服器已啟動，且設定檔中的用戶有建立資料庫的權限。
 
+## API 文件
+
+啟動伺服器後，可以透過瀏覽器存取 Swagger UI：
+
+- **Swagger UI**: http://localhost:7000/swagger
+- **Swagger YAML**: http://localhost:7000/swagger.yaml
+- **首頁**: http://localhost:7000/ （自動跳轉到 Swagger UI）
+
+Swagger UI 提供互動式 API 測試介面，可以直接在網頁上測試所有 API。
+
 ## API 端點
 
 ### 公開端點（不需認證）
@@ -110,7 +120,7 @@ go run main.go
 ### 註冊
 
 ```bash
-curl -X POST http://localhost:8080/api/register \
+curl -X POST http://localhost:7000/api/register \
   -H "Content-Type: application/json" \
   -d '{
     "username": "john_doe",
@@ -122,7 +132,7 @@ curl -X POST http://localhost:8080/api/register \
 ### 登入
 
 ```bash
-curl -X POST http://localhost:8080/api/login \
+curl -X POST http://localhost:7000/api/login \
   -H "Content-Type: application/json" \
   -d '{
     "username": "john_doe",
@@ -133,7 +143,7 @@ curl -X POST http://localhost:8080/api/login \
 ### 登出
 
 ```bash
-curl -X POST http://localhost:8080/api/logout \
+curl -X POST http://localhost:7000/api/logout \
   -H "Authorization: Bearer YOUR_JWT_TOKEN"
 ```
 

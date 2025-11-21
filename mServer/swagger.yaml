@@ -7,8 +7,12 @@ info:
     name: mRemoteNG Team
 
 servers:
-  - url: http://localhost:8080
-    description: 本地開發伺服器
+  - url: /
+    description: 當前伺服器（自動使用當前網址和埠號）
+  - url: http://localhost:7000
+    description: 預設開發伺服器 (port 7000)
+  - url: http://localhost:48700
+    description: 其他常用埠號 (port 48700)
 
 tags:
   - name: 認證

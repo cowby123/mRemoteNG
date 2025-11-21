@@ -6,6 +6,7 @@ import (
 	"mserver/handlers"
 	"mserver/middleware"
 	"mserver/models"
+	"net/http"
 	"time"
 
 	"github.com/gin-gonic/gin"
@@ -80,6 +81,13 @@ func main() {
 			authHandler.CleanExpiredTokens()
 		}
 	}()
+
+	// Swagger 文件路由
+	r.GET("/swagger.yaml", handlers.ServeSwaggerYAML)
+	r.GET("/swagger", handlers.ServeSwaggerUI)
+	r.GET("/", func(c *gin.Context) {
+		c.Redirect(http.StatusMovedPermanently, "/swagger")
+	})
 
 	// 公開路由（不需要認證）
 	public := r.Group("/api")
