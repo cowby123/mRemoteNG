@@ -15,6 +15,7 @@ namespace mRemoteNG.Config
         private string _bindAddress = "127.0.0.1";
         private string _username = "";
         private string _password = "";
+        private string _token = "";
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -103,6 +104,23 @@ namespace mRemoteNG.Config
             }
         }
 
+        /// <summary>
+        /// 登入後取得的 Token
+        /// </summary>
+        [XmlElement("Token")]
+        public string Token
+        {
+            get => _token;
+            set
+            {
+                if (_token != value)
+                {
+                    _token = value;
+                    OnPropertyChanged(nameof(Token));
+                }
+            }
+        }
+
         protected virtual void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
@@ -119,7 +137,8 @@ namespace mRemoteNG.Config
                 Port = 8080,
                 BindAddress = "127.0.0.1",
                 Username = "",
-                Password = ""
+                Password = "",
+                Token = ""
             };
         }
     }
