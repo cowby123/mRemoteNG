@@ -18,6 +18,8 @@ namespace mRemoteNG.UI.Window
 		internal System.Windows.Forms.ToolStripMenuItem mMenSortAscending;
 		internal System.Windows.Forms.ToolStripMenuItem mMenAddConnection;
 		internal System.Windows.Forms.ToolStripMenuItem mMenAddFolder;
+		internal System.Windows.Forms.ToolStripMenuItem mMenUpload;
+		internal System.Windows.Forms.ToolStripMenuItem mMenDownload;
 		public System.Windows.Forms.TreeView tvConnections;
 		private void InitializeComponent()
 		{
@@ -32,6 +34,8 @@ namespace mRemoteNG.UI.Window
             this.msMain = new System.Windows.Forms.MenuStrip();
             this.mMenAddConnection = new System.Windows.Forms.ToolStripMenuItem();
             this.mMenAddFolder = new System.Windows.Forms.ToolStripMenuItem();
+            this.mMenUpload = new System.Windows.Forms.ToolStripMenuItem();
+            this.mMenDownload = new System.Windows.Forms.ToolStripMenuItem();
             this.mMenView = new System.Windows.Forms.ToolStripMenuItem();
             this.mMenViewExpandAllFolders = new System.Windows.Forms.ToolStripMenuItem();
             this.mMenViewCollapseAllFolders = new System.Windows.Forms.ToolStripMenuItem();
@@ -128,6 +132,8 @@ namespace mRemoteNG.UI.Window
             this.msMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mMenAddConnection,
             this.mMenAddFolder,
+            this.mMenUpload,
+            this.mMenDownload,
             this.mMenView,
             this.mMenSortAscending});
             this.msMain.Location = new System.Drawing.Point(0, 0);
@@ -147,13 +153,31 @@ namespace mRemoteNG.UI.Window
             this.mMenAddConnection.Click += new System.EventHandler(this.cMenTreeAddConnection_Click);
             // 
             // mMenAddFolder
-            // 
+            //
             this.mMenAddFolder.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
             this.mMenAddFolder.Image = global::mRemoteNG.Resources.Folder_Add;
             this.mMenAddFolder.Name = "mMenAddFolder";
             this.mMenAddFolder.Size = new System.Drawing.Size(28, 20);
             this.mMenAddFolder.Click += new System.EventHandler(this.cMenTreeAddFolder_Click);
-            // 
+            //
+            // mMenUpload
+            //
+            this.mMenUpload.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.mMenUpload.Image = global::mRemoteNG.Resources.Save;
+            this.mMenUpload.Name = "mMenUpload";
+            this.mMenUpload.Size = new System.Drawing.Size(28, 20);
+            this.mMenUpload.ToolTipText = "上傳設定";
+            this.mMenUpload.Click += new System.EventHandler(this.mMenUpload_Click);
+            //
+            // mMenDownload
+            //
+            this.mMenDownload.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.mMenDownload.Image = global::mRemoteNG.Resources.Refresh;
+            this.mMenDownload.Name = "mMenDownload";
+            this.mMenDownload.Size = new System.Drawing.Size(28, 20);
+            this.mMenDownload.ToolTipText = "下載設定";
+            this.mMenDownload.Click += new System.EventHandler(this.mMenDownload_Click);
+            //
             // mMenView
             // 
             this.mMenView.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;

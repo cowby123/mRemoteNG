@@ -11,6 +11,9 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using System.IO;
+using System.Net;
+using System.Text;
 using WeifenLuo.WinFormsUI.Docking;
 // ReSharper disable ArrangeAccessorOwnerBody
 
@@ -317,6 +320,180 @@ namespace mRemoteNG.UI.Window
 				Runtime.MessageCollector.AddExceptionStackTrace("tvConnections_KeyDown (UI.Window.ConnectionTreeWindow) failed", ex);
 			}
 		}
+        #endregion
+
+        #region Upload/Download Config
+        private void mMenUpload_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // 取得 HTTP 伺服器設定
+                var httpConfig = Config.HttpServerConfigManager.Instance.Config;
+
+                if (string.IsNullOrEmpty(httpConfig.Token))
+                {
+                    MessageBox.Show("請先登入 HTTP 伺服器", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // 取得連線設定檔路徑
+                string confConsPath = Path.Combine(App.Info.SettingsFileInfo.SettingsPath, App.Info.ConnectionsFileInfo.DefaultConnectionsFile);
+
+                if (!File.Exists(confConsPath))
+                {
+                    MessageBox.Show("找不到連線設定檔", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // 讀取檔案內容
+                string fileContent = File.ReadAllText(confConsPath);
+                byte[] fileBytes = Encoding.UTF8.GetBytes(fileContent);
+                string base64Content = Convert.ToBase64String(fileBytes);
+
+                // 準備上傳資料
+                var postData = $"{{\"data\":\"{base64Content}\"}}";
+                byte[] byteArray = Encoding.UTF8.GetBytes(postData);
+
+                // 建立 API URL
+                string apiUrl = $"http://{httpConfig.BindAddress}:{httpConfig.Port}/api/user/conconf";
+
+                // 建立 HTTP 請求
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(apiUrl);
+                request.Method = "POST";
+                request.ContentType = "application/json";
+                request.ContentLength = byteArray.Length;
+                request.Headers.Add("Authorization", $"Bearer {httpConfig.Token}");
+
+                // 寫入 POST 資料
+                using (Stream dataStream = request.GetRequestStream())
+                {
+                    dataStream.Write(byteArray, 0, byteArray.Length);
+                }
+
+                // 取得回應
+                using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+                using (Stream responseStream = response.GetResponseStream())
+                using (StreamReader reader = new StreamReader(responseStream))
+                {
+                    string responseText = reader.ReadToEnd();
+
+                    if (responseText.Contains("\"status\":\"success\""))
+                    {
+                        MessageBox.Show("設定上傳成功！", "成功", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("設定上傳失敗", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            catch (WebException ex)
+            {
+                if (ex.Response != null && ((HttpWebResponse)ex.Response).StatusCode == HttpStatusCode.Unauthorized)
+                {
+                    MessageBox.Show("Token 已過期，請重新登入", "認證失敗", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show($"上傳失敗：{ex.Message}", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"發生錯誤：{ex.Message}", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void mMenDownload_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // 取得 HTTP 伺服器設定
+                var httpConfig = Config.HttpServerConfigManager.Instance.Config;
+
+                if (string.IsNullOrEmpty(httpConfig.Token))
+                {
+                    MessageBox.Show("請先登入 HTTP 伺服器", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                // 建立 API URL
+                string apiUrl = $"http://{httpConfig.BindAddress}:{httpConfig.Port}/api/user/conconf";
+
+                // 建立 HTTP 請求
+                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(apiUrl);
+                request.Method = "GET";
+                request.Headers.Add("Authorization", $"Bearer {httpConfig.Token}");
+
+                // 取得回應
+                using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+                using (Stream responseStream = response.GetResponseStream())
+                using (StreamReader reader = new StreamReader(responseStream))
+                {
+                    string responseText = reader.ReadToEnd();
+
+                    if (responseText.Contains("\"status\":\"success\""))
+                    {
+                        // 簡易 JSON 解析取得 data.data（嵌套結構）
+                        // 回應格式: {"status":"success","data":{"data":"base64..."}}
+                        string base64Content = "";
+                        int dataObjectStart = responseText.IndexOf("\"data\":{");
+                        if (dataObjectStart != -1)
+                        {
+                            int innerDataStart = responseText.IndexOf("\"data\":\"", dataObjectStart + 8) + 8;
+                            int innerDataEnd = responseText.IndexOf("\"", innerDataStart);
+                            base64Content = responseText.Substring(innerDataStart, innerDataEnd - innerDataStart);
+                        }
+                        else
+                        {
+                            MessageBox.Show("無法解析伺服器回應", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+
+                        // 解碼 Base64
+                        byte[] fileBytes = Convert.FromBase64String(base64Content);
+                        string fileContent = Encoding.UTF8.GetString(fileBytes);
+
+                        // 儲存到檔案
+                        string confConsPath = Path.Combine(App.Info.SettingsFileInfo.SettingsPath, App.Info.ConnectionsFileInfo.DefaultConnectionsFile);
+
+                        // 備份現有檔案
+                        if (File.Exists(confConsPath))
+                        {
+                            string backupPath = confConsPath + ".backup";
+                            File.Copy(confConsPath, backupPath, true);
+                        }
+
+                        // 寫入新檔案
+                        File.WriteAllText(confConsPath, fileContent);
+
+                        // 重新載入連線設定
+                        Runtime.ConnectionsService.LoadConnections(false, false, confConsPath);
+
+                        MessageBox.Show("設定下載成功！連線設定已自動重新載入。", "成功", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("設定下載失敗", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            catch (WebException ex)
+            {
+                if (ex.Response != null && ((HttpWebResponse)ex.Response).StatusCode == HttpStatusCode.Unauthorized)
+                {
+                    MessageBox.Show("Token 已過期，請重新登入", "認證失敗", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show($"下載失敗：{ex.Message}", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"發生錯誤：{ex.Message}", "錯誤", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
         #endregion
 	}
 }
